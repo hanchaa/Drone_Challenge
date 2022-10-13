@@ -1,6 +1,9 @@
 # for drone challenge task2
 original cloned repository: https://github.com/mikel-brostrom/Yolov7_StrongSORT_OSNet
 
+## video data & pretrained params
+https://drive.google.com/drive/folders/1CfVMSrl-t0t2sMdNLMnU23oKJSOd1dQS?usp=sharing
+
 ## video inference command
 
 ``` shell
