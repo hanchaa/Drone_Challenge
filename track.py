@@ -45,8 +45,8 @@ VID_FORMATS = 'asf', 'avi', 'gif', 'm4v', 'mkv', 'mov', 'mp4', 'mpeg', 'mpg', 't
 @torch.no_grad()
 def run(
         source='0',
-        yolo_weights= 'yolov7/params/5clss_2000/best.pt',  # model.pt path(s),
-        strong_sort_weights= WEIGHTS / 'osnet_x0_25_msmt17.pt',  # model.pt path,
+        yolo_weights=WEIGHTS / 'yolov5m.pt',  # model.pt path(s),
+        strong_sort_weights=WEIGHTS / 'osnet_x0_25_msmt17.pt',  # model.pt path,
         config_strongsort=ROOT / 'strong_sort/configs/strong_sort.yaml',
         imgsz=(640, 640),  # inference size (height, width)
         conf_thres=0.25,  # confidence threshold
@@ -142,16 +142,26 @@ def run(
     outputs = [None] * nr_sources
     
     colors = [[random.randint(0, 255) for _ in range(3)] for _ in names]
+    
+    #check label
+    # print(names)
+    # print(type(names))
 
     # Run tracking
     dt, seen = [0.0, 0.0, 0.0, 0.0], 0
     curr_frames, prev_frames = [None] * nr_sources, [None] * nr_sources
     id_list = []
-    secure_list = ['man','woman','child']
-    delete_list = ['lifeguard', 'medical staff']   
+    target_list = ['black_man', 'man', 'lying_man','woman','lying_woman','lying_child','child']
+    save_list = ['man','woman','child']
+    man_list = ['black_man', 'man', 'lying_man']
+    woman_list = ['woman','lying_woman']
+    child_list = ['child','lying_child']
+    delete_list = ['lifeguard', 'medical staff','poster_image']   
+
+    #count dict
     count_dict = dict()
-    for secure in secure_list:
-        count_dict[secure] = 0
+    for k in save_list:
+        count_dict[k] = 0
 
     for frame_idx, (path, im, im0s, vid_cap) in enumerate(dataset):
         s = ''
@@ -166,6 +176,7 @@ def run(
 
         # Inference
         visualize = increment_path(save_dir / Path(path[0]).stem, mkdir=True) if visualize else False
+        print(f'im.shape : {im.shape}')
         pred = model(im)
         t3 = time_synchronized()
         dt[1] += t3 - t2
@@ -250,10 +261,21 @@ def run(
                                 (f'{id} {conf:.2f}' if hide_class else f'{id} {names[c]} {conf:.2f}'))
                             plot_one_box(bboxes, im0, label=label, color=colors[int(cls)], line_thickness=2)
                             
-                            if names[int(c)] in secure_list:
-                                if (id,names[c]) not in id_list:
-                                    id_list.append((id,names[c]))
-                                    count_dict[names[int(c)]] += 1
+
+                            if names[int(c)] in target_list:
+                                if (id,names[int(c)]) not in id_list:
+                                    
+                                    id_list.append((id,names[int(c)]))
+                                    
+                                    if names[int(c)] in man_list:
+                                        count_dict['man'] += 1
+                                    if names[int(c)] in woman_list:
+                                        count_dict['woman'] += 1
+                                    if names[int(c)] in child_list:
+                                        count_dict['child'] += 1
+                                        
+
+                                    #count_dict[names[int(c)]] += 1
 
                             text = ''
                             for k,v in count_dict.items():
