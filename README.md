@@ -7,7 +7,7 @@ https://drive.google.com/drive/folders/1CfVMSrl-t0t2sMdNLMnU23oKJSOd1dQS?usp=sha
 ## video inference command
 
 ``` shell
-python track.py \
+python task1.py \
 --yolo-weights yolov7/params/5class_2000/best.pt \
 --strong-sort-weights osnet_x0_25_msmt17.pt \
 --source yolov7/video/set05_drone03.mp4 \
