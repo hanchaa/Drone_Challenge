@@ -4,7 +4,7 @@ import torch
 import numpy as np
 from sensor_msgs.msg import Image
 
-from tools.parse_args import parse_args
+from tools import parse_args
 from task2 import Task2
 
 
@@ -13,7 +13,7 @@ class RosImageGetter:
         del args.source
 
         self.task2 = Task2(**vars(args))
-        print("Task 1 model is initialized!")
+        print("Task 2 model is initialized!")
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw", Image, self.callback)
 
