@@ -38,43 +38,31 @@ from strong_sort.strong_sort import StrongSORT
 
 
 class Task2:
-    def __init__(self,
-                 yolo_weights=WEIGHTS / 'yolov5m.pt',  # model.pt path(s),
-                 strong_sort_weights=WEIGHTS / 'osnet_x0_25_msmt17.pt',  # model.pt path,
-                 config_strongsort=ROOT / 'strong_sort/configs/strong_sort.yaml',
-                 imgsz=(640, 640),  # inference size (height, width)
-                 conf_thres=0.25,  # confidence threshold
-                 iou_thres=0.45,  # NMS IOU threshold
-                 device='',  # cuda device, i.e. 0 or 0,1,2,3 or cpu
-                 show_vid=False,  # show results
-                 classes=None,  # filter by class: --class 0, or --class 0 2 3
-                 agnostic_nms=False,  # class-agnostic NMS
-                 half=False,  # use FP16 half-precision inference
-                 ):
+    def __init__(self, args):
         check_requirements(requirements=ROOT / 'requirements.txt', exclude=('tensorboard', 'thop'))
 
         # Load model
-        self.device = select_device(device)
-        self.half = half
-        self.conf_thres = conf_thres
-        self.iou_thres = iou_thres
-        self.classes = classes
-        self.cls_agnostic_nms = agnostic_nms
-        self.show_video = show_vid
+        self.device = select_device(args.device)
+        self.half = args.half
+        self.conf_thres = args.conf_thres
+        self.iou_thres = args.iou_thres
+        self.classes = args.classes
+        self.cls_agnostic_nms = args.agnostic_nms
+        self.show_video = args.show_vid
 
         WEIGHTS.mkdir(parents=True, exist_ok=True)
-        self.model = attempt_load(Path(yolo_weights), map_location=self.device).eval()  # load FP32 model
+        self.model = attempt_load(Path(args.yolo_weights), map_location=self.device).eval()  # load FP32 model
         self.names, = self.model.names,
         self.stride = self.model.stride.max().cpu().numpy()  # model stride
-        self.img_size = check_img_size(imgsz[0], s=self.stride)  # check image size
+        self.img_size = check_img_size(args.imgsz[0], s=self.stride)  # check image size
 
         # initialize StrongSORT
         cfg = get_config()
-        cfg.merge_from_file(config_strongsort)
+        cfg.merge_from_file(args.config_strongsort)
 
         # Create as many strong sort instances as there are video sources
         self.strong_sort = StrongSORT(
-                    strong_sort_weights,
+                    args.strong_sort_weights,
                     self.device,
                     self.half,
                     max_dist=cfg.STRONGSORT.MAX_DIST,
