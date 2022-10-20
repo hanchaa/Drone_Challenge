@@ -5,7 +5,6 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # task 1
-    parser.add_argument('--video-path', default=None, help='video path')
     parser.add_argument('--clue-path', default=None, help='clue(img, txt) path')  # TODO: img -> hint 수정함 # 경로지정 필수
     parser.add_argument('--output-path', default='.', help='output path')
     parser.add_argument('--debug-path', default='.', help='debugging output path')
@@ -27,9 +26,9 @@ def parse_args():
     parser.add_argument('--classes', type=int, default=None, help='filter by class: --classes 0, or --classes 0 2 3')
     parser.add_argument('--agnostic-nms', action='store_true', default=False, help='class-agnostic NMS')
     parser.add_argument('--half', action='store_true', default=False, help='use FP16 half-precision inference')
-    parser.add_argument('--source', type=str, default='0', help='file/dir/URL/glob, 0 for webcam')
 
-
+    # for debugging
+    parser.add_argument('--video-path', type=str, default=None, help='video path')
 
     args = parser.parse_args()
     args.imgsz *= 2 if len(args.imgsz) == 1 else 1  # expand

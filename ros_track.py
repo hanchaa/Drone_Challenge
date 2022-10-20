@@ -12,8 +12,6 @@ from task2 import Task2
 
 class RosImageGetter:
     def __init__(self, args):
-        del args.source
-
         self.task1 = Task1(args)
         print("Task 1 model is initialized!")
 
@@ -36,7 +34,8 @@ class RosImageGetter:
 
 if __name__ == "__main__":
     args = parse_args()
+    del args.video_path
 
-    rospy.init_node("ros_image_getter", anonymous=True)
     getter = RosImageGetter(args)
+    rospy.init_node("ros_image_getter", anonymous=True)
     rospy.spin()
