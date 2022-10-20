@@ -3,8 +3,12 @@
 ## video data & pretrained params
 https://drive.google.com/drive/folders/1CfVMSrl-t0t2sMdNLMnU23oKJSOd1dQS?usp=sharing
 
-## ros realtime inference command
+## dependencies
+``` commandline
+pip install -r requirements.txt
+```
 
+## ros realtime inference command
 ``` shell
 python ros_track.py \
 --yolo-weights task2/yolov7/params/10class_800/best.pt \
