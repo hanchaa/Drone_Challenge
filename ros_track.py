@@ -5,14 +5,14 @@ import numpy as np
 from sensor_msgs.msg import Image
 
 from tools.parse_args import parse_args
-from task1 import Task1
+from task2 import Task2
 
 
 class RosImageGetter:
     def __init__(self, args):
         del args.source
 
-        self.task1 = Task1(**vars(args))
+        self.task2 = Task2(**vars(args))
         print("Task 1 model is initialized!")
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw", Image, self.callback)
@@ -22,7 +22,7 @@ class RosImageGetter:
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
         with torch.no_grad():
-            self.task1(image)
+            self.task2(image)
 
 
 if __name__ == "__main__":

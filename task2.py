@@ -37,7 +37,7 @@ from strong_sort.utils.parser import get_config
 from strong_sort.strong_sort import StrongSORT
 
 
-class Task1:
+class Task2:
     def __init__(self,
                  yolo_weights=WEIGHTS / 'yolov5m.pt',  # model.pt path(s),
                  strong_sort_weights=WEIGHTS / 'osnet_x0_25_msmt17.pt',  # model.pt path,
@@ -192,7 +192,7 @@ if __name__ == "__main__":
     source = args.source
     del args.source
 
-    task1 = Task1(**vars(args))
+    task1 = Task2(**vars(args))
     dataset = LoadImages(source, img_size=args.imgsz, stride=task1.stride)
 
     with torch.no_grad():
