@@ -1,3 +1,4 @@
+import torch
 import cv2
 import os
 
@@ -18,8 +19,9 @@ if __name__ == "__main__":
         retval, frame = cap.read()
         if not retval:
             break
-
-        task(frame)
+        
+        with torch.no_grad():
+            task(frame)
 
     if cap.isOpened():
         cap.release()
