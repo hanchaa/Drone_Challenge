@@ -39,8 +39,7 @@ from strong_sort.strong_sort import StrongSORT
 
 class Task2:
     def __init__(self, args):
-        check_requirements(requirements=ROOT / 'requirements.txt', exclude=('tensorboard', 'thop'))
-
+        
         # Load model
         self.device = select_device(args.device)
         self.half = args.half
