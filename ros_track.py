@@ -19,7 +19,7 @@ class RosImageGetter:
         self.task2 = Task2(args)
         print("Task 2 model is initialized!")
 
-        self.task3 = Task3()
+        self.task3 = Task3(args)
         print("Task 3 model is initialized!")
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
