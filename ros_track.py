@@ -9,7 +9,7 @@ from tools import parse_args
 
 from task1 import Task1
 from task2 import Task2
-# from task3 import Task3
+from task3 import Task3
 
 class RosImageGetter:
     def __init__(self, args):
@@ -19,8 +19,8 @@ class RosImageGetter:
         self.task2 = Task2(args)
         print("Task 2 model is initialized!")
 
-        # self.task3 = Task3()
-        # print("Task 3 model is initialized!")
+        self.task3 = Task3()
+        print("Task 3 model is initialized!")
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
@@ -32,6 +32,7 @@ class RosImageGetter:
         with torch.no_grad():
             self.task1(image)
             self.task2(image)
+            self.task3(image)
 
     def coord_callback(self, data):
         #coord_img = np.zeros((200, 1000, 3))
