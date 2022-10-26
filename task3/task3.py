@@ -33,6 +33,7 @@ import pdb
 
 class Task3:
     def __init__(self, **kwargs):
+        # self.out_path = kwargs['out_path']
         ## Config
         self.text_threshold = kwargs['text_threshold']
         self.link_threshold = kwargs['link_threshold']
@@ -140,6 +141,9 @@ class Task3:
         #     json.dump(json_output, f, indent=4)
         
         print(json.dumps(json_output, ensure_ascii=False, indent=4))
+    #      with open(args.output_path, 'w') as f:
+    #    json.dump(final_result, f)
+
 
 if __name__ == "__main__":
     start = time.time()

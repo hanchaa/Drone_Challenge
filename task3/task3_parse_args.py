@@ -4,6 +4,8 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser()
 
+    # parser.add_argument('--out_path', default='result', help='output path')
+
     ## Craft (Detection)
     parser.add_argument('--craft_weight', default='./trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')
     parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
