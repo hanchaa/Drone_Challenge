@@ -9,6 +9,8 @@ from tools import parse_args
 
 from task1 import Task1
 from task2 import Task2
+import sys
+sys.path.insert(0, 'task3')
 from task3 import Task3
 
 class RosImageGetter:
@@ -19,7 +21,7 @@ class RosImageGetter:
         self.task2 = Task2(args)
         print("Task 2 model is initialized!")
 
-        self.task3 = Task3(args)
+        self.task3 = Task3(**vars(args))
         print("Task 3 model is initialized!")
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
