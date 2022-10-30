@@ -2,142 +2,134 @@ import numpy as np
 import torch
 import math
 import cv2
+import matplotlib.pyplot as plt
+import matplotlib
 from tqdm import tqdm
-from ..superglue.superpoint import SuperPoint
-from ..superglue.superglue import SuperGlue
 
 # -----------------------------------------
 # Superglue
 # -----------------------------------------
-def match_pairs(vid_, imgs, vid_batch, device,
-                match_num_rate_threshold=0.01,
-                superglue='indoor', 
-                max_keypoints = 1024, 
-                keypoint_threshold = 0.0, 
-                nms_radius = 4, 
-                sinkhorn_iterations = 20, 
-                match_threshold = 0.2):
-    """ 
-    Args: 
-        vid_: list of numpy vid frames, range 0~255, shape H x W x 3 , BGR           
-        imgs: list of numpy images, range 0~255, shape H x W , Grayscale
-        vid_batch: batch size for video
-        device: device
-    Return:
-        result: list of tuples (frame idx, match_rate)
+def matching(data, superpoint, superglue):
+    """ Run SuperPoint (optionally) and SuperGlue
+    SuperPoint is skipped if ['keypoints0', 'keypoints1'] exist in input
+    Args:
+        data: dictionary with minimal keys: ['image0', 'image1']
     """
 
-    # vid = [cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY) for frame in vid_]
-    
     torch.set_grad_enabled(False)
-
-    config = {
-        'superpoint': {
-            'nms_radius': nms_radius,
-            'keypoint_threshold': keypoint_threshold,
-            'max_keypoints': max_keypoints
-        },
-        'superglue': {
-            'weights': superglue,
-            'sinkhorn_iterations': sinkhorn_iterations,
-            'match_threshold': match_threshold,
-        }
-    }
-
-    superpoint = SuperPoint(config.get('superpoint', {})).eval().to(device)
-    superglue = SuperGlue(config.get('superglue', {})).eval().to(device)
-
-    # T = len(vid)
-    # N = len(imgs)
-    T = 1
-    N = 1
     
-    imgs = [torch.from_numpy(imgs[i]/255.).float()[None,None] for i in range(N)]  # (1,1,H,W)
-    imgs_kp = []
-    match_num_threshold = []
+    pred = {}
 
-    # image clues
-    for img in imgs:
-        img = img.to(device)
-        kp = superpoint({'image': img})    # 'keypoints', 'scores', 'descriptors'
-        kp = {**{k+'0': v for k, v in kp.items()}}
-        for k in kp:
-            if isinstance(kp[k], (list,tuple)):
-                kp[k] = torch.stack(kp[k])    # (1,K,2), (1,K), (1,D,K)
-        imgs_kp.append(kp)
-        match_num_threshold.append(int(kp['keypoints0'].shape[1]*match_num_rate_threshold))
+    # Extract SuperPoint (keypoints, scores, descriptors) if not provided
+    if 'keypoints0' not in data:
+        pred0 = superpoint({'image': data['image0']})
+        pred = {**pred, **{k+'0': v for k, v in pred0.items()}}
+    if 'keypoints1' not in data:
+        pred1 = superpoint({'image': data['image1']})
+        pred = {**pred, **{k+'1': v for k, v in pred1.items()}}
 
+    data = {**data, **pred}
 
+    for k in data:
+        if isinstance(data[k], (list, tuple)):
+            data[k] = torch.stack(data[k])
 
-    vid = vid_
-    result = [[-1,0] for i in range(N)]
-    score = [[] for i in range(N)]
-    # vid_size = vid[0].shape[-2:]
-    vid_size = vid.shape
-    Iters = math.ceil(T/vid_batch)
-    start = 0
+    # Perform the matching
+    pred = {**pred, **superglue(data)}
+    pred = {k: v[0].cpu().numpy() for k, v in pred.items()}
+    matches, conf = pred['matches0'], pred['matching_scores0']
 
-    with tqdm(total=Iters) as pbar:
-        for i in range(Iters):
-            start = i * vid_batch
-            if i == Iters-1:
-                end = T
-            else:
-                end = (i+1) * vid_batch
-            # frames = [torch.from_numpy(vid[i]/255.).float()[None] for i in range(start,end)] #(1,H,W)
-            # frames = torch.stack(frames).to(device)  # (B,1,H,W)
-            frames = torch.from_numpy(vid).float().unsqueeze(0).unsqueeze(0)
-            vid_kp = superpoint({'image':frames})
-            vid_kp = {**{k+'1': v for k, v in vid_kp.items()}}
-            for k in vid_kp:
-                if isinstance(vid_kp[k], (list,tuple)):
-                    vid_kp[k] = torch.stack(vid_kp[k])    # (B,K,2), (B,K), (B,D,K)
+    return pred, matches, conf
 
-            for n, img_kp_ in enumerate(imgs_kp):
-                img_size = imgs[n].shape[-2:]
-                img_kp = {}
-                for k in img_kp_:
-                    if len(img_kp_[k].shape)==2:
-                        img_kp[k] = img_kp_[k].repeat((end-start),1) # (B,K,2), (B,K), (B,D,K)
-                    else:
-                        img_kp[k] = img_kp_[k].repeat((end-start),1,1) # (B,K,2), (B,K), (B,D,K)
-
-                data = {**vid_kp, **img_kp, 'image0_shape': img_size, 'image1_shape': vid_size}
-                pred = superglue(data)  # matches0, matches1, matching_scores0, matching_scores1
-                pred = {k:v.cpu().numpy() for k,v in pred.items()} # all (B,~1024)
-                valid = pred['matches0']>-1
-                match_scores = pred['matching_scores0'] # TODO: double check
-                match_num = np.sum(valid, axis=1) # (B,)
-                max_idx = np.argmax(match_num)
-
-                for i in range(0, end-start):
-                    # for debugging
-                    # match_conf = match_scores[i][valid[i]]
-                    # print('idx[{}]: confidence={}, match keypoints={}'.format(i+start, match_conf, len(match_conf)))
-
-                    score[n].append(match_scores[i][valid[i]])
-
-                if match_num[max_idx] < match_num_threshold[n]:
-                    continue
-                elif match_num[max_idx] < result[n][1]:
-                    continue
-                else:
-                    result[n][1] = match_num[max_idx]
-                    result[n][0] = start + max_idx
-            pbar.update(1)
     
-    # return result, score
-    return result, match_scores
+def process_resize(w, h, resize):
+    assert(len(resize) > 0 and len(resize) <= 2)
+    if len(resize) == 1 and resize[0] > -1:
+        scale = resize[0] / max(h, w)
+        w_new, h_new = int(round(w*scale)), int(round(h*scale))
+    elif len(resize) == 1 and resize[0] == -1:
+        w_new, h_new = w, h
+    else:  # len(resize) == 2:
+        w_new, h_new = resize[0], resize[1]
+
+    # Issue warning if resolution is too small or too large.
+    if max(w_new, h_new) < 160:
+        print('Warning: input resolution is very small, results may vary')
+    elif max(w_new, h_new) > 2000:
+        print('Warning: input resolution is very large, results may vary')
+
+    return w_new, h_new
 
 
-# -----------------------------------------
-# YOLOv7
-# -----------------------------------------
-# def detect_objects(vid_, imgs, vid_batch, device,
-#                     ...):
-#     # Define Yolov7 model
+def frame2tensor(frame, device):
+    return torch.from_numpy(frame/255.).float()[None, None].to(device)
 
 
+def read_image(img, resize, device, debug_mode):
+    if debug_mode:
+        image = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
+    else:
+        image = img
+    if image is None:
+        return None, None, None
+    w, h = image.shape[1], image.shape[0]
+    w_new, h_new = process_resize(w, h, resize)
+    scales = (float(w) / float(w_new), float(h) / float(h_new))
+
+    # resize
+    image = cv2.resize(image, (w_new, h_new)).astype('float32')
+    
+    inp = frame2tensor(image, device)
+    return image, inp, scales
 
 
-#     return result
+def plot_image_pair(imgs, dpi=100, size=6, pad=.5):
+    n = len(imgs)
+    assert n == 2, 'number of images must be two'
+    figsize = (size*n, size*3/4) if size is not None else None
+    _, ax = plt.subplots(1, n, figsize=figsize, dpi=dpi)
+    for i in range(n):
+        ax[i].imshow(imgs[i], cmap=plt.get_cmap('gray'), vmin=0, vmax=255)
+        ax[i].get_yaxis().set_ticks([])
+        ax[i].get_xaxis().set_ticks([])
+        for spine in ax[i].spines.values():  # remove frame
+            spine.set_visible(False)
+    plt.tight_layout(pad=pad)
+
+
+def plot_matches(kpts0, kpts1, color, lw=1.5, ps=4):
+    fig = plt.gcf()
+    ax = fig.axes
+    fig.canvas.draw()
+
+    transFigure = fig.transFigure.inverted()
+    fkpts0 = transFigure.transform(ax[0].transData.transform(kpts0))
+    fkpts1 = transFigure.transform(ax[1].transData.transform(kpts1))
+
+    fig.lines = [matplotlib.lines.Line2D(
+        (fkpts0[i, 0], fkpts1[i, 0]), (fkpts0[i, 1], fkpts1[i, 1]), zorder=1,
+        transform=fig.transFigure, c=color[i], linewidth=lw)
+                 for i in range(len(kpts0))]
+    ax[0].scatter(kpts0[:, 0], kpts0[:, 1], c=color, s=ps)
+    ax[1].scatter(kpts1[:, 0], kpts1[:, 1], c=color, s=ps)
+
+
+def make_matching_plot(image0, image1, mkpts0, mkpts1,
+                       color, text, path, small_text=[]):
+
+    plot_image_pair([image0, image1])
+    plot_matches(mkpts0, mkpts1, color)
+
+    fig = plt.gcf()
+    txt_color = 'k' if image0[:100, :150].mean() > 200 else 'w'
+    fig.text(
+        0.01, 0.99, '\n'.join(text), transform=fig.axes[0].transAxes,
+        fontsize=15, va='top', ha='left', color=txt_color)
+
+    txt_color = 'k' if image0[-100:, :150].mean() > 200 else 'w'
+    fig.text(
+        0.01, 0.01, '\n'.join(small_text), transform=fig.axes[0].transAxes,
+        fontsize=5, va='bottom', ha='left', color=txt_color)
+
+    plt.savefig(str(path), bbox_inches='tight', pad_inches=0)
+    plt.close()
