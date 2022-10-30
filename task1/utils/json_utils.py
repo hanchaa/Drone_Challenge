@@ -3,18 +3,16 @@ import os
 import cv2
 
 def json_preprocess(data_folder = './data_toy/'):
-    file_list = os.listdir(data_folder)
-    text_list = [f for f in file_list if 'text' in f]
-    img_list = [f for f in file_list if 'image' in f]
+    text_list = data_folder
 
     objects_dict = {
-        '책상': ['desk', 'table'],
+        '책상': ['desk'],
         '칠판': ['whiteboard'],
-        '의자': ['chair'],
+        # '의자': ['chair'],
         '캐비닛': ['cabinet'],
         '모니터': ['monitor'],
         '상자': ['box'],
-        '쓰레기통': ['trash can', 'garbage bin']
+        '쓰레기통': ['trash-bin']
     }
 
     people_dict = {
@@ -41,8 +39,7 @@ def json_preprocess(data_folder = './data_toy/'):
     images = {}
 
     for textfile in text_list:
-        filepath = os.path.join(data_folder, textfile)
-        with open(filepath, 'r') as f:
+        with open(textfile, 'r') as f:
             data = json.load(f)     # text data
 
             # (1) json data parsing
@@ -91,36 +88,37 @@ def json_preprocess(data_folder = './data_toy/'):
                 for person in people:
                     query[num].append(people_dict[person])
                 
-    for imgfile in img_list:
-        filepath = os.path.join(data_folder, imgfile)
-        img = cv2.imread(filepath)      # img data
-        num = filepath.split('.png')
-        num = num[0][-2:]
-        images[num] = img
+    # for imgfile in img_list:
+    #     filepath = os.path.join(data_folder, imgfile)
+    #     img = cv2.imread(filepath)      # img data
+    #     num = filepath.split('.png')
+    #     num = num[0][-2:]
+    #     images[num] = img
         
-    return query, images
+    return query#, images
 
-def json_postprocess(num_clues, data):
-    # path, 1, ['01'',99]
+def json_postprocess(clues_num, data, room_id):
     # json skeleton
-    print('here')
     json_object = {
         'team_id': 'rony2',
         'secret': 'h8pnwElZ3FBnCwA4',
         'answer_sheet': {
             'room_id': None,
-            'mission': 1,
+            'mission': "1",
             'answer': {
                 'person_id': {
                 }
             }
         }
     }
-    # for i in range(num_clues):    # TODO: consider multiple clues
+
+    # for i in range(clues_num):    # TODO: consider multiple clues
+    person_id_list = []
     for i in range(0, len(data[1])):
         if data[1][i] >= 500:
             json_object['answer_sheet']['room_id'] = data[1][i]
         else:
-            json_object['answer_sheet']['answer']['person_id'][data[0]] = data[1][i]    # TODO: make it pretty
+            person_id_list.append(str(data[1][i]))  # TODO: make it pretty, 단서가 10개 이상이면?
+    json_object['answer_sheet']['answer']['person_id'].update({"0"+str(data[0]):person_id_list})
 
     return json_object
