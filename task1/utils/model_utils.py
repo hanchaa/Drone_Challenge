@@ -1,10 +1,7 @@
-import numpy as np
 import torch
-import math
 import cv2
 import matplotlib.pyplot as plt
 import matplotlib
-from tqdm import tqdm
 
 # -----------------------------------------
 # Superglue

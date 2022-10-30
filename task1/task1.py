@@ -151,10 +151,10 @@ class Task1:
                         make_matching_plot(image0, clue_imgs[i], mkpts0, mkpts1, color, label,
                                         self.debug_path+'_frame'+str(self.cnt)+'_clue'+str(i), small_text)
                 
-        img_score = 0.0
-        for i in range(0, len(score)):
-            if score[i][0] >= self.img_kp_th:
-                img_score = img_score+score[i][1]
+            img_score = 0.0
+            for i in range(0, len(score)):
+                if score[i][0] >= self.img_kp_th:
+                    img_score = img_score+score[i][1]
 
         # -----------------------------------------
         # YOLO
