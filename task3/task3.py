@@ -20,11 +20,11 @@ import string
 import imgproc
 import json
 import zipfile
-from task3_utils import *
-from task3_parse_args import parse_args
+from .task3_utils import *
+from .task3_parse_args import parse_args
 
-from craft import CRAFT ## detection model
-from wiw import WIW ## recognition model
+from .craft import CRAFT ## detection model
+from .wiw import WIW ## recognition model
 
 import pdb
 # os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"   
