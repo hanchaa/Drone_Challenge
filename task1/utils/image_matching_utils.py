@@ -62,11 +62,8 @@ def frame2tensor(frame, device):
     return torch.from_numpy(frame/255.).float()[None, None].to(device)
 
 
-def read_image(img, resize, device, debug_mode):
-    if debug_mode:
-        image = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
-    else:
-        image = img
+def read_image(img, resize, device):
+    image = img
     if image is None:
         return None, None, None
     w, h = image.shape[1], image.shape[0]

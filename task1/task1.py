@@ -9,34 +9,37 @@ import torch
 
 from .utils.json_utils import json_preprocess, json_postprocess
 from .utils.args_utils import parse_args
-from .utils.model_utils import matching, read_image, make_matching_plot
+from .utils.image_matching_utils import matching, read_image, make_matching_plot
+from .utils.od_utils import plot_one_box
 from .superglue.superpoint import SuperPoint
 from .superglue.superglue import SuperGlue
 
 from .yolov7.models.experimental import attempt_load
-from .yolov7.utils.datasets import LoadImages
-from .yolov7.utils.general import check_img_size, non_max_suppression, scale_coords, cv2, xyxy2xywh
-from .yolov7.utils.datasets import letterbox
+from .yolov7.utils.datasets import letterbox, LoadImages
+from .yolov7.utils.general import check_img_size, non_max_suppression, scale_coords, cv2
+from .yolov7.utils.torch_utils import TracedModel
+
 
 CLASS_MAP = {
-    'orange-skirt': 0, 'black-skirt': 1, 'blue-skirt': 2, 'box': 3, 'gray-skirt': 4, 'green-skirt': 5,
-    'purple-skirt': 6, 'red-skirt': 7, 'trash-bin': 8, 'white-skirt': 9, 'yellow-skirt': 10, 'black_shirt': 11,
-    'blue_shirt': 12, 'desk': 13, 'gray_shirt': 14, 'green_shirt': 15, 'orange_shirt': 16, 'purple_shirt': 17,
-    'red_shirt': 18, 'white_shirt': 19, 'whiteboard': 20, 'yellow_shirt': 21, 'black_pants': 22, 'blue_pants': 23,
-    'cabinet': 24, 'green_pants': 25, 'grey_pants': 26, 'monitor': 27, 'orange_pants': 28, 'purple_pants': 29,
-    'red_pants': 30, 'white_pants': 31, 'yellow_pants': 32, 'basket': 33, 'bookshelf': 34, 'computer': 35,
+    'orange skirt': 0, 'black skirt': 1, 'blue skirt': 2, 'box': 3, 'gray skirt': 4, 'green skirt': 5,
+    'purple skirt': 6, 'red skirt': 7, 'trash bin': 8, 'white skirt': 9, 'yellow skirt': 10, 'black shirt': 11,
+    'blue shirt': 12, 'desk': 13, 'gray shirt': 14, 'green shirt': 15, 'orange shirt': 16, 'purple shirt': 17,
+    'red shirt': 18, 'white shirt': 19, 'whiteboard': 20, 'yellow shirt': 21, 'black pants': 22, 'blue pants': 23,
+    'cabinet': 24, 'green pants': 25, 'gray pants': 26, 'monitor': 27, 'orange pants': 28, 'purple pants': 29,
+    'red pants': 30, 'white pants': 31, 'yellow pants': 32, 'basket': 33, 'bookshelf': 34, 'computer': 35,
     'laptop': 36, 'printer': 37, 'child': None, 'woman': None, 'man': None
 }
 
 class Task1:
     def __init__(self, args):
         self.clue_path = args.clue_path
-        self.output_path = args.output_path
+        self.json_output_path = args.json_output_path
         self.task1_debug = args.task1_debug
-        self.debug_path = args.debug_path
+        self.debug_output_path = args.debug_output_path
         self.img_conf_th = args.img_conf_th
         self.img_kp_th = args.img_kp_th
         self.txt_th = args.txt_th
+        self.od_th = args.od_th
         self.cnt = 0
 
         # -----------------------------------------
@@ -62,17 +65,21 @@ class Task1:
         # YOLO model & preprocessing
         # -----------------------------------------
         self.imgsz = (640, 640)
-        self.half = False
+        self.half = True
         self.conf_th = 0.25
         self.iou_th = 0.45
         self.classes = None
         self.cls_agnostic_nms = False
         self.yolo_path = args.yolo_path
-        self.yolo = attempt_load(self.yolo_path, map_location='cuda').eval()
-        self.stride = self.yolo.stride.max().cpu().numpy()
+        yolo = attempt_load(self.yolo_path, map_location='cuda').eval()
+        self.stride = int(yolo.stride.max())
         self.img_size = check_img_size(self.imgsz[0], s=self.stride)
-        self.names = self.yolo.names
+        self.names = yolo.names
         self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
+        if self.half:
+            self.yolo = TracedModel(yolo, 'cuda', self.img_size).half()
+        else:
+            self.yolo = TracedModel(yolo, 'cuda', self.img_size)
 
         # -----------------------------------------
         # image clue preprocessing
@@ -97,25 +104,24 @@ class Task1:
         self.txt_clue = txt_cls
 
     def __call__(self, img):
-        if self.task1_debug:
-            input_img = img
-        else:
-            input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         img_score = 0.0
         txt_score = 0.0
 
         # -----------------------------------------
-        # Superglue
+        # Superglue inference
         # -----------------------------------------
-        image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda', self.task1_debug)             # NOTE: video frame image
+        if self.task1_debug:
+            input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
+        else:
+            input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')       # NOTE: video frame image
         
         clue_imgs = []
         clue_imgs_p = []
         clue_imgs_scales = []
         for clue_img_ in self.clue_img_list:
-            if not self.task1_debug:
-                clue_img_ = cv2.imread(clue_img_, cv2.IMREAD_GRAYSCALE)
-            image1, inp1, scales1 = read_image(clue_img_, [640, 480], 'cuda', self.task1_debug)  # NOTE: clue image
+            clue_img_ = cv2.imread(clue_img_, cv2.IMREAD_GRAYSCALE)
+            image1, inp1, scales1 = read_image(clue_img_, [640, 480], 'cuda')   # NOTE: clue image
             clue_imgs.append(image1)
             clue_imgs_p.append(inp1)
             clue_imgs_scales.append(scales1)
@@ -132,7 +138,7 @@ class Task1:
                 score.append((mkpts0.shape[0], mconf.mean()))
 
                 # for debugging
-                if self.debug_path != None:
+                if self.debug_output_path != None:
                     if (score[i][0] > 50 and score[i][1] > 0.7):    # superpoint > 50 & confidence > 0.5 일 때만 이미지 저장
                         color = cm.jet(mconf)
                         label = [
@@ -149,7 +155,7 @@ class Task1:
                         ]
 
                         make_matching_plot(image0, clue_imgs[i], mkpts0, mkpts1, color, label,
-                                        self.debug_path+'_frame'+str(self.cnt)+'_clue'+str(i), small_text)
+                                        self.debug_output_path+'frame'+str(self.cnt)+'_clue'+str(i), small_text)
                 
             img_score = 0.0
             for i in range(0, len(score)):
@@ -157,35 +163,51 @@ class Task1:
                     img_score = img_score+score[i][1]
 
         # -----------------------------------------
-        # YOLO
+        # YOLO inference
         # -----------------------------------------
         if len(self.txt_clue) > 0:
-            # load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
-            # original_img = next(iter(load_img))[2]
-            original_img = img
-            yolo_img = letterbox(original_img, self.img_size, stride=self.stride)[0]
-            yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
-            yolo_img = np.ascontiguousarray(yolo_img)
+            self.yolo(torch.zeros(1, 3, self.img_size, self.img_size).to('cuda').type_as(next(self.yolo.parameters())))
+            if self.task1_debug:
+                load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
+                _, yolo_img, im0s, _ = next(iter(load_img))
+            else:
+                im0s = img
+                yolo_img = letterbox(im0s, self.img_size, stride=self.stride)[0]
+                yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
+                yolo_img = np.ascontiguousarray(yolo_img)
             yolo_img = torch.from_numpy(yolo_img).to('cuda')
             yolo_img = yolo_img.half() if self.half else yolo_img.float()
+            yolo_img /= 255.0
             if len(yolo_img.shape) == 3:
-                yolo_img = yolo_img[None]
+                yolo_img = yolo_img.unsqueeze(0)
 
-            obj_detections = self.yolo(yolo_img)
-            obj_detections = non_max_suppression(obj_detections[0], self.conf_th, self.iou_th, self.classes, self.cls_agnostic_nms) # TODO: 클래스추가
+            old_img_w = old_img_h = self.img_size
+            old_img_b = 1
 
-            det = obj_detections[0]
-            det[:, :4] = scale_coords(yolo_img.shape[2:], det[:, :4], original_img.shape).round()
-            xywhs = xyxy2xywh(det[:, 0:4])  # bbox
-            confs = det[:, 4]   # conf
-            clss = det[:, 5]    # class
+            # Warmup
+            if (old_img_b != yolo_img.shape[0] or old_img_h != yolo_img.shape[2] or old_img_w != yolo_img.shape[3]):
+                old_img_b = yolo_img.shape[0]
+                old_img_h = yolo_img.shape[2]
+                old_img_w = yolo_img.shape[3]
+                for i in range(3):
+                    self.yolo(yolo_img)[0]
+
+            with torch.no_grad():
+                pred = self.yolo(yolo_img)[0]
+            pred = non_max_suppression(pred, self.conf_th, self.iou_th, self.classes, self.cls_agnostic_nms)[0]
+            pred[:, :4] = scale_coords(yolo_img.shape[2:], pred[:, :4], im0s.shape).round()
+
+            if (self.task1_debug or self.debug_output_path != None):
+                for *xyxy, conf, cls in reversed(pred):
+                    label = f'{self.names[int(cls)]} {conf:.2f}'
+                    plot_one_box(xyxy, im0s, label=label, color=self.colors[int(cls)], line_thickness=1)
+                cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
 
             # score 계산
             for i in range(0, len(self.txt_clue)):
-                for j in range(0, len(det)):
-                    if self.txt_clue[i] == clss[j] and confs[j] >= 0.6:
-                        txt_score = txt_score+confs[j]
-            txt_score = txt_score / len(self.txt_clue)
+                for j in range(0, pred.shape[0]):
+                    if (self.txt_clue[i] == pred[j][5] and pred[j][4] >= self.od_th):     # NOTE: prediction = [x, y, x, y, conf, cls]
+                        txt_score = txt_score+pred[j][4]
 
         # -----------------------------------------
         # Apriltag detection
@@ -230,7 +252,7 @@ class Task1:
             else:
                 json_output = None
         
-        with open(self.output_path, 'w', encoding='utf-8') as f:
+        with open(self.json_output_path, 'w', encoding='utf-8') as f:
             json.dump(json_output, f, indent=4)
 
         print(json.dumps(json_output, ensure_ascii=False, indent=4))
@@ -244,6 +266,6 @@ if __name__ == "__main__":
     if args.task1_debug == None:
         frames = None
     else:
-        frames = '/home/eulrang/workspace/git/Drone_Challenge/task1/toy_test/image_matching/image0.jpg' # NOTE: superglue 테스트이미지 (이미지 한장)
+        frames = args.debug_input_path # NOTE: superglue 테스트이미지 (이미지 한장)
 
     task1(frames)

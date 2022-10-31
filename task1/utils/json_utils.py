@@ -116,7 +116,7 @@ def json_postprocess(clues_num, data, room_id):
     person_id_list = []
     for i in range(0, len(data[1])):
         if data[1][i] >= 500:
-            json_object['answer_sheet']['room_id'] = data[1][i]
+            json_object['answer_sheet']['room_id'] = str(data[1][i])
         else:
             person_id_list.append(str(data[1][i]))  # TODO: make it pretty, 단서가 10개 이상이면?
     json_object['answer_sheet']['answer']['person_id'].update({"0"+str(data[0]):person_id_list})
