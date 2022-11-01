@@ -75,7 +75,7 @@ class Task3:
         # transform = NormalizePAD((3, self.imgH, resized_max_w))
         self.img_cnt=0
 
-    def __call__(self, image):
+    def __call__(self, image, state):
         # image = intput_img[:, :, ::-1] ## # BGR to RGB
         image = np.ascontiguousarray(image)
     

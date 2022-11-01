@@ -92,7 +92,7 @@ class Task2:
         for k in ['man', 'woman', 'child']:
             self.count_dict[k] = 0
 
-    def __call__(self, original_img):
+    def __call__(self, original_img, state):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
 
         # Convert

@@ -37,7 +37,7 @@ class Task1:
         # txts.sort()
         # self.txts = txts
 
-    def __call__(self, img: np.ndarray):
+    def __call__(self, img: np.ndarray, state):
         result_im = img_model(img, self.img_clue, self.debug_path, self.img_conf_th, self.img_kp_th)
 
         images = []

@@ -22,6 +22,15 @@ class RosImageGetter:
         self.task3 = Task3(**vars(args))
         print("Task 3 model is initialized!")
 
+        # 0: 상승후 첫 방 입장까지의 복도
+        # 1: 1번 방
+        # 2: 1번 방에서 나오고 복도
+        # 3: 2번방
+        # 4: 2번 방에서 나오고 복도
+        # 5: 3번 방
+        # 6: 3번 방에서 나오고 착지 이전까지
+        self.state = 0
+
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
 
@@ -30,18 +39,34 @@ class RosImageGetter:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
         with torch.no_grad():
-            self.task1(image)
-            self.task2(image)
-            self.task3(image)
+            self.task1(image, self.state)
+            self.task2(image, self.state)
+            self.task3(image, self.state)
 
     def coord_callback(self, data):
-        #coord_img = np.zeros((200, 1000, 3))
-        #cv2.putText(coord_img, f"x: {data.pose.position.x}", (10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (255,255,255), 2)
-        #cv2.putText(coord_img, f"y: {data.pose.position.y}", (10, 110), cv2.FONT_HERSHEY_DUPLEX, 1, (255, 255, 255), 2)
-        #cv2.imshow("coord", coord_img)
-        #cv2.waitKey(1)
-        print(f"x: {data.pose.position.x}")
-        print(f"y: {data.pose.position.y}")
+        x, y = data.pose.position.x, data.pose.position.y
+        old_state = self.state
+
+        if float(x) < 0 and float(y) < -17:
+            self.state = 1
+
+        if old_state == 1 and float(x) > 0.5:
+            self.state = 2
+
+        if old_state == 2 and float(y) > -14.6 and float(x) < 0:
+            self.state = 3
+
+        if old_state == 3 and float(x) > 0.5:
+            self.state = 4
+
+        if old_staet == 4 and float(y) > -7.3 and float(x) < 0:
+            self.state = 5
+
+        if old_state == 5 and float(x) > 0.5:
+            self.state = 6
+
+        if old_state != self.state:
+            print(f"state is changed from {old_state} to {self.state}")
 
 
 if __name__ == "__main__":
