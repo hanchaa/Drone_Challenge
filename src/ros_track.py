@@ -4,24 +4,20 @@ import torch
 import numpy as np
 from sensor_msgs.msg import CompressedImage
 from geometry_msgs.msg import PoseStamped
+import matplotlib.pyplot as plt
+import os
+import csv
+import time
 
 from tools import parse_args
 
 from task1 import Task1
-from task2 import Task2
+from task2_vision import Task2Vision
+from task2_audio import Task2Audio
 from task3 import Task3
 
-class RosImageGetter:
+class Ros:
     def __init__(self, args):
-        self.task1 = Task1(args)
-        print("Task 1 model is initialized!")
-
-        self.task2 = Task2(args)
-        print("Task 2 model is initialized!")
-
-        self.task3 = Task3(**vars(args))
-        print("Task 3 model is initialized!")
-
         # 0: 상승후 첫 방 입장까지의 복도
         # 1: 1번 방
         # 2: 1번 방에서 나오고 복도
@@ -31,8 +27,24 @@ class RosImageGetter:
         # 6: 3번 방에서 나오고 착지 이전까지
         self.state = 0
 
+        self.x = [0, 0]
+        self.y = [0, 0]
+
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
+        self.pub = rospy.Publisher("/move_base_simple/goal", PoseStamped, queue_size=10)
+
+        self.task1 = Task1(args)
+        print("Task 1 model is initialized!")
+
+        self.task2 = Task2Vision(args)
+        print("Task 2 vision model is initialized!")
+
+        self.task2_audio = Task2Audio(args, self.pub)
+        print("Task 2 audio model is initialized!")
+
+        self.task3 = Task3(**vars(args))
+        print("Task 3 model is initialized!")
 
     def image_callback(self, data):
         image = np.fromstring(data.data, dtype=np.uint8)
@@ -46,6 +58,9 @@ class RosImageGetter:
     def coord_callback(self, data):
         x, y = data.pose.position.x, data.pose.position.y
         old_state = self.state
+
+        self.x[0] = self.x[1] = x
+        self.y[0] = self.y[1] = y
 
         if float(x) < 0 and float(y) < -17:
             self.state = 1
@@ -73,6 +88,7 @@ if __name__ == "__main__":
     args = parse_args()
     del args.video_path
 
-    rospy.init_node("ros_image_getter")
-    getter = RosImageGetter(args)
+    rospy.init_node("ros_node")
+    getter = Ros(args)
+
     rospy.spin()

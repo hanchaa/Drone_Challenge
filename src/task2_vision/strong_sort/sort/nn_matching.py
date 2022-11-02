@@ -2,7 +2,7 @@
 import numpy as np
 import sys
 import torch
-sys.path.append('task2/strong_sort/deep/reid')
+sys.path.append('task2_vision/strong_sort/deep/reid')
 from torchreid.metrics.distance import compute_distance_matrix
 
 

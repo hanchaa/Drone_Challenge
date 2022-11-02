@@ -37,7 +37,7 @@ from strong_sort.utils.parser import get_config
 from strong_sort.strong_sort import StrongSORT
 
 
-class Task2:
+class Task2Vision:
     def __init__(self, args):
         
         # Load model
@@ -179,7 +179,7 @@ if __name__ == "__main__":
     source = args.source
     del args.source
 
-    task1 = Task2(**vars(args))
+    task1 = Task2Vision(**vars(args))
     dataset = LoadImages(source, img_size=args.imgsz, stride=task1.stride)
 
     with torch.no_grad():
