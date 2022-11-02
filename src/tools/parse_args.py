@@ -19,7 +19,7 @@ def parse_args():
     parser.add_argument('--od_th', type=float, default=0.5, help='OD threshold')          # NOTE: determine value
     parser.add_argument('--total_th', type=float, default=0.9, help='img+txt threshold')  # NOTE: determine value
 
-    # task 2
+    # task 2 vision
     parser.add_argument('--yolo-weights', type=str, help='model.pt path(s)')
     parser.add_argument('--strong-sort-weights', type=str)
     parser.add_argument('--config-strongsort', type=str, default='strong_sort/configs/strong_sort.yaml')
@@ -31,6 +31,20 @@ def parse_args():
     parser.add_argument('--classes', type=int, default=None, help='filter by class: --classes 0, or --classes 0 2 3')
     parser.add_argument('--agnostic-nms', action='store_true', default=False, help='class-agnostic NMS')
     parser.add_argument('--half', action='store_true', default=False, help='use FP16 half-precision inference')
+
+    # task 2 audio
+    parser.add_argument('--checkpoint', type=str, default='./task2_audio/ckpts/16k_magspec.0080.pt')
+    parser.add_argument('--filename', type=str, default='wavwavwavwav.wav')
+    parser.add_argument('--mel', dest='mel', action='store_true')
+    parser.set_defaults(mel=False)
+    parser.add_argument('--ipd', dest='ipd', action='store_true')
+    parser.set_defaults(ipd=False)
+    parser.add_argument('--lightweight', dest='lightweight', action='store_true')
+    parser.set_defaults(lightweight=False)
+    parser.add_argument('--n_channels', type=int, default=1)
+    parser.add_argument('--sr', type=int, default=16000)
+    parser.add_argument('--debug', type=bool, default=False)
+
     # task 3
     ## Craft (Detection)
     parser.add_argument('--craft_weight', default='task3/trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')

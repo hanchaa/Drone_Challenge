@@ -25,10 +25,7 @@ class Ros:
         # 4: 2번 방에서 나오고 복도
         # 5: 3번 방
         # 6: 3번 방에서 나오고 착지 이전까지
-        self.state = 0
-
-        self.x = [0, 0]
-        self.y = [0, 0]
+        self.state = -1
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
@@ -37,7 +34,7 @@ class Ros:
         self.task1 = Task1(args)
         print("Task 1 model is initialized!")
 
-        self.task2 = Task2Vision(args)
+        self.task2_vision = Task2Vision(args)
         print("Task 2 vision model is initialized!")
 
         self.task2_audio = Task2Audio(args, self.pub)
@@ -59,9 +56,6 @@ class Ros:
         x, y = data.pose.position.x, data.pose.position.y
         old_state = self.state
 
-        self.x[0] = self.x[1] = x
-        self.y[0] = self.y[1] = y
-
         if float(x) < 0 and float(y) < -17:
             self.state = 1
 
@@ -82,6 +76,11 @@ class Ros:
 
         if old_state != self.state:
             print(f"state is changed from {old_state} to {self.state}")
+
+    def __call__(self):
+        while not rospy.is_shutdown():
+            with torch.no_grad():
+                self.task2_audio(self.state)
 
 
 if __name__ == "__main__":
