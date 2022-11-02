@@ -88,6 +88,5 @@ if __name__ == "__main__":
     del args.video_path
 
     rospy.init_node("ros_node")
-    getter = Ros(args)
-
-    rospy.spin()
+    ros = Ros(args)
+    ros()
