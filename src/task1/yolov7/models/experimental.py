@@ -5,7 +5,7 @@ import torch.nn as nn
 
 import sys
 sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/')
-from models.common import Conv
+from .common import Conv
 
 class Ensemble(nn.ModuleList):
     # Ensemble of models

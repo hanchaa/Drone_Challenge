@@ -4,7 +4,7 @@ import time
 import torch
 from torch import nn
 from torch.nn import functional as F
-import torchaduio
+import torchaudio
 from torch.utils.data import Dataset
 from torch.utils.data.dataloader import DataLoader
 from einops import rearrange, repeat

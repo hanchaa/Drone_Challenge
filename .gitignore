@@ -4,3 +4,4 @@ best.pt
 .idea/
 .DS_Store
 *.pt
+*.pyc

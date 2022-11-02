@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.backends.cudnn as cudnn
 from torch.autograd import Variable
 import numpy as np
-import craft_utils
+from . import craft_utils
 from collections import OrderedDict
 import cv2
 import torchvision.transforms as transforms
