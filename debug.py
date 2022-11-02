@@ -3,7 +3,7 @@ import cv2
 import os
 
 from tools import parse_args
-from task2 import Task2
+from task1 import Task1
 
 if __name__ == "__main__":
     args = parse_args()
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     del args.video_path
 
     num_frames = 0
-    task = Task2(args)
+    task = Task1(args)
 
     while True:
         retval, frame = cap.read()
