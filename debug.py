@@ -13,15 +13,19 @@ if __name__ == "__main__":
     cap = cv2.VideoCapture(args.video_path)
     del args.video_path
 
+    num_frames = 0
     task = Task2(args)
 
     while True:
         retval, frame = cap.read()
         if not retval:
             break
+
+        num_frames += 1
+        state = num_frames // 1000
         
         with torch.no_grad():
-            task(frame)
+            task(frame, state)
 
     if cap.isOpened():
         cap.release()
