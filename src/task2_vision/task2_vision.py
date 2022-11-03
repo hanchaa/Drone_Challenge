@@ -177,7 +177,7 @@ class Task2Vision:
             self.prev_frames = self.curr_frames
 
 
-    def save_results(state):
+    def save_results(self, state):
         # TODO SANITY CHECK!!!!! 꼭꼭꼭꼭꼭!!!
         if state % 2 == 1 : # if in room
             if self.prev_state == 0 :
