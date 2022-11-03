@@ -91,6 +91,7 @@ class Task2Vision:
         self.count_dict = dict()
         for k in ['man', 'woman', 'child']:
             self.count_dict[k] = 0
+        self.prev_state = -1
 
     def __call__(self, original_img, state):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
@@ -145,7 +146,7 @@ class Task2Vision:
                             label = f'{id} {self.names[c]} {conf:.2f}'
                             plot_one_box(bboxes, original_img, label=label, color=self.colors[c], line_thickness=2)
 
-                        if name in self.target_list:
+                        if name in self.target_list and state % 2 == 1:
                             if (id, name) not in self.id_list:
 
                                 self.id_list.append((id, name))
@@ -160,6 +161,9 @@ class Task2Vision:
             else:
                 self.strong_sort.increment_ages()
 
+
+            self.save_results(state)
+
             # Stream results
             if self.show_video:
                 text = ''
@@ -171,6 +175,29 @@ class Task2Vision:
                 cv2.waitKey(1)  # 1 millisecond
 
             self.prev_frames = self.curr_frames
+
+
+    def save_results(state):
+        # TODO SANITY CHECK!!!!! 꼭꼭꼭꼭꼭!!!
+        if state % 2 == 1 : # if in room
+            if self.prev_state == 0 :
+                for k in ['man', 'woman', 'child']:
+                    self.count_dict[k] = 0
+            self.prev_state = 1
+            return None
+        else : # if in hallway    
+            answer_sheet = dict()
+            answer_sheet["room_id"] = state #state가 들어감
+            answer_sheet["mission"] = "2"
+            count_format = dict()
+            count_format["person_num"] = {"M":str(self.count_dict['man']),
+                                          "W":str(self.count_dict['man']),
+                                          "C":str(self.count_dict['child'])}
+            answer_sheet["answer"] = count_format
+            self.prev_state = 0
+            return answer_sheet
+
+
 
 
 if __name__ == "__main__":
