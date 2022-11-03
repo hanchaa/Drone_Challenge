@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.backends.cudnn as cudnn
 from torch.autograd import Variable
 import numpy as np
-from . import craft_utils
+import craft_utils
 from collections import OrderedDict
 import cv2
 import torchvision.transforms as transforms
@@ -16,7 +16,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 def json_postprocess(preds_answer):
     # path, 1, ['01'',99]
     # json skeleton
-    print('here')
+    # print('here')
     json_object = {
         'team_id': 'rony2', # 공통
         'secret': 'h8pnwElZ3FBnCwA4', # 공통
