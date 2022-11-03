@@ -20,16 +20,16 @@ def parse_args():
     parser.add_argument('--total_th', type=float, default=0.9, help='img+txt threshold')  # NOTE: determine value
 
     # task 2 vision
-    parser.add_argument('--yolo-weights', type=str, help='model.pt path(s)')
-    parser.add_argument('--strong-sort-weights', type=str)
-    parser.add_argument('--config-strongsort', type=str, default='strong_sort/configs/strong_sort.yaml')
-    parser.add_argument('--imgsz', '--img', '--img-size', type=int, default=(640, 640), help='inference size h,w')
-    parser.add_argument('--conf-thres', type=float, default=0.5, help='confidence threshold')
-    parser.add_argument('--iou-thres', type=float, default=0.5, help='NMS IoU threshold')
+    parser.add_argument('--yolo_weights', type=str, help='model.pt path(s)')
+    parser.add_argument('--strong_sort_weights', type=str)
+    parser.add_argument('--config_strongsort', type=str, default='strong_sort/configs/strong_sort.yaml')
+    parser.add_argument('--imgsz', '--img', '--img_size', type=int, default=(640, 640), help='inference size h,w')
+    parser.add_argument('--conf_thres', type=float, default=0.5, help='confidence threshold')
+    parser.add_argument('--iou_thres', type=float, default=0.5, help='NMS IoU threshold')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
-    parser.add_argument('--show-vid', action='store_true', default=False, help='display tracking video results')
+    parser.add_argument('--show_vid', action='store_true', default=False, help='display tracking video results')
     parser.add_argument('--classes', type=int, default=None, help='filter by class: --classes 0, or --classes 0 2 3')
-    parser.add_argument('--agnostic-nms', action='store_true', default=False, help='class-agnostic NMS')
+    parser.add_argument('--agnostic_nms', action='store_true', default=False, help='class-agnostic NMS')
     parser.add_argument('--half', action='store_true', default=False, help='use FP16 half-precision inference')
 
     # task 2 audio
