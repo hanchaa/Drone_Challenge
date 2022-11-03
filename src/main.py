@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os
 import time
 import json
@@ -7,7 +6,7 @@ from urllib import request
 from mavros_msgs.msg import State
 from geometry_msgs.msg import PoseStamped
 
-from .ros_track import Rony2
+from ros_track import Rony2
 
 rospy.init_node('opencv_example', anonymous=True)
 rate = rospy.Rate(5)

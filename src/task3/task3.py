@@ -162,6 +162,7 @@ class Task3:
 
 if __name__ == "__main__":
     import sys
+    from .task3_parse_args import parse_args
     args = parse_args()
     task3 = Task3(**vars(args))
 
