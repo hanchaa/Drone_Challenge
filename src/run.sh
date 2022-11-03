@@ -1,3 +1,7 @@
+#!/bin/bash
+
+source /opt/ros/melodic/setup.bash
+
 python main.py \
 --yolo_path task1/weights/yolo.pt \
 --clue_path dataset \

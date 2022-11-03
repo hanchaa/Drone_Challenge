@@ -1,7 +1,6 @@
 FROM --platform=linux/amd64 rony2:base
 
-# Change the default shell to Bash
-SHELL [ "/bin/bash" , "-c" ]
+SHELL ["/bin/bash", "-c"]
 
 #Setting timezone data
 ARG DEBIAN_FRONTEND=noninteractive
@@ -15,4 +14,5 @@ WORKDIR /home/agc2022
 
 RUN mkdir dataset
 COPY ./src .
-CMD ["/bin/bash"]
+RUN chmod 755 ./run.sh
+ENTRYPOINT ["./run.sh"]
