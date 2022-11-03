@@ -16,7 +16,7 @@ from task2_vision import Task2Vision
 from task2_audio import Task2Audio
 from task3 import Task3
 
-class Ros:
+class Rony2:
     def __init__(self):
         args = parse_args()
         del args.video_path
@@ -88,5 +88,5 @@ class Ros:
 
 if __name__ == "__main__":
     rospy.init_node("ros_node")
-    ros = Ros()
-    ros()
+    model = Rony2()
+    model()
