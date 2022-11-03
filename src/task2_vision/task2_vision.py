@@ -110,7 +110,7 @@ class Task2Vision:
 
         # Inference
         pred_all = self.model(img) # contains prediction for (location, objectiveness, object classes, upper color, lower color)
-        # @을랑님 pred_all[0][:,:,-20:] 이 상의 하의 색 prediction, pred_all[0][:,:,5:8] 이 사람 class 세가지에 대한 logit 입니다
+        # @?�랑??pred_all[0][:,:,-20:] ???�의 ?�의 ??prediction, pred_all[0][:,:,5:8] ???�람 class ?��?지???�??logit ?�니??
         pred_obj = pred_all[0][:,:,:-20]
         
         # Apply NMS
@@ -164,8 +164,6 @@ class Task2Vision:
             else:
                 self.strong_sort.increment_ages()
 
-            self.save_results(state)
-
             # Stream results
             if self.show_video:
                 text = ''
@@ -178,6 +176,8 @@ class Task2Vision:
 
             self.prev_frames = self.curr_frames
 
+            return self.save_results(state)
+
 
     def save_results(self, state):
         # TODO SANITY CHECK!!!!! 
@@ -189,7 +189,7 @@ class Task2Vision:
             return None
         else : # if in hallway    
             answer_sheet = dict()
-            answer_sheet["room_id"] = state #state가 들어감
+            answer_sheet["room_id"] = state #state가 ?�어�?
             answer_sheet["mission"] = "2"
             count_format = dict()
             count_format["person_num"] = {"M":str(self.count_dict['man']),
