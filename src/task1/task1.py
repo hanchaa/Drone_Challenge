@@ -240,24 +240,26 @@ class Task1:
             if img_score > self.img_conf_th:
                 json_output = json_postprocess(clues_num, data, room_id)
             else:
-                json_output = None
+                json_output = {'UNCLEAR'}
         elif len(self.clue_img_list) == 0 and len(self.txt_clue) > 0: # txt clue only
             if txt_score > self.txt_th:
                 json_output = json_postprocess(clues_num, data, room_id)
             else:
-                json_output = None
+                json_output = {'UNCLEAR'}
         elif len(self.clue_img_list) > 0 and len(self.txt_clue) > 0: # image and txt clue
             if total_score > self.total_th:
                 json_output = json_postprocess(clues_num, data, room_id)
             else:
-                json_output = None
+                json_output = {'UNCLEAR'}
         
-        with open(self.json_output_path, 'w', encoding='utf-8') as f:
-            json.dump(json_output, f, indent=4)
+        # with open(self.json_output_path, 'w', encoding='utf-8') as f:
+        #     json.dump(json_output, f, indent=4)
 
-        print(json.dumps(json_output, ensure_ascii=False, indent=4))
+        print(room_id, json_output)
 
         self.cnt = self.cnt+1
+
+        return room_id, json_output
 
 if __name__ == "__main__":
     args = parse_args()

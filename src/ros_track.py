@@ -48,7 +48,7 @@ class Ros:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
         with torch.no_grad():
-            self.task1(image, self.state)
+            room_id, json_output = self.task1(image, self.state)    # NOTE: return added
             self.task2(image, self.state)
             self.task3(image, self.state)
 
