@@ -22,7 +22,7 @@ from .yolov7.utils.torch_utils import TracedModel
 
 CLASS_MAP = {
     'orange skirt': 0, 'black skirt': 1, 'blue skirt': 2, 'box': 3, 'gray skirt': 4, 'green skirt': 5,
-    'purple skirt': 6, 'red skirt': 7, 'trash bin': 8, 'white skirt': 9, 'yellow skirt': 10, 'black shirt': 11,
+    'purple skirt': 6, 'red skirt': 7, 'trash-bin': 8, 'white skirt': 9, 'yellow skirt': 10, 'black shirt': 11,
     'blue shirt': 12, 'desk': 13, 'gray shirt': 14, 'green shirt': 15, 'orange shirt': 16, 'purple shirt': 17,
     'red shirt': 18, 'white shirt': 19, 'whiteboard': 20, 'yellow shirt': 21, 'black pants': 22, 'blue pants': 23,
     'cabinet': 24, 'green pants': 25, 'gray pants': 26, 'monitor': 27, 'orange pants': 28, 'purple pants': 29,
@@ -40,6 +40,7 @@ class Task1:
         self.img_kp_th = args.img_kp_th
         self.txt_th = args.txt_th
         self.od_th = args.od_th
+        self.total_th = args.total_th
         self.cnt = 0
 
         # -----------------------------------------
