@@ -95,25 +95,25 @@ class FeatureFrontEnd(nn.Module):
         super().__init__()
         if sr == 16000:
             if mel:
-                self.spec = MelSpectrogram(n_fft=400, hop_length=100, n_mels=80, center=False)
+                self.spec = MelSpectrogram(n_fft=400, hop_length=100, n_mels=80)
                 self.in_features, self.tgru_size = 1, 256
             else:
                 if ipd:
-                    self.spec = Spectrogram(n_fft=400, hop_length=100, power=None, center=False)
+                    self.spec = Spectrogram(n_fft=400, hop_length=100, power=None)
                     self.in_features, self.tgru_size = n_channels*3+2*n_channels**2, 512
                 else:
-                    self.spec = Spectrogram(n_fft=400, hop_length=100, power=2, center=False)
+                    self.spec = Spectrogram(n_fft=400, hop_length=100, power=2)
                     self.in_features, self.tgru_size = 1, 512
         elif sr == 48000:
             if mel:
-                self.spec = MelSpectrogram(n_fft=1200, hop_length=300, n_mels=180, center=False)
+                self.spec = MelSpectrogram(n_fft=1200, hop_length=300, n_mels=180)
                 self.in_features, self.tgru_size = 1, 384
             else:
                 if ipd:
-                    self.spec = Spectrogram(n_fft=1200, hop_length=300, power=None, center=False)
+                    self.spec = Spectrogram(n_fft=1200, hop_length=300, power=None)
                     self.in_features, self.tgru_size = n_channels*3+2*n_channels**2, 1280
                 else:
-                    self.spec = Spectrogram(n_fft=1200, hop_length=300, power=2, center=False)
+                    self.spec = Spectrogram(n_fft=1200, hop_length=300, power=2)
                     self.in_features, self.tgru_size = 1, 1280
 
         self.mel, self.ipd = mel, ipd
