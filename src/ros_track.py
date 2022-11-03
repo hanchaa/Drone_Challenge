@@ -17,7 +17,10 @@ from task2_audio import Task2Audio
 from task3 import Task3
 
 class Ros:
-    def __init__(self, args):
+    def __init__(self):
+        args = parse_args()
+        del args.video_path
+
         # 0: 상승후 첫 방 입장까지의 복도
         # 1: 1번 방
         # 2: 1번 방에서 나오고 복도
@@ -84,9 +87,6 @@ class Ros:
 
 
 if __name__ == "__main__":
-    args = parse_args()
-    del args.video_path
-
     rospy.init_node("ros_node")
-    ros = Ros(args)
+    ros = Ros()
     ros()
