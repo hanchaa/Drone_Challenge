@@ -37,6 +37,7 @@ flake8
 yapf
 isort==4.3.21
 imageio
+# pip install https://github.com/KaiyangZhou/deep-person-reid/archive/master.zip  # torchreid
 
 # Export --------------------------------------
 #onnx>=1.9.0  # ONNX export
