@@ -444,15 +444,19 @@ class ImplicitA(nn.Module):
     
 
 class ImplicitM(nn.Module):
-    def __init__(self, channel, mean=0., std=.02):
+    def __init__(self, channel, mean=1., std=.02):
         super(ImplicitM, self).__init__()
         self.channel = channel
         self.mean = mean
         self.std = std
         self.implicit = nn.Parameter(torch.ones(1, channel, 1, 1))
+        # self.implicit = nn.Parameter(torch.ones(1, 3, 1, 1, channel // 3))
         nn.init.normal_(self.implicit, mean=self.mean, std=self.std)
 
     def forward(self, x):
+        # print(x.shape)
+        # print(self.implicit.weight)
+        # import pdb; pdb.set_trace()
         return self.implicit * x
     
 ##### end of yolor #####
