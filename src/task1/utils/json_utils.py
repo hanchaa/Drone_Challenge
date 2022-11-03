@@ -1,6 +1,4 @@
 import json
-import os
-import cv2
 
 def json_preprocess(data_folder = './data_toy/'):
     text_list = data_folder

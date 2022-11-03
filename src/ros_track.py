@@ -16,8 +16,11 @@ from task2_vision import Task2Vision
 from task2_audio import Task2Audio
 from task3 import Task3
 
-class Ros:
-    def __init__(self, args):
+class Rony2:
+    def __init__(self):
+        args = parse_args()
+        del args.video_path
+
         # 0: 상승후 첫 방 입장까지의 복도
         # 1: 1번 방
         # 2: 1번 방에서 나오고 복도
@@ -48,7 +51,7 @@ class Ros:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
         with torch.no_grad():
-            self.task1(image, self.state)
+            room_id, json_output = self.task1(image, self.state)    # NOTE: return added
             self.task2(image, self.state)
             self.task3(image, self.state)
 
@@ -84,9 +87,6 @@ class Ros:
 
 
 if __name__ == "__main__":
-    args = parse_args()
-    del args.video_path
-
     rospy.init_node("ros_node")
-    ros = Ros(args)
-    ros()
+    model = Rony2()
+    model()
