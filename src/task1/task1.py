@@ -22,7 +22,7 @@ from .yolov7.utils.torch_utils import TracedModel
 
 CLASS_MAP = {
     'orange skirt': 0, 'black skirt': 1, 'blue skirt': 2, 'box': 3, 'gray skirt': 4, 'green skirt': 5,
-    'purple skirt': 6, 'red skirt': 7, 'trash bin': 8, 'white skirt': 9, 'yellow skirt': 10, 'black shirt': 11,
+    'purple skirt': 6, 'red skirt': 7, 'trash-bin': 8, 'white skirt': 9, 'yellow skirt': 10, 'black shirt': 11,
     'blue shirt': 12, 'desk': 13, 'gray shirt': 14, 'green shirt': 15, 'orange shirt': 16, 'purple shirt': 17,
     'red shirt': 18, 'white shirt': 19, 'whiteboard': 20, 'yellow shirt': 21, 'black pants': 22, 'blue pants': 23,
     'cabinet': 24, 'green pants': 25, 'gray pants': 26, 'monitor': 27, 'orange pants': 28, 'purple pants': 29,
@@ -40,6 +40,7 @@ class Task1:
         self.img_kp_th = args.img_kp_th
         self.txt_th = args.txt_th
         self.od_th = args.od_th
+        self.total_th = args.total_th
         self.cnt = 0
 
         # -----------------------------------------
@@ -128,6 +129,7 @@ class Task1:
 
         if len(self.clue_img_list) > 0:
             score = []
+            clue_txt = []
             for i in range(len(self.clue_img_list)):    # NOTE: 각 이미지 단서마다 kpts, mean confidence 저장
                 pred, matches, conf = matching({'image0': inp0, 'image1': clue_imgs_p[i]}, self.superpoint, self.superglue)
                 kpts0, kpts1 = pred['keypoints0'], pred['keypoints1']
@@ -156,11 +158,14 @@ class Task1:
 
                         make_matching_plot(image0, clue_imgs[i], mkpts0, mkpts1, color, label,
                                         self.debug_output_path+'frame'+str(self.cnt)+'_clue'+str(i), small_text)
-                
+
+                clue_txt.append(self.clue_img_list[i][-5:-4])
+
             img_score = 0.0
             for i in range(0, len(score)):
                 if score[i][0] >= self.img_kp_th:
                     img_score = img_score+score[i][1]
+
 
         # -----------------------------------------
         # YOLO inference
@@ -240,17 +245,17 @@ class Task1:
             if img_score > self.img_conf_th:
                 json_output = json_postprocess(clues_num, data, room_id)
             else:
-                json_output = {'UNCLEAR'}
+                json_output = json_postprocess(clue_txt[0], data, room_id, unclear=True)    # FIXME
         elif len(self.clue_img_list) == 0 and len(self.txt_clue) > 0: # txt clue only
             if txt_score > self.txt_th:
                 json_output = json_postprocess(clues_num, data, room_id)
             else:
-                json_output = {'UNCLEAR'}
+                json_output = json_postprocess(clue_txt[0], data, room_id, unclear=True)    # FIXME
         elif len(self.clue_img_list) > 0 and len(self.txt_clue) > 0: # image and txt clue
             if total_score > self.total_th:
                 json_output = json_postprocess(clues_num, data, room_id)
             else:
-                json_output = {'UNCLEAR'}
+                json_output = json_postprocess(clue_txt[0], data, room_id, unclear=True)    # FIXME
         
         # with open(self.json_output_path, 'w', encoding='utf-8') as f:
         #     json.dump(json_output, f, indent=4)
@@ -259,7 +264,7 @@ class Task1:
 
         self.cnt = self.cnt+1
 
-        return room_id, json_output
+        return json_output
 
 if __name__ == "__main__":
     args = parse_args()

@@ -95,7 +95,7 @@ def json_preprocess(data_folder = './data_toy/'):
         
     return query#, images
 
-def json_postprocess(clues_num, data, room_id):
+def json_postprocess(clues_num, data, room_id, unclear=False):
     # json skeleton
     json_object = {
         'team_id': 'rony2',
@@ -110,13 +110,16 @@ def json_postprocess(clues_num, data, room_id):
         }
     }
 
-    # for i in range(clues_num):    # TODO: consider multiple clues
-    person_id_list = []
-    for i in range(0, len(data[1])):
-        if data[1][i] >= 500:
-            json_object['answer_sheet']['room_id'] = str(data[1][i])
-        else:
-            person_id_list.append(str(data[1][i]))  # TODO: make it pretty, 단서가 10개 이상이면?
-    json_object['answer_sheet']['answer']['person_id'].update({"0"+str(data[0]):person_id_list})
+    if unclear == True:
+        json_object['answer_sheet']['answer']['person_id'].update({clues_num:"UNCLEAR"})
+    else:
+        # for i in range(clues_num):    # TODO: consider multiple clues
+        person_id_list = []
+        for i in range(0, len(data[1])):
+            if data[1][i] >= 500:
+                json_object['answer_sheet']['room_id'] = str(data[1][i])
+            else:
+                person_id_list.append(str(data[1][i]))  # TODO: make it pretty, 단서가 10개 이상이면?
+        json_object['answer_sheet']['answer']['person_id'].update({"0"+str(data[0]):person_id_list})
 
     return json_object
