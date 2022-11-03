@@ -110,7 +110,7 @@ class Task2Vision:
 
         # Inference
         pred_all = self.model(img) # contains prediction for (location, objectiveness, object classes, upper color, lower color)
-        # @?�랑??pred_all[0][:,:,-20:] ???�의 ?�의 ??prediction, pred_all[0][:,:,5:8] ???�람 class ?��?지???�??logit ?�니??
+        # @?�랑??pred_all[0][:,:,-20:] ???�의 ?�의 ??prediction, pred_all[0][:,:,5:8] ???�람 class ?��?지???�??logit ?�니??
         pred_obj = pred_all[0][:,:,:-20]
         
         # Apply NMS
@@ -164,6 +164,9 @@ class Task2Vision:
             else:
                 self.strong_sort.increment_ages()
 
+            
+            save_result = self.save_results(state)
+
             # Stream results
             if self.show_video:
                 text = ''
@@ -176,28 +179,29 @@ class Task2Vision:
 
             self.prev_frames = self.curr_frames
 
-            return self.save_results(state)
+        return save_result
 
-
-    def save_results(self, state):
-        # TODO SANITY CHECK!!!!! 
+    def save_results(self,state):
+        # TODO SANITY CHECK!!!!! 꼭꼭꼭꼭꼭!!!
+        json_object = {}
         if state % 2 == 1 : # if in room
             if self.prev_state == 0 :
                 for k in ['man', 'woman', 'child']:
                     self.count_dict[k] = 0
             self.prev_state = 1
             return None
-        else : # if in hallway    
+        else : # if in hallway  
             answer_sheet = dict()
-            answer_sheet["room_id"] = state #state가 ?�어�?
+            answer_sheet["room_id"] = state #state가 들어감
             answer_sheet["mission"] = "2"
             count_format = dict()
             count_format["person_num"] = {"M":str(self.count_dict['man']),
-                                          "W":str(self.count_dict['woman']),
+                                          "W":str(self.count_dict['man']),
                                           "C":str(self.count_dict['child'])}
             answer_sheet["answer"] = count_format
             self.prev_state = 0
-            return answer_sheet
+            json_object["answer_sheet"] = answer_sheet
+            return json_object
 
 
 

@@ -33,6 +33,12 @@ class Rony2:
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
         self.pub = rospy.Publisher("/move_base_simple/goal", PoseStamped, queue_size=10)
+        self.room_id = 0
+        self.answer_task1
+        self.answer_task2_vision
+        self.answer_task2_audio
+        self.answer_task3
+
 
         self.task1 = Task1(args)
         print("Task 1 model is initialized!")
@@ -51,9 +57,9 @@ class Rony2:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
         with torch.no_grad():
-            json_output = self.task1(image, self.state)    # NOTE: return added
-            self.task2(image, self.state)
-            self.task3(image, self.state)
+            self.room_id, self.answer_task1 = self.task1(image, self.state)    # NOTE: return added
+            self.answer_task2_vision = self.task2(image, self.state)
+            self.answer_task3 = self.task3(image, self.state)
 
     def coord_callback(self, data):
         x, y = data.pose.position.x, data.pose.position.y

@@ -1,3 +1,4 @@
+
 import os
 import sys
 import time
@@ -59,7 +60,7 @@ class Task3:
 
         if kwargs['rgb']:
             kwargs['input_channel'] = 3
-   
+    
         wiw = WIW(**kwargs)
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.wiw = torch.nn.DataParallel(wiw).cuda()
@@ -71,21 +72,21 @@ class Task3:
         # transform = NormalizePAD((3, self.imgH, resized_max_w))
         self.img_cnt=0
 
-    def __call__(self, image, state):
-        print("GPU :",torch.cuda.current_device())
+    def __call__(self, image,state):
+        #print("GPU :",torch.cuda.current_device())
         # image = intput_img[:, :, ::-1] ## # BGR to RGB
         image = np.ascontiguousarray(image)
-   
+    
         ### box inference
-       
+        
         bboxes, polys, score_text = inference(self.craft, image, self.text_threshold,\
                                     self.link_threshold, self.low_text, self.canvas_size, self.mag_ratio, False, None)
-       
+        
         image_show = image.copy()
         crop_image_list = []
 
         for bbox in bboxes:
-           
+            
             x_max = int(np.max(bbox[:,0]))
             x_min = int(np.min(bbox[:,0]))
 
@@ -101,7 +102,7 @@ class Task3:
                 # cropped_img = cropped_img.convert('L') ## no rgb
                 cropped_img = cropped_img.convert('RGB') ## rgb information
 
-                cropped_img = self.transform(cropped_img).unsqueeze(0) ## [1, 1, H, W]
+                cropped_img = self.transform(cropped_img).unsqueeze(0) ## [1, 1, H, W] 
                 crop_image_list.append(cropped_img)
             except:
                 continue
@@ -126,7 +127,7 @@ class Task3:
             # cv2.imwrite('result/test.png', image_show)
             ###### show cv  ######
             # cv2.imshow('Visualize', image_show)
-            # cv2.waitKey(1)
+            # cv2.waitKey(1) 
             ##### print text #####
             # for text in preds_txt:
             #     print(text) ## 작동하는지만 볼 것
@@ -134,7 +135,7 @@ class Task3:
             # -----------------------------------------
             # json export
             # -----------------------------------------
-            # TODO: Text post processing
+            # TODO: Text post processing 
             preds_answer = None
             num_texts = len(preds_txt)
             if num_texts == 0:
@@ -142,27 +143,26 @@ class Task3:
             else:
                 # pdb.set_trace()
                 preds_answer = preds_txt[0].split('[s]')[0]
-   
+    
             json_output = json_postprocess(preds_answer)
             # with open('./result/2021_data.json', 'w', encoding='utf-8') as f:
             #     json.dump(json_output, f, indent=4)
 
             return json_output
             # print(json.dumps(json_output, ensure_ascii=False, indent=4))
-           
+            
         #      with open(args.output_path, 'w') as f:
         #    json.dump(final_result, f)
         else:
             preds_answer = "UNCLEAR"
             json_output = json_postprocess(preds_answer)
 
-           
+            
             return json_output
             # print(json.dumps(json_output, ensure_ascii=False, indent=4))
 
 if __name__ == "__main__":
     import sys
-    from .task3_parse_args import parse_args
     args = parse_args()
     task3 = Task3(**vars(args))
 
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     ## log 생성
     # sys.stdout = open('./result/2022_flight7.txt', 'w')
     # -----------------------------------------
-    # video input preprocessing
+    # video input preprocessing 
     # TODO: real-time video input handling
     # -----------------------------------------
     # frames = []
@@ -187,7 +187,7 @@ if __name__ == "__main__":
 
     # image_path = '/home/sojin/Drone_Challenge/task3/Image_example/간판들.png'
     image_list = '/hub_data2/drone_2022sample/flight07'
-   
+    
     for image_ in sorted(os.listdir(image_list)):
         if image_ == '.DS_Store': continue
 
@@ -203,3 +203,4 @@ if __name__ == "__main__":
         print(answer_dict)
     print("TASK3 TIME :", time.time()-start)
     # sys.stdout.close()
+    

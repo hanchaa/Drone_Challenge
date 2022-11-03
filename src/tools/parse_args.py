@@ -48,7 +48,7 @@ def parse_args():
 
     # task 3
     ## Craft (Detection)
-    parser.add_argument('--craft_weight', default='./task3/trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')
+    parser.add_argument('--craft_weight', default='task3/trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')
     parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
     parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
     parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
@@ -58,7 +58,7 @@ def parse_args():
     ## WIW (Recognition)
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=0)
     parser.add_argument('--batch_size', type=int, default=64, help='input batch size')
-    parser.add_argument('--wiw_wieght', default='./task3/trained_model/best_accuracy_new.pth', help="path to saved_model to evaluation")
+    parser.add_argument('--wiw_wieght', default='task3/trained_model/best_accuracy_new.pth', help="path to saved_model to evaluation")
     
     parser.add_argument('--batch_max_length', type=int, default=25, help='maximum-label-length')
     parser.add_argument('--imgH', type=int, default=32, help='the height of the input image')

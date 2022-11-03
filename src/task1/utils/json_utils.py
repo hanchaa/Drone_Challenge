@@ -98,8 +98,6 @@ def json_preprocess(data_folder = './data_toy/'):
 def json_postprocess(clues_num, data, room_id, unclear=False):
     # json skeleton
     json_object = {
-        'team_id': 'rony2',
-        'secret': 'h8pnwElZ3FBnCwA4',
         'answer_sheet': {
             'room_id': None,
             'mission': "1",

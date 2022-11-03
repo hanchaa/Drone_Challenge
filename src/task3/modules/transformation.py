@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-import pdb
+
 
 class TPS_SpatialTransformerNetwork(nn.Module):
     """ Rectification Network of RARE, namely TPS based STN """
@@ -27,7 +27,6 @@ class TPS_SpatialTransformerNetwork(nn.Module):
         self.GridGenerator = GridGenerator(self.F, self.I_r_size)
 
     def forward(self, batch_I):
-        # pdb.set_trace()
         batch_C_prime = self.LocalizationNetwork(batch_I)  # batch_size x K x 2
         build_P_prime = self.GridGenerator.build_P_prime(batch_C_prime)  # batch_size x n (= I_r_width x I_r_height) x 2
         build_P_prime_reshape = build_P_prime.reshape([build_P_prime.size(0), self.I_r_size[0], self.I_r_size[1], 2])
