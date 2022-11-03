@@ -191,7 +191,7 @@ class Task2Vision:
             answer_sheet["mission"] = "2"
             count_format = dict()
             count_format["person_num"] = {"M":str(self.count_dict['man']),
-                                          "W":str(self.count_dict['man']),
+                                          "W":str(self.count_dict['woman']),
                                           "C":str(self.count_dict['child'])}
             answer_sheet["answer"] = count_format
             self.prev_state = 0
