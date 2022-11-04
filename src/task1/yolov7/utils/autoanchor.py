@@ -1,4 +1,5 @@
 # Auto-anchor utils
+import os.path
 
 import numpy as np
 import torch
@@ -7,7 +8,8 @@ from scipy.cluster.vq import kmeans
 from tqdm import tqdm
 
 import sys
-sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/utils')
+#sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/utils')
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from general import colorstr
 
 

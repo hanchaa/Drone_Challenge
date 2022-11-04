@@ -1,10 +1,13 @@
+import os.path
+
 import numpy as np
 import random
 import torch
 import torch.nn as nn
 
 import sys
-sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/')
+#sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/')
+sys.path.append(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))))
 from .common import Conv
 
 class Ensemble(nn.ModuleList):
