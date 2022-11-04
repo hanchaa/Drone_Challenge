@@ -12,7 +12,7 @@ ENV ROS_HOST_NAME "192.168.1.40"
 ENV REST_ANSWER_URL "http://106.10.49.89:30091/answer"
 ENV REST_MISSION_URL "http://106.10.49.89:30090/mission"
 
-EXPOSE 5000
+EXPOSE 5000/udp
 
 WORKDIR /home/agc2022
 
@@ -21,4 +21,4 @@ COPY ./src .
 RUN pip install -r requirements.txt
 RUN chmod 755 ./task2_audio/receiver.sh
 RUN chmod 755 ./run.sh
-ENTRYPOINT ["./run.sh"]
+ENTRYPOINT ["/bin/bash"]
