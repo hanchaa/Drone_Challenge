@@ -2,7 +2,7 @@
 
 source /opt/ros/melodic/setup.bash
 
-sh ./task2_aduio/receiver.sh &
+sh ./task2_audio/receiver.sh &
 
 python main.py \
 --yolo_path task1/weights/yolo.pt \
