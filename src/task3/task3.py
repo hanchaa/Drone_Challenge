@@ -59,6 +59,7 @@ class Task3:
         self.canvas_size = kwargs['canvas_size']
         self.mag_ratio = kwargs['mag_ratio']
         self.batch_max_length = kwargs['batch_max_length']
+        self.max_confidence = kwargs['max_confidence']
 
 
         ##### Detection model load (CRAFT) #####
@@ -195,7 +196,7 @@ class Task3:
             final_answer = "UNCLEAR"
 
             max_confidence = max(confidence_score_list)
-            if max_confidence > 0.7:
+            if max_confidence > self.max_confidence:
                 max_idx = confidence_score_list.index(max_confidence)
                 final_answer = preds_txt[max_idx].split('[s]')[0]
 

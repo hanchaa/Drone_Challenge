@@ -49,7 +49,8 @@ def parse_args():
     # task 3
     ## Craft (Detection)
     parser.add_argument('--craft_weight', default='task3/trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')
-    parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
+    parser.add_argument('--text_threshold', default=0.5, type=float, help='text confidence threshold')
+    parser.add_argument('--max_confidence', default=0.2, type=float, help='outputlist confidence threshold')
     parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
     parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
     parser.add_argument('--canvas_size', default=1280, type=int, help='image size for inference')

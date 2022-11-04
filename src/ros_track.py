@@ -27,9 +27,6 @@ class Rony2:
         # 1~: 방 번호
         self.state = -1
 
-        self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
-        self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
-
         self.url_mission = os.environ["REST_MISSION_URL"]
         self.url_answer = os.environ["REST_ANSWER_URL"]
 
@@ -57,6 +54,9 @@ class Rony2:
 
         self.task3 = Task3(**vars(args))
         print("Task 3 model is initialized!")
+
+        self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
+        self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
 
     def image_callback(self, data):
         image = np.fromstring(data.data, dtype=np.uint8)

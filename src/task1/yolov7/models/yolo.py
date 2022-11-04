@@ -5,13 +5,14 @@ import sys
 from copy import deepcopy
 
 # sys.path.append('./')  # to run '$ python *.py' files in subdirectories
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 logger = logging.getLogger(__name__)
 import torch
 
 from models.common import *
 from models.experimental import *
 #sys.path.append('/home/eulrang/workspace/git/AGC2022_round3_task1/yolov7/utils')
-sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__))), 'utils')
+sys.path.append(os.path.join(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))), 'utils'))
 from autoanchor import check_anchor_order
 from general import make_divisible, check_file, set_logging
 from torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
