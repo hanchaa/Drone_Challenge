@@ -65,6 +65,7 @@ def main():
     callbacks = MissionStart()
     sub_state=rospy.Subscriber("/scout/mavros/state", State, callbacks.cb_state)
     sub_pose=rospy.Subscriber("/scout/mavros/local_position/pose", PoseStamped, callbacks.cb_pose)
+    print("Waiting for Take Off!")
     callbacks.posez_counter()
     global mission_trigger
     while mission_trigger == True:

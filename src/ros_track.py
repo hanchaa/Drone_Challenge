@@ -143,8 +143,6 @@ class Rony2:
         if old_state != self.state:
             print(f"state is changed from {old_state} to {self.state}")
 
-        time.sleep(0.5)
-
     def __call__(self):
         while not rospy.is_shutdown():
             with torch.no_grad():
