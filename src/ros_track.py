@@ -42,6 +42,7 @@ class Rony2:
         #self.answer_task2_audio
         self.result_task3 = {}
 
+        self.mission_ended = False
 
         self.task1 = Task1(args)
         print("Task 1 model is initialized!")
@@ -123,7 +124,8 @@ class Rony2:
                 #     raise ValueError("Receive ERROR status. Please check your source code.")
 
         # 착륙 중
-        if old_state == 0 and data.pose.position.z < 0.5 :
+        if self.mission_ended == False and old_state == 0 and data.pose.position.z < 0.5 :
+            self.mission_ended = True
             # request end of mission message
             MESSAGE_MISSION_END = {
                 "team_id": "mlvlab",
