@@ -19,22 +19,14 @@ from .models import Estimator
 from .utils import *
 
 
-def update_result(initial_result):
-    if initial_result["male"] == 1:
-        self.result["male"] = initial_result["male"]
-    if initial_result["female"] == 1:
-        self.result["female"] = initial_result["female"]
-    if initial_result["baby"] == 1:
-        self.result["baby"] = initial_result["baby"]
-
-
 def write_csv(state, result):
-    file_path = os.path.join("./task2_audio/results", str(state) + ".csv")
-    file_mode = "a" if os.path.isfile(file_path) else "w"
-
-    with open(file_path, file_mode, newline="") as f:
-        wr = csv.writer(f)
-        wr.writerow([result["male"], result["female"], result["baby"]])
+    print(f"state: {state}, male: {result['male']}, female: {result['female']}, baby: {result['baby']}")
+    # file_path = os.path.join("./task2_audio/results", str(state) + ".csv")
+    # file_mode = "a" if os.path.isfile(file_path) else "w"
+    #
+    # with open(file_path, file_mode, newline="") as f:
+    #     wr = csv.writer(f)
+    #     wr.writerow([result["male"], result["female"], result["baby"]])
 
 
 def get_setting(ckpt_path):
@@ -88,7 +80,7 @@ class Task2Audio():
                 audio = audio.to(self.device)
 
                 initial_result = test(self.estimator, audio, self.threshold, self.smooth, self.min_frame, self.merge_frame)
-                update_result(initial_result)
+                self.update_result(initial_result)
 
                 if self.prev_state != state:
                     write_csv(state, self.result)
@@ -106,3 +98,11 @@ class Task2Audio():
 
         else:
             time.sleep(0.1)
+
+    def update_result(self, initial_result):
+        if initial_result["male"] == 1:
+            self.result["male"] = initial_result["male"]
+        if initial_result["female"] == 1:
+            self.result["female"] = initial_result["female"]
+        if initial_result["baby"] == 1:
+            self.result["baby"] = initial_result["baby"]
