@@ -26,6 +26,7 @@ class Rony2:
         # 0: 복도
         # 1~: 방 번호
         self.state = -1
+        self.prev_state = -1
 
         self.url_mission = os.environ["REST_MISSION_URL"]
         self.url_answer = os.environ["REST_ANSWER_URL"]
@@ -64,48 +65,49 @@ class Rony2:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
         with torch.no_grad():
-            self.result_task1 = self.task1(image, self.state)    # NOTE: return added
-            self.result_task2 = self.task2_vision(image, self.state)
-            self.result_task3 = self.task3(image, self.state)
+            try:
+                self.result_task1 = self.task1(image, self.state)    # NOTE: return added
+            except:
+                self.result_task1 = {
+                    "answer_sheet": {
+                        "room_id": "500",
+                        "mission": "1",
+                        "answer": {
+                            "person_id": "UNCLEAR"
+                        }
+                    }
+                }
 
-    def coord_callback(self, data):
-        x, y = data.pose.position.x, data.pose.position.y
-        old_state = self.state
+            try:
+                self.result_task2 = self.task2_vision(image, self.state)
+            except:
+                self.result_task2 = {
+                    "answer_sheet": {
+                        "room_id": "500",
+                        "mission": "2",
+                        "answer": {
+                            "M": "UNCLEAR",
+                            "W": "UNCLEAR",
+                            "C": "UNCLEAR"
+                        }
+                    }
+                }
 
-        # 1번 방에 들어감
-        if (old_state == 0 or old_state == -1) and float(x) > 1 and float(y) < -2:
-            self.state = 1
+            try:
+                self.result_task3 = self.task3(image, self.state)
+            except:
+                self.result_task3 = {
+                    "answer_sheet": {
+                        "room_id": "500",
+                        "mission": "3",
+                        "answer": {
+                            "place": "UNCLEAR"
+                        }
+                    }
+                }
 
-        # 1번 방에서 나옴
-        if (old_state == 1) and float(y) > -2:
-            self.state = 0
-            self.room_id = 1
-
-            self.result_task1['answer_sheet']['room_id'] = self.room_id
-            self.result_task2['answer_sheet']['room_id'] = self.room_id
-            self.result_task3['answer_sheet']['room_id'] = self.room_id
-
-            for i in range(1,4):
-                self.template['answer_sheet'] = eval(f"self.result_task{i}")
-                data = json.dumps(self.template).encode('unicode-escape')
-                print(data)
-                # req = request.Request(api_url_answer,data=data)
-                # resp = request.urlopen(req)
-                # status = resp.read().decode('utf8')
-                # if "OK" in status:
-                #     print("Complete send : Answersheet!!")
-                # elif "ERROR" == status:
-                #     raise ValueError("Receive ERROR status. Please check your source code.")
-
-        # 2번 방에 들어감
-        if (old_state == 0 or old_state == -1) and float(y) > 2:
-            self.state = 2
-            self.room_id = 2
-
-        # 2번 방에서 나옴
-        if (old_state == 2) and float(y) < 2:
-            self.state = 0
-            self.room_id = 2
+        if (self.prev_state != -1 or self.prev_state != 0) and self.state == 0:
+            self.room_id = self.prev_state
 
             self.result_task1['answer_sheet']['room_id'] = self.room_id
             self.result_task2['answer_sheet']['room_id'] = self.room_id
@@ -122,6 +124,29 @@ class Rony2:
                 #     print("Complete send : Answersheet!!")
                 # elif "ERROR" == status:
                 #     raise ValueError("Receive ERROR status. Please check your source code.")
+
+        self.prev_state = self.state
+
+    def coord_callback(self, data):
+        x, y = data.pose.position.x, data.pose.position.y
+        old_state = self.state
+
+        # 1번 방에 들어감
+        if (old_state == 0 or old_state == -1) and float(x) > 1 and float(y) < -2:
+            self.state = 1
+
+        # 1번 방에서 나옴
+        if (old_state == 1) and float(y) > -2:
+            self.state = 0
+
+
+        # 2번 방에 들어감
+        if (old_state == 0 or old_state == -1) and float(y) > 2:
+            self.state = 2
+
+        # 2번 방에서 나옴
+        if (old_state == 2) and float(y) < 2:
+            self.state = 0
 
         # 착륙 중
         if self.mission_ended == False and old_state == 0 and data.pose.position.z < 0.5 :
