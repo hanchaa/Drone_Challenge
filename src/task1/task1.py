@@ -107,7 +107,7 @@ class Task1:
             # -----------------------------------------
             # image clue preprocessing
             # -----------------------------------------
-            clue_img_list = glob.glob(self.clue_path+'/*.png', recursive=True)   # png or jpg??
+            clue_img_list = glob.glob(self.clue_path+'/*.jpg', recursive=True)   # png or jpg??
             clue_imgs = []
             clue_imgs_p = []
             clue_imgs_scales = []
