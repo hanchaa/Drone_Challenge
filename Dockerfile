@@ -15,5 +15,6 @@ WORKDIR /home/agc2022
 RUN mkdir dataset
 COPY ./src .
 RUN pip install -r requirements.txt
+RUN chmod 755 ./task2_audio/receiver.sh
 RUN chmod 755 ./run.sh
 ENTRYPOINT ["./run.sh"]
