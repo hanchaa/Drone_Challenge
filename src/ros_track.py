@@ -57,7 +57,7 @@ class Rony2:
         self.task3 = Task3(**vars(args))
         print("Task 3 model is initialized!")
 
-        self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
+        self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback, queue_size=1, buff_size=2**24)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
 
     def image_callback(self, data):
