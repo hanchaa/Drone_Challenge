@@ -135,7 +135,7 @@ if __name__ == "__main__":
                     raise ValueError("Receive ERROR status. Please check your source code.")
 
         if state > 7 :
-            import pdb;pdb.set_trace()
+            #import pdb;pdb.set_trace()
             # request end of mission message
             MESSAGE_MISSION_END = {
                 "team_id": "mlvlab",

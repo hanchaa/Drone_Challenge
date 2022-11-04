@@ -70,7 +70,7 @@ def main():
         callbacks.mission_start()
 
     ## TODO : 답안지 생성 & 제출 ##
-    rony2_model()
+    rony2_model(api_url_mission,api_url_answer)
     
 
 if __name__ == "__main__":
