@@ -23,8 +23,8 @@ if __name__ == "__main__":
     # 6: 3번 방에서 나오고 착지 이전까지
     
     # load environment variable
-    api_url_answer = 'http://106.10.49.89:30091/answer'  
-    api_url_mission = 'http://106.10.49.89:30090/mission'
+    api_url_answer = os.environ["REST_ANSWER_URL"]  
+    api_url_mission = os.environ["REST_MISSION_URL"]
     data_path = '/home/agc2022/dataset'     
     
     args = parse_args()
