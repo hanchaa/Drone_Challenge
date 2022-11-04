@@ -8,7 +8,7 @@ from urllib import request
 from tools import parse_args
 from task1 import Task1
 from task2_vision import Task2Vision
-#from task2_audio import Task2Audio
+from task2_audio import Task2Audio
 from task3 import Task3
 
 
@@ -74,7 +74,7 @@ if __name__ == "__main__":
         print(f"num frames: {num_frames}")
 
         with torch.no_grad():
-            #import pdb; pdb.set_trace()
+            # import pdb; pdb.set_trace()
             
             result_task1 = task1(frame, state)
             result_task2 = task2_vision(frame,state)

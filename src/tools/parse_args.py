@@ -78,7 +78,7 @@ def parse_args():
     parser.add_argument('--hidden_size', type=int, default=256, help='the size of the LSTM hidden state')
 
     # for debugging
-    parser.add_argument('--video_path', type=str, default=None, help='video path')
+    parser.add_argument('--video_path', type=str, default='/hub_data2/video_sample/set03_drone01.mp4', help='video path')
 
     args = parser.parse_args()
     args.imgsz *= 2 if len(args.imgsz) == 1 else 1  # expand
