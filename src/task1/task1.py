@@ -82,189 +82,192 @@ class Task1:
         else:
             self.yolo = TracedModel(yolo, 'cuda', self.img_size)
 
-        # -----------------------------------------
-        # image clue preprocessing
-        # -----------------------------------------
-        clue_img_list = glob.glob(self.clue_path+'/*.png', recursive=True)   # png or jpg??
-        clue_img_list.sort()
-        self.clue_img_list = clue_img_list
-        
-        # -----------------------------------------
-        # text clue preprocessing
-        # -----------------------------------------
-        txts = glob.glob(self.clue_path+'/*.json', recursive=True)
-        txts.sort()
-        txt_dict = json_preprocess(txts)
-        
-        txt_cls = []
-        txt_dict_k = list(txt_dict.keys())
-        for i in range(0, len(txt_dict_k)):
-            txt_dict_v = txt_dict[txt_dict_k[i]]
-            for j in range(0, len(txt_dict_v)):
-                txt_cls.append(CLASS_MAP[txt_dict_v[j]])
-        self.txt_clue = txt_cls
-
     def __call__(self, img: np.ndarray, state):
-        img_score = 0.0
-        txt_score = 0.0
-
-        # -----------------------------------------
-        # Superglue inference
-        # -----------------------------------------
-        if self.task1_debug:
-            input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
-        else:
-            input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')       # NOTE: video frame image
-        
-        clue_imgs = []
-        clue_imgs_p = []
-        clue_imgs_scales = []
-        for clue_img_ in self.clue_img_list:
-            clue_img_ = cv2.imread(clue_img_, cv2.IMREAD_GRAYSCALE)
-            image1, inp1, scales1 = read_image(clue_img_, [640, 480], 'cuda')   # NOTE: clue image
-            clue_imgs.append(image1)
-            clue_imgs_p.append(inp1)
-            clue_imgs_scales.append(scales1)
-
-        if len(self.clue_img_list) > 0:
-            score = []
-            clue_txt = []
-            for i in range(len(self.clue_img_list)):    # NOTE: 각 이미지 단서마다 kpts, mean confidence 저장
-                pred, matches, conf = matching({'image0': inp0, 'image1': clue_imgs_p[i]}, self.superpoint, self.superglue)
-                kpts0, kpts1 = pred['keypoints0'], pred['keypoints1']
-                valid = matches > -1
-                mkpts0 = kpts0[valid]
-                mkpts1 = kpts1[matches[valid]]
-                mconf = conf[valid]    # NOTE: superpoint 개수
-                score.append((mkpts0.shape[0], mconf.mean()))
-
-                # for debugging
-                if self.debug_output_path != None:
-                    if (score[i][0] > 50 and score[i][1] > 0.7):    # superpoint > 50 & confidence > 0.5 일 때만 이미지 저장
-                        color = cm.jet(mconf)
-                        label = [
-                            'SuperGlue',
-                            'Keypoints: {}:{}'.format(len(kpts0), len(kpts1)),
-                            'Matches: {}'.format(len(mkpts0)),
-                        ]
-
-                        k_thresh = self.img_config['superpoint']['keypoint_threshold']
-                        m_thresh = self.img_config['superglue']['match_threshold']
-                        small_text = [
-                            'Keypoint Threshold: {:.4f}'.format(k_thresh),
-                            'Match Threshold: {:.2f}'.format(m_thresh),
-                        ]
-
-                        make_matching_plot(image0, clue_imgs[i], mkpts0, mkpts1, color, label,
-                                        self.debug_output_path+'frame'+str(self.cnt)+'_clue'+str(i), small_text)
-
-                clue_txt.append(self.clue_img_list[i][-5:-4])
-
+        try:
             img_score = 0.0
-            for i in range(0, len(score)):
-                if score[i][0] >= self.img_kp_th:
-                    img_score = img_score+score[i][1]
+            txt_score = 0.0
+            clue_txt = []
+            
+            # -----------------------------------------
+            # text clue preprocessing
+            # -----------------------------------------
+            txts = glob.glob(self.clue_path+'/*.json', recursive=True)
+            if len(txts) > 0:
+                txts.sort()
+                txt_dict = json_preprocess(txts)
+            
+                txt_cls = []
+                txt_dict_k = list(txt_dict.keys())
+                for i in range(0, len(txt_dict_k)):
+                    txt_dict_v = txt_dict[txt_dict_k[i]]
+                    for j in range(0, len(txt_dict_v)):
+                        txt_cls.append(CLASS_MAP[txt_dict_v[j]])
+                txt_clue = txt_cls
 
+            # -----------------------------------------
+            # image clue preprocessing
+            # -----------------------------------------
+            clue_img_list = glob.glob(self.clue_path+'/*.png', recursive=True)   # png or jpg??
+            clue_imgs = []
+            clue_imgs_p = []
+            clue_imgs_scales = []
+            if len(clue_img_list) > 0:
+                clue_img_list.sort()
+                for clue_img_ in clue_img_list:
+                    clue_img_ = cv2.imread(clue_img_, cv2.IMREAD_GRAYSCALE)
+                    image1, inp1, scales1 = read_image(clue_img_, [640, 480], 'cuda')   # NOTE: clue image
+                    clue_imgs.append(image1)
+                    clue_imgs_p.append(inp1)
+                    clue_imgs_scales.append(scales1)
 
-        # -----------------------------------------
-        # YOLO inference
-        # -----------------------------------------
-        if len(self.txt_clue) > 0:
-            self.yolo(torch.zeros(1, 3, self.img_size, self.img_size).to('cuda').type_as(next(self.yolo.parameters())))
+            # -----------------------------------------
+            # Superglue inference
+            # -----------------------------------------
             if self.task1_debug:
-                load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
-                _, yolo_img, im0s, _ = next(iter(load_img))
+                input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             else:
-                im0s = img
-                yolo_img = letterbox(im0s, self.img_size, stride=self.stride)[0]
-                yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
-                yolo_img = np.ascontiguousarray(yolo_img)
-            yolo_img = torch.from_numpy(yolo_img).to('cuda')
-            yolo_img = yolo_img.half() if self.half else yolo_img.float()
-            yolo_img /= 255.0
-            if len(yolo_img.shape) == 3:
-                yolo_img = yolo_img.unsqueeze(0)
+                input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')       # NOTE: video frame image
 
-            old_img_w = old_img_h = self.img_size
-            old_img_b = 1
 
-            # Warmup
-            if (old_img_b != yolo_img.shape[0] or old_img_h != yolo_img.shape[2] or old_img_w != yolo_img.shape[3]):
-                old_img_b = yolo_img.shape[0]
-                old_img_h = yolo_img.shape[2]
-                old_img_w = yolo_img.shape[3]
-                for i in range(3):
-                    self.yolo(yolo_img)[0]
+            if len(clue_img_list) > 0:
+                score = []
+                for i in range(len(clue_img_list)):    # NOTE: 각 이미지 단서마다 kpts, mean confidence 저장
+                    pred, matches, conf = matching({'image0': inp0, 'image1': clue_imgs_p[i]}, self.superpoint, self.superglue)
+                    kpts0, kpts1 = pred['keypoints0'], pred['keypoints1']
+                    valid = matches > -1
+                    mkpts0 = kpts0[valid]
+                    mkpts1 = kpts1[matches[valid]]
+                    mconf = conf[valid]    # NOTE: superpoint 개수
+                    score.append((mkpts0.shape[0], mconf.mean()))
 
-            with torch.no_grad():
-                pred = self.yolo(yolo_img)[0]
-            pred = non_max_suppression(pred, self.conf_th, self.iou_th, self.classes, self.cls_agnostic_nms)[0]
-            pred[:, :4] = scale_coords(yolo_img.shape[2:], pred[:, :4], im0s.shape).round()
+                    # for debugging
+                    if self.debug_output_path != None:
+                        if (score[i][0] > 50 and score[i][1] > 0.7):    # superpoint > 50 & confidence > 0.5 일 때만 이미지 저장
+                            color = cm.jet(mconf)
+                            label = [
+                                'SuperGlue',
+                                'Keypoints: {}:{}'.format(len(kpts0), len(kpts1)),
+                                'Matches: {}'.format(len(mkpts0)),
+                            ]
 
-            if (self.task1_debug or self.debug_output_path != None):
-                for *xyxy, conf, cls in reversed(pred):
-                    label = f'{self.names[int(cls)]} {conf:.2f}'
-                    plot_one_box(xyxy, im0s, label=label, color=self.colors[int(cls)], line_thickness=1)
-                cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                            k_thresh = self.img_config['superpoint']['keypoint_threshold']
+                            m_thresh = self.img_config['superglue']['match_threshold']
+                            small_text = [
+                                'Keypoint Threshold: {:.4f}'.format(k_thresh),
+                                'Match Threshold: {:.2f}'.format(m_thresh),
+                            ]
 
-            # score 계산
-            for i in range(0, len(self.txt_clue)):
-                for j in range(0, pred.shape[0]):
-                    if (self.txt_clue[i] == pred[j][5] and pred[j][4] >= self.od_th):     # NOTE: prediction = [x, y, x, y, conf, cls]
-                        txt_score = txt_score+pred[j][4]
+                            make_matching_plot(image0, clue_imgs[i], mkpts0, mkpts1, color, label,
+                                            self.debug_output_path+'frame'+str(self.cnt)+'_clue'+str(i), small_text)
 
-        # -----------------------------------------
-        # Apriltag detection
-        # -----------------------------------------
-        april_detections = []
-        tag_id = []
-        detector = apriltag.Detector()
-        april_detections.append(detector.detect(input_img))
-        tag_id = []
-        for i in range(0, len(april_detections[0])):
-            tag_id.append(april_detections[0][i].tag_id)
+                    clue_txt.append(clue_img_list[i][-6:-4])
 
-        tag_id_set = set(tag_id)
-        tag_id_list = list(tag_id_set)
-        img_clue_num = len(april_detections)
-        clues_num = img_clue_num # txt_clue_num
-        data = [clues_num, tag_id_list]
+                img_score = 0.0
+                for i in range(0, len(score)):
+                    if score[i][0] >= self.img_kp_th:
+                        img_score = img_score+score[i][1]
 
-        # room id here  TODO: room id 고정
-        room_id = None
-        for i in range(0, len(tag_id)):
-            if tag_id[i] >= 500:
-                room_id = tag_id[i]
 
-        # -----------------------------------------
-        # json export
-        # -----------------------------------------
-        total_score = img_score+txt_score
-        if len(self.clue_img_list) > 0 and len(self.txt_clue) == 0:  # image clue only
-            if img_score > self.img_conf_th:
-                json_output = json_postprocess(clues_num, data, room_id)
-            else:
-                json_output = json_postprocess(clue_txt[0], data, room_id, unclear=True)    # FIXME
-        elif len(self.clue_img_list) == 0 and len(self.txt_clue) > 0: # txt clue only
-            if txt_score > self.txt_th:
-                json_output = json_postprocess(clues_num, data, room_id)
-            else:
-                json_output = json_postprocess(clue_txt[0], data, room_id, unclear=True)    # FIXME
-        elif len(self.clue_img_list) > 0 and len(self.txt_clue) > 0: # image and txt clue
-            if total_score > self.total_th:
-                json_output = json_postprocess(clues_num, data, room_id)
-            else:
-                json_output = json_postprocess(clue_txt[0], data, room_id, unclear=True)    # FIXME
-        
-        # with open(self.json_output_path, 'w', encoding='utf-8') as f:
-        #     json.dump(json_output, f, indent=4)
+            # -----------------------------------------
+            # YOLO inference
+            # -----------------------------------------
+            if len(txt_clue) > 0:
+                self.yolo(torch.zeros(1, 3, self.img_size, self.img_size).to('cuda').type_as(next(self.yolo.parameters())))
+                if self.task1_debug:
+                    load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
+                    _, yolo_img, im0s, _ = next(iter(load_img))
+                else:
+                    im0s = img
+                    yolo_img = letterbox(im0s, self.img_size, stride=self.stride)[0]
+                    yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
+                    yolo_img = np.ascontiguousarray(yolo_img)
+                yolo_img = torch.from_numpy(yolo_img).to('cuda')
+                yolo_img = yolo_img.half() if self.half else yolo_img.float()
+                yolo_img /= 255.0
+                if len(yolo_img.shape) == 3:
+                    yolo_img = yolo_img.unsqueeze(0)
 
-        print(room_id, json_output)
+                old_img_w = old_img_h = self.img_size
+                old_img_b = 1
 
-        self.cnt = self.cnt+1
+                # Warmup
+                if (old_img_b != yolo_img.shape[0] or old_img_h != yolo_img.shape[2] or old_img_w != yolo_img.shape[3]):
+                    old_img_b = yolo_img.shape[0]
+                    old_img_h = yolo_img.shape[2]
+                    old_img_w = yolo_img.shape[3]
+                    for i in range(3):
+                        self.yolo(yolo_img)[0]
 
-        return json_output
+                with torch.no_grad():
+                    pred = self.yolo(yolo_img)[0]
+                pred = non_max_suppression(pred, self.conf_th, self.iou_th, self.classes, self.cls_agnostic_nms)[0]
+                pred[:, :4] = scale_coords(yolo_img.shape[2:], pred[:, :4], im0s.shape).round()
+
+                if (self.task1_debug or self.debug_output_path != None):
+                    for *xyxy, conf, cls in reversed(pred):
+                        label = f'{self.names[int(cls)]} {conf:.2f}'
+                        plot_one_box(xyxy, im0s, label=label, color=self.colors[int(cls)], line_thickness=1)
+                    cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+
+                for i in range(0, len(txts)):                
+                    clue_txt.append(txts[i][-7:-5])
+
+                # score 계산
+                for i in range(0, len(txt_clue)):
+                    for j in range(0, pred.shape[0]):
+                        if (txt_clue[i] == pred[j][5] and pred[j][4] >= self.od_th):     # NOTE: prediction = [x, y, x, y, conf, cls]
+                            txt_score = txt_score+pred[j][4]
+
+            # -----------------------------------------
+            # Apriltag detection
+            # -----------------------------------------
+            april_detections = []
+            tag_id = []
+            detector = apriltag.Detector()
+            april_detections.append(detector.detect(input_img))
+            tag_id = []
+            for i in range(0, len(april_detections[0])):
+                tag_id.append(april_detections[0][i].tag_id)
+
+            tag_id_set = set(tag_id)
+            tag_id_list = list(tag_id_set)
+            img_clue_num = len(april_detections)
+            clues_num = img_clue_num # txt_clue_num
+            data = [clues_num, tag_id_list]
+
+            room_id = None
+            for i in range(0, len(tag_id)):
+                if tag_id[i] >= 500:
+                    room_id = tag_id[i]
+
+            # -----------------------------------------
+            # json export
+            # -----------------------------------------
+            total_score = img_score+txt_score
+            json_output = json_postprocess(clue_txt, data, room_id, unclear=True)   # json UNCLEAR initialization
+            if len(clue_img_list) > 0 and len(txt_clue) == 0:  # image clue only
+                if img_score > self.img_conf_th:
+                    json_output = json_postprocess(clue_txt, data, room_id)
+            elif len(clue_img_list) == 0 and len(txt_clue) > 0: # txt clue only
+                if txt_score > self.txt_th:
+                    json_output = json_postprocess(clue_txt, data, room_id)
+            elif len(clue_img_list) > 0 and len(txt_clue) > 0: # image and txt clue
+                if total_score > self.total_th:
+                    json_output = json_postprocess(clue_txt, data, room_id)
+            
+            # with open(self.json_output_path, 'w', encoding='utf-8') as f:
+            #     json.dump(json_output, f, indent=4)
+
+            print(room_id, json_output)
+
+            self.cnt = self.cnt+1
+
+            return json_output
+
+        except:
+            json_output = json_postprocess(None, None, None, unclear=True)
+            return json_output
 
 if __name__ == "__main__":
     args = parse_args()
