@@ -266,7 +266,8 @@ class Task1:
             return json_output
 
         except:
-            pass
+            json_output = json_postprocess(None, None, None, unclear=True)
+            return json_output
 
 if __name__ == "__main__":
     args = parse_args()
