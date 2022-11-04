@@ -27,6 +27,12 @@ if __name__ == "__main__":
     api_url_mission = 'http://106.10.49.89:30090/mission'
     data_path = '/home/agc2022/dataset'     
     
+    args = parse_args()
+    task1 = Task1(args)
+    task2_vision = Task2Vision(args)
+    #task2_audio = TaskAudio(args)
+    task3 = Task3(**vars(args))
+
     # --------------------------------------
     # MISSION START
     MESSAGE_MISSION_START = {
@@ -43,7 +49,6 @@ if __name__ == "__main__":
     elif "ERROR" == status:    
         raise ValueError("Receive ERROR status. Please check your source code.")
     # ----------------------------------------
-    args = parse_args()
 
     assert os.path.isfile(args.video_path), "No video exists!"
 
@@ -51,10 +56,6 @@ if __name__ == "__main__":
     del args.video_path
 
     num_frames = 0
-    task1 = Task1(args)
-    task2_vision = Task2Vision(args)
-    #task2_audio = TaskAudio(args)
-    task3 = Task3(**vars(args))
     
     template = {
         "team_id": "mlvlab",
