@@ -194,7 +194,7 @@ class Task2Vision:
             else:
                 room_id = state
         answer_sheet = dict()
-        answer_sheet["room_id"] = state  # state가 들어감
+        answer_sheet["room_id"] = room_id  # state가 들어감
         answer_sheet["mission"] = "2"
         count_format = dict()
         count_format["person_num"] = {"M": str(min(self.count_dict['man'], 16)),
