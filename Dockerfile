@@ -9,6 +9,10 @@ ENV TZ=Asia/Seoul
 # set environmet variables for ROS Conn info.
 ENV ROS_MASTER_URI "http://192.168.0.20:11311"
 ENV ROS_HOST_NAME "192.168.1.40"
+ENV REST_ANSWER_URL "http://106.10.49.89:30091/answer"
+ENV REST_MISSION_URL "http://106.10.49.89:30090/mission"
+
+EXPOSE 5000
 
 WORKDIR /home/agc2022
 
