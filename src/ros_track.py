@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import os
 import csv
 import time
+import json
 
 from tools import parse_args
 
@@ -17,25 +18,21 @@ from task2_audio import Task2Audio
 from task3 import Task3
 
 class Rony2:
-    def __init__(self,api_url_mission,api_url_answer):
+    def __init__(self):
         args = parse_args()
         del args.video_path
 
-        # 0: 상승후 첫 방 입장까지의 복도
-        # 1: 1번 방
-        # 2: 1번 방에서 나오고 복도
-        # 3: 2번방
-        # 4: 2번 방에서 나오고 복도
-        # 5: 3번 방
-        # 6: 3번 방에서 나오고 착지 이전까지
+        # -1: 이륙 (어떤 방이든 처음으로 들어갈 때 까지)
+        # 0: 복도
+        # 1~: 방 번호
         self.state = -1
 
         self.image_sub = rospy.Subscriber("/camera/color/image_raw/compressed", CompressedImage, self.image_callback)
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
-        self.pub = rospy.Publisher("/move_base_simple/goal", PoseStamped, queue_size=10)
 
-        self.url_mission = 'http://106.10.49.89:30090/mission'
-        self.url_answer = 'http://106.10.49.89:30091/answer'  
+        self.url_mission = os.environ["REST_MISSION_URL"]
+        self.url_answer = os.environ["REST_ANSWER_URL"]
+
         self.room_id = 0
         self.template = {
         "team_id": "mlvlab",
@@ -55,7 +52,7 @@ class Rony2:
         self.task2_vision = Task2Vision(args)
         print("Task 2 vision model is initialized!")
 
-        self.task2_audio = Task2Audio(args, self.pub)
+        self.task2_audio = Task2Audio(args)
         print("Task 2 audio model is initialized!")
 
         self.task3 = Task3(**vars(args))
@@ -74,69 +71,58 @@ class Rony2:
         x, y = data.pose.position.x, data.pose.position.y
         old_state = self.state
 
-        if float(x) < 0 and float(y) < -17:
+        # 1번 방에 들어감
+        if (old_state == 0 or old_state == -1) and float(x) > 1 and float(y) < -2:
             self.state = 1
 
-        if old_state == 1 and float(x) > 0.5:
-            self.state = 2
+        # 1번 방에서 나옴
+        if (old_state == 1) and float(y) > -2:
+            self.state = 0
             self.room_id = 1
+
             self.result_task1['answer_sheet']['room_id'] = self.room_id
             self.result_task2['answer_sheet']['room_id'] = self.room_id
             self.result_task3['answer_sheet']['room_id'] = self.room_id
 
             for i in range(1,4):
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
-                data = json.dumps(template).encode('unicode-escape')
-                req = request.Request(api_url_answer,data=data)
-                resp = request.urlopen(req)
-                status = resp.read().decode('utf8')
-                if "OK" in status:
-                    print("Complete send : Answersheet!!")
-                elif "ERROR" == status:    
-                    raise ValueError("Receive ERROR status. Please check your source code.")
+                data = json.dumps(self.template).encode('unicode-escape')
+                print(data)
+                # req = request.Request(api_url_answer,data=data)
+                # resp = request.urlopen(req)
+                # status = resp.read().decode('utf8')
+                # if "OK" in status:
+                #     print("Complete send : Answersheet!!")
+                # elif "ERROR" == status:
+                #     raise ValueError("Receive ERROR status. Please check your source code.")
 
-        if old_state == 2 and float(y) > -14.6 and float(x) < 0:
-            self.state = 3
-
-        if old_state == 3 and float(x) > 0.5:
-            self.state = 4
+        # 2번 방에 들어감
+        if (old_state == 0 or old_state == -1) and float(y) > 2:
+            self.state = 2
             self.room_id = 2
+
+        # 2번 방에서 나옴
+        if (old_state == 2) and float(y) < 2:
+            self.state = 0
+            self.room_id = 2
+
             self.result_task1['answer_sheet']['room_id'] = self.room_id
             self.result_task2['answer_sheet']['room_id'] = self.room_id
             self.result_task3['answer_sheet']['room_id'] = self.room_id
 
-            for i in range(1,4):
+            for i in range(1, 4):
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
-                data = json.dumps(template).encode('unicode-escape')
-                req = request.Request(api_url_answer,data=data)
-                resp = request.urlopen(req)
-                status = resp.read().decode('utf8')
-                if "OK" in status:
-                    print("Complete send : Answersheet!!")
-                elif "ERROR" == status:    
-                    raise ValueError("Receive ERROR status. Please check your source code.")
+                data = json.dumps(self.template).encode('unicode-escape')
+                print(data)
+                # req = request.Request(api_url_answer,data=data)
+                # resp = request.urlopen(req)
+                # status = resp.read().decode('utf8')
+                # if "OK" in status:
+                #     print("Complete send : Answersheet!!")
+                # elif "ERROR" == status:
+                #     raise ValueError("Receive ERROR status. Please check your source code.")
 
-        if old_staet == 4 and float(y) > -7.3 and float(x) < 0:
-            self.state = 5
-
-        if old_state == 5 and float(x) > 0.5:
-            self.state = 6
-            self.room_id = 3
-            self.result_task1['answer_sheet']['room_id'] = self.room_id
-            self.result_task2['answer_sheet']['room_id'] = self.room_id
-            self.result_task3['answer_sheet']['room_id'] = self.room_id
-
-            for i in range(1,4):
-                self.template['answer_sheet'] = eval(f"self.result_task{i}")
-                data = json.dumps(template).encode('unicode-escape')
-                req = request.Request(api_url_answer,data=data)
-                resp = request.urlopen(req)
-                status = resp.read().decode('utf8')
-                if "OK" in status:
-                    print("Complete send : Answersheet!!")
-                elif "ERROR" == status:    
-                    raise ValueError("Receive ERROR status. Please check your source code.")
-
+        # 착륙 중
         if old_state == 0 and data.pose.position.z < 0.5 :
             # request end of mission message
             MESSAGE_MISSION_END = {
@@ -145,16 +131,19 @@ class Rony2:
                 "end_of_mission": "true"
             }
             data_mission = json.dumps(MESSAGE_MISSION_END).encode('utf8')
-            req = request.Request(self.url_answer, data=data_mission)
-            resp = request.urlopen(req)
-            status = resp.read().decode('utf8')
-            if "OK" in status:
-                print("Complete send : Mission Start!!")
-            elif "ERROR" == status:    
-                raise ValueError("Receive ERROR status. Please check your source code.")
+            print(data_mission)
+            # req = request.Request(self.url_answer, data=data_mission)
+            # resp = request.urlopen(req)
+            # status = resp.read().decode('utf8')
+            # if "OK" in status:
+            #     print("Complete send : Mission Start!!")
+            # elif "ERROR" == status:
+            #     raise ValueError("Receive ERROR status. Please check your source code.")
 
         if old_state != self.state:
             print(f"state is changed from {old_state} to {self.state}")
+
+        time.sleep(0.5)
 
     def __call__(self):
         while not rospy.is_shutdown():
@@ -164,5 +153,5 @@ class Rony2:
 
 if __name__ == "__main__":
     rospy.init_node("ros_node")
-    model = Rony2(api_url_mission,api_url_answer)
+    model = Rony2()
     model()

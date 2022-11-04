@@ -34,7 +34,7 @@ def parse_args():
     parser.add_argument('--train', type=bool, default=False)
 
     # task 2 audio
-    parser.add_argument('--checkpoint', type=str, default='./task2_audio/ckpts/16k_magspec.0080.pt')
+    parser.add_argument('--checkpoint', type=str, default='./task2_audio/ckpts/2022_11_03_17_47_47.0100.pt')
     parser.add_argument('--filename', type=str, default='wavwavwavwav.wav')
     parser.add_argument('--mel', dest='mel', action='store_true')
     parser.set_defaults(mel=False)

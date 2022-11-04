@@ -46,12 +46,13 @@ class MissionStart:
             if self.armed_state == True and counter_z == 20:
                 print("Take-Off and Mission Start!")
                 data_mission = json.dumps(MESSAGE_MISSION_START).encode('utf8')
-                req = request.Request(api_url_mission, data=data_mission)
-                resp = request.urlopen(req)
-                status = resp.read().decode('utf8')
-                if "OK" in status:
-                    print("Complete send : Mission Start!!")
-                    mission_trigger=False
+                print(data_mission)
+                # req = request.Request(api_url_mission, data=data_mission)
+                # resp = request.urlopen(req)
+                # status = resp.read().decode('utf8')
+                # if "OK" in status:
+                #     print("Complete send : Mission Start!!")
+                mission_trigger=False
 
 def main():
     data_path = r'/home/agc2022/dataset/'
@@ -70,7 +71,7 @@ def main():
         callbacks.mission_start()
 
     ## TODO : 답안지 생성 & 제출 ##
-    rony2_model(api_url_mission,api_url_answer)
+    rony2_model()
     
 
 if __name__ == "__main__":
