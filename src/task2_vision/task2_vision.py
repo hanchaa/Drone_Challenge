@@ -193,6 +193,7 @@ class Task2Vision:
                 room_id = state - 1
             else:
                 room_id = state
+        return_sheet = {"team_id": "convai", "secret": "3dlZhXRPPyt22tR9"}
         answer_sheet = dict()
         answer_sheet["room_id"] = room_id  # state가 들어감
         answer_sheet["mission"] = "2"
@@ -201,8 +202,9 @@ class Task2Vision:
                                       "W": str(min(self.count_dict['woman'], 16)),
                                       "C": str(min(self.count_dict['child'], 16))}
         answer_sheet["answer"] = count_format
+        return_sheet['answer_sheet'] = answer_sheet
         self.prev_state = state % 2
-        return answer_sheet
+        return return_sheet
 
 
 
