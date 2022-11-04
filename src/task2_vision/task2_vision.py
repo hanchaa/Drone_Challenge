@@ -183,25 +183,26 @@ class Task2Vision:
 
     def save_results(self,state):
         # TODO SANITY CHECK!!!!! 꼭꼭꼭꼭꼭!!!
-        json_object = {}
-        if state % 2 == 1 : # if in room
-            if self.prev_state == 0 :
-                for k in ['man', 'woman', 'child']:
-                    self.count_dict[k] = 0
-            self.prev_state = 1
-            return None
-        else : # if in hallway  
-            answer_sheet = dict()
-            answer_sheet["room_id"] = state #state가 들어감
-            answer_sheet["mission"] = "2"
-            count_format = dict()
-            count_format["person_num"] = {"M":str(self.count_dict['man']),
-                                          "W":str(self.count_dict['man']),
-                                          "C":str(self.count_dict['child'])}
-            answer_sheet["answer"] = count_format
-            self.prev_state = 0
-            json_object["answer_sheet"] = answer_sheet
-            return json_object
+        if self.prev_state == 0 and state % 2 == 1:  # = just entered room
+            for k in ['man', 'woman', 'child']:
+                self.count_dict[k] = 0
+        if state == 0:
+            room_id = state
+        else:
+            if state % 2 == 0:
+                room_id = state - 1
+            else:
+                room_id = state
+        answer_sheet = dict()
+        answer_sheet["room_id"] = state  # state가 들어감
+        answer_sheet["mission"] = "2"
+        count_format = dict()
+        count_format["person_num"] = {"M": str(min(self.count_dict['man'], 16)),
+                                      "W": str(min(self.count_dict['woman'], 16)),
+                                      "C": str(min(self.count_dict['child'], 16))}
+        answer_sheet["answer"] = count_format
+        self.prev_state = state % 2
+        return answer_sheet
 
 
 
