@@ -106,7 +106,7 @@ class Rony2:
                     }
                 }
 
-        if (self.prev_state != -1 or self.prev_state != 0) and self.state == 0:
+        if self.prev_state > 0 and self.state == 0:
             self.room_id = self.prev_state
 
             self.result_task1['answer_sheet']['room_id'] = self.room_id
