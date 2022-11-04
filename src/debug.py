@@ -61,7 +61,8 @@ if __name__ == "__main__":
         "secret": "h8pnwElZ3FBnCwA4",
         "answer_sheet": {}
     }
-
+    
+    prev_state = -1
     while True:
         retval, frame = cap.read()
         if not retval:
@@ -69,17 +70,17 @@ if __name__ == "__main__":
 
         num_frames += 1
         state = num_frames // 10 
-        print(num_frames)
+        print(f"num frames: {num_frames}")
 
         with torch.no_grad():
             #import pdb; pdb.set_trace()
             
-            room_id, result_task1 = task1(frame, state)
+            result_task1 = task1(frame, state)
             result_task2 = task2_vision(frame,state)
             #task2_audio(frame,state)
             result_task3 = task3(frame,state)
 
-        if state == 2 :
+        if prev_state == 1 and state == 2 :
             room_id = 1
             result_task1['answer_sheet']['room_id'] = room_id
             result_task2['answer_sheet']['room_id'] = room_id
@@ -98,7 +99,7 @@ if __name__ == "__main__":
 
                 
 
-        if state == 4 :
+        if prev_state == 3 and state == 4 :
             room_id = 2
             result_task1['answer_sheet']['room_id'] = room_id
             result_task2['answer_sheet']['room_id'] = room_id
@@ -117,7 +118,7 @@ if __name__ == "__main__":
 
 
 
-        if state == 6 :
+        if prev_state == 5 and state == 6 :
             room_id = 3
             result_task1['answer_sheet']['room_id'] = room_id
             result_task2['answer_sheet']['room_id'] = room_id
@@ -134,23 +135,27 @@ if __name__ == "__main__":
                 elif "ERROR" == status:    
                     raise ValueError("Receive ERROR status. Please check your source code.")
 
-        if state > 7 :
-            #import pdb;pdb.set_trace()
-            # request end of mission message
+        if prev_state == 6 and state == 7:
             MESSAGE_MISSION_END = {
-                "team_id": "mlvlab",
-                "secret": "h8pnwElZ3FBnCwA4",
-                "end_of_mission": "true"
-            }
+                    "team_id": "mlvlab",
+                    "secret": "h8pnwElZ3FBnCwA4",
+                    "end_of_mission": "true"
+                }
             data_mission = json.dumps(MESSAGE_MISSION_END).encode('utf8')
             req = request.Request(api_url_answer, data=data_mission)
             resp = request.urlopen(req)
             status = resp.read().decode('utf8')
             if "OK" in status:
-                print("Complete send : Mission Start!!")
+                print("Complete send : Mission End!!")
             elif "ERROR" == status:    
                 raise ValueError("Receive ERROR status. Please check your source code.")
+            break
+
+        prev_state = state
+
+            
     if cap.isOpened():
         cap.release()
 
     cv2.destroyAllWindows()
+

@@ -137,7 +137,7 @@ class Rony2:
                 elif "ERROR" == status:    
                     raise ValueError("Receive ERROR status. Please check your source code.")
 
-        if state > 7 :
+        if old_state == 0 and data.pose.position.z < 0.5 :
             # request end of mission message
             MESSAGE_MISSION_END = {
                 "team_id": "mlvlab",
