@@ -8,7 +8,7 @@ from urllib import request
 from tools import parse_args
 from task1 import Task1
 from task2_vision import Task2Vision
-#from task2_audio import Task2Audio
+from task2_audio import Task2Audio
 from task3 import Task3
 
 
@@ -51,8 +51,8 @@ if __name__ == "__main__":
     del args.video_path
 
     num_frames = 0
-    task1 = Task1(args)
-    task2_vision = Task2Vision(args)
+    # task1 = Task1(args)
+    # task2_vision = Task2Vision(args)
     #task2_audio = TaskAudio(args)
     task3 = Task3(**vars(args))
     
@@ -72,13 +72,12 @@ if __name__ == "__main__":
         print(num_frames)
 
         with torch.no_grad():
-            #import pdb; pdb.set_trace()
+            # import pdb; pdb.set_trace()
             
             room_id, result_task1 = task1(frame, state)
             result_task2 = task2_vision(frame,state)
             #task2_audio(frame,state)
-            result_task3 = task3(frame,state)
-
+            result_task3 = task3(frame, state)
         if state == 2 :
             room_id = 1
             result_task1['answer_sheet']['room_id'] = room_id
