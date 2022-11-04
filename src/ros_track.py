@@ -63,8 +63,8 @@ class Rony2:
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
         with torch.no_grad():
-            self.room_id, self.result_task1 = self.task1(image, self.state)    # NOTE: return added
-            self.result_task2 = self.task2(image, self.state)
+            self.result_task1 = self.task1(image, self.state)    # NOTE: return added
+            self.result_task2 = self.task2_vision(image, self.state)
             self.result_task3 = self.task3(image, self.state)
 
     def coord_callback(self, data):
