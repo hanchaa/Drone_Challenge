@@ -135,7 +135,40 @@ class Task2Vision:
         FRAME_DATA_PARSE['person_type_confidence'] = pred[0][:, 10:11]
         FRAME_DATA_PARSE['person_type_class'] = pred[0][:, 11:12]
 
+        
         # Process detections
+
+        # remove poster person
+        person_pred = pred[0][pred[0][:, 5] == 0]
+        not_person_pred = pred[0][pred[0][:, 5] != 0]
+        poster_pred = pred[0][pred[0][:, 5] == 18]
+        if len(person_pred) != 0 :
+            new_person_pred = []
+            for pep in person_pred :
+                flag = False
+                for pop in poster_pred :
+                    person_loc = pep[:4]
+                    poster_loc = pop[:4]
+                    person_left = person_loc[0] - person_loc[2]/2
+                    person_right = person_loc[0] + person_loc[2]/2
+                    person_top = person_loc[1] - person_loc[3]/2
+                    person_bottom = person_loc[1] + person_loc[3]/2
+                    poster_left = poster_loc[0] - poster_loc[2]/2
+                    poster_right = poster_loc[0] + poster_loc[2]/2
+                    poster_top = poster_loc[1] - poster_loc[3]/2
+                    poster_bottom = poster_loc[1] + poster_loc[3]/2
+                    if (poster_left < person_left) and (poster_top < person_top) and \
+                            (poster_right > person_right) and (poster_bottom > person_bottom):
+                        # person is in poster
+                        flag = True
+                        break
+                    else :
+                        flag = False
+                if not flag :
+                    new_person_pred.append(pep)
+            person_pred = torch.stack(new_person_pred)
+            pred = [torch.cat([person_pred, not_person_pred])]
+
         for i, det in enumerate(pred):  # detections per image
             self.curr_frames = original_img.copy()
 

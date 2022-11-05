@@ -69,8 +69,30 @@ if __name__ == "__main__":
             break
 
         num_frames += 1
-        state = num_frames // 100 
+        internal_state = num_frames // 100 
         print(f"num frames: {num_frames}")
+        if internal_state == 0 :
+            state = -1
+        elif internal_state == 1 :
+            state = 1
+        elif internal_state == 2 :
+            state = 0
+        elif internal_state == 3 :
+            state = 3
+        elif internal_state == 4 :
+            state = 0
+        elif internal_state == 5 :
+            state = 2
+        elif internal_state == 6 :
+            state = 0
+        elif internal_state == 7 :
+            state = 4
+        elif internal_state == 8 :
+            state = 0
+        elif internal_state == 9 :
+            state = 5
+        else :
+            state = 0
 
         with torch.no_grad():
             # import pdb; pdb.set_trace()
