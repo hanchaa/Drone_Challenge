@@ -20,7 +20,6 @@ if __name__ == "__main__":
         retval, frame = cap.read()
         if not retval:
             break
-        print(retval)
 
         num_frames += 1
         state = num_frames // 1000
