@@ -22,7 +22,7 @@ Task2 Inference @ "src/"
 python debug_task2.py \
 --config_strongsort task2_vision/strong_sort/configs/strong_sort.yaml \
 --strong_sort_weights task2_vision/weights/osnet_x0_25_msmt17.pt \
---yolo_weights task2_vision/weights/drone_v1.pt \
+--yolo_weights task2_vision/weights/task2_safe.pt \
 --video_path task2_vision/yolov7/video/set03_drone03.mp4 \
 --device 0
 ```
@@ -32,7 +32,7 @@ Train YOLOV7 @ "yolov7/"
 python -m torch.distributed.launch --nproc_per_node 4 \
     train.py --epochs 1000  \
              --data data/vg.yaml \
-             --weights ../weights/drone_v1.pt \
+             --weights ../weights/task2_safe.pt \
              --batch 16 \
              --device 0,1,6,7
 ```
