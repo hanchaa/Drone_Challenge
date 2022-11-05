@@ -1,0 +1,7 @@
+yolov7_old/
+yolov7/dataset/
+yolov7/runs/
+yolov7/paper/
+yolov7/tools/
+yolov7/video/
+track.py

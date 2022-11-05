@@ -1,5 +1,4 @@
-
-import imgproc
+from . import imgproc
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
@@ -16,20 +15,17 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 def json_postprocess(preds_answer):
     # path, 1, ['01'',99]
     # json skeleton
-    print('here')
     json_object = {
-        'team_id': 'rony2', # 공통
-        'secret': 'h8pnwElZ3FBnCwA4', # 공통
         'answer_sheet': {
             'room_id': None,
-            'mission': 3,
+            'mission': '3',
             'answer': {
                 'place': {}
             }
         }
     }
 
-    json_object['answer_sheet']['answer']['place'] = preds_answer 
+    json_object['answer_sheet']['answer']['place'] = preds_answer
 
     return json_object
 
@@ -38,7 +34,7 @@ def json_postprocess(preds_answer):
 # "secret": "3dlZhXRPPyt22tR9",
 # "answer_sheet": {
 # "room_id": "4", "mission": "3", "answer": {
-# "place": "세미나실"} 
+# "place": "세미나실"}
 # }
 
 ###### Craft Utils ######
@@ -54,7 +50,7 @@ def copyStateDict(state_dict):
     return new_state_dict
 
 def inference(net, image, text_threshold, link_threshold, low_text, canvas_size, mag_ratio, poly, refine_net = None):
-    
+   
     # resize
     img_resized, target_ratio, size_heatmap = imgproc.resize_aspect_ratio(image, canvas_size, interpolation=cv2.INTER_LINEAR, mag_ratio=mag_ratio)
     ratio_h = ratio_w = 1 / target_ratio
@@ -259,7 +255,7 @@ class Averager(object):
         if self.n_count != 0:
             res = self.sum / float(self.n_count)
         return res
-        
+       
 
 
 class ResizeNormalize(object):

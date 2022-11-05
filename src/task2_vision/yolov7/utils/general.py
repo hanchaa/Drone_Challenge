@@ -18,9 +18,9 @@ import torch
 import torchvision
 import yaml
 
-from utils.google_utils import gsutil_getsize
-from utils.metrics import fitness
-from utils.torch_utils import init_torch_seeds
+from .google_utils import gsutil_getsize
+from .metrics import fitness
+from .torch_utils import init_torch_seeds
 
 # Settings
 torch.set_printoptions(linewidth=320, precision=5, profile='long')
@@ -157,7 +157,9 @@ def check_dataset(dict):
     # Download dataset if not found locally
     val, s = dict.get('val'), dict.get('download')
     if val and len(val):
+
         val = [Path(x).resolve() for x in (val if isinstance(val, list) else [val])]  # val path
+        #import pdb; pdb.set_trace()
         if not all(x.exists() for x in val):
             print('\nWARNING: Dataset not found, nonexistent paths: %s' % [str(x) for x in val if not x.exists()])
             if s and len(s):  # download script
@@ -310,6 +312,7 @@ def segments2boxes(segments):
 def resample_segments(segments, n=1000):
     # Up-sample an (n,2) segment
     for i, s in enumerate(segments):
+        s = np.concatenate((s, s[0:1, :]), axis=0)
         x = np.linspace(0, len(s) - 1, n)
         xp = np.arange(len(s))
         segments[i] = np.concatenate([np.interp(x, xp, s[:, i]) for i in range(2)]).reshape(2, -1).T  # segment xy

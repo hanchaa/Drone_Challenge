@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import os
 import time
 import json
@@ -7,7 +6,7 @@ from urllib import request
 from mavros_msgs.msg import State
 from geometry_msgs.msg import PoseStamped
 
-from .ros_track import Rony2
+from ros_track import Rony2
 
 rospy.init_node('opencv_example', anonymous=True)
 rate = rospy.Rate(5)
@@ -47,12 +46,13 @@ class MissionStart:
             if self.armed_state == True and counter_z == 20:
                 print("Take-Off and Mission Start!")
                 data_mission = json.dumps(MESSAGE_MISSION_START).encode('utf8')
-                req = request.Request(api_url_mission, data=data_mission)
-                resp = request.urlopen(req)
-                status = resp.read().decode('utf8')
-                if "OK" in status:
-                    print("Complete send : Mission Start!!")
-                    mission_trigger=False
+                print(data_mission)
+                # req = request.Request(api_url_mission, data=data_mission)
+                # resp = request.urlopen(req)
+                # status = resp.read().decode('utf8')
+                # if "OK" in status:
+                #     print("Complete send : Mission Start!!")
+                mission_trigger=False
 
 def main():
     data_path = r'/home/agc2022/dataset/'
@@ -65,6 +65,7 @@ def main():
     callbacks = MissionStart()
     sub_state=rospy.Subscriber("/scout/mavros/state", State, callbacks.cb_state)
     sub_pose=rospy.Subscriber("/scout/mavros/local_position/pose", PoseStamped, callbacks.cb_pose)
+    print("Waiting for Take Off!")
     callbacks.posez_counter()
     global mission_trigger
     while mission_trigger == True:

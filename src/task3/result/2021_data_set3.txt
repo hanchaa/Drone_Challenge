@@ -1,0 +1,3921 @@
+------------------------------------ frame000.png ------------------------------------
+GPU : 0
+채x회고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+까트[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+콩[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+해[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시프커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "채x회고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame001.png ------------------------------------
+GPU : 0
+xxx고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxx고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame002.png ------------------------------------
+GPU : 0
+다종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "다종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame003.png ------------------------------------
+GPU : 0
+네가종할학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "네가종할학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame004.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame005.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame006.png ------------------------------------
+GPU : 0
+동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티씨어니돼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+야란애[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시가토기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+스[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+소모어기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+신명방의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+사진[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피네x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가당[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame007.png ------------------------------------
+GPU : 0
+커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+부로학[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+당하그[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피비x찌다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+한xx매[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame008.png ------------------------------------
+GPU : 0
+구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시각농인건설[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+순동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+프칼합악[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame009.png ------------------------------------
+GPU : 0
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+서빛냉인맥식[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+자람화[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+바[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시아크학실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame010.png ------------------------------------
+GPU : 0
+새익성린김식[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x호줄합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+풍난[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이피리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+디[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+현어떡임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "새익성린김식[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame011.png ------------------------------------
+GPU : 0
+서덕냉인강령[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx골학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다뜨[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+커피막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+행임임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+표x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "서덕냉인강령[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame012.png ------------------------------------
+GPU : 0
+시학생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+명원터트랑[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx할학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다다파[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+부궁중머[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지밀[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+디[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+양터트링[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "시학생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame013.png ------------------------------------
+GPU : 0
+커미피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+과[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+드터타김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+세학생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공원터복방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+갈피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx골합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수실표[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+키다파[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+혜잔까도때[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가치마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+임디들임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+퍼표[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "커미피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame014.png ------------------------------------
+GPU : 0
+연터식강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+새학생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성원터트랑[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x꼴합학[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수생음[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx파x권[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx도퍼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완터튼김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+개래[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+광담문와[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "연터식강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame015.png ------------------------------------
+GPU : 0
+연터덕강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+새학생우[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+겨울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x원터트방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+새x종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수임행문광[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어꼬캐순매[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx디피치[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미기막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+에개x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxxxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+쌍담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "연터덕강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame016.png ------------------------------------
+GPU : 0
+화미사구관동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대학싱[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x박[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+명원터트방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+새난종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수강생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모곱[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+노회서리스비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+또x파[s]포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+로끼x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+헤호전[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+콜[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+배예대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미대빵[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x인치과동포포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "화미사구관동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame017.png ------------------------------------
+GPU : 0
+겨울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+서다종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예차포매휴매집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+동또[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "겨울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame018.png ------------------------------------
+GPU : 0
+겨울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x따종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+또프있낚저[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+엘구공하꼬매집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "겨울[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame019.png ------------------------------------
+GPU : 0
+겨늘[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고츠나나[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고짓나길[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+휴시구포구마로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "겨늘[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame020.png ------------------------------------
+GPU : 0
+키우자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+소더[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+그집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+네일과영광협[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x궁[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx대연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+꼬xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "키우자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame021.png ------------------------------------
+GPU : 0
+채미사무권[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+새학왕원더식관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영박예예거끼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+현국관국리테오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영림공인프점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나게쉬x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거거x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가고치동동동포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "채미사무권[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame022.png ------------------------------------
+GPU : 0
+큰티강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "큰티강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame023.png ------------------------------------
+GPU : 0
+미지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터트임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "미지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame024.png ------------------------------------
+GPU : 0
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+내때[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+헤[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+치파[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame025.png ------------------------------------
+GPU : 0
+마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+명개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터특러[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고화[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "마지막[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame026.png ------------------------------------
+GPU : 0
+그피기민택견[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고해[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "그피기민택견[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame027.png ------------------------------------
+GPU : 0
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+그큰네개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+터이대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+씨다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame028.png ------------------------------------
+GPU : 0
+팩코몬버관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+테이대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+니모리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "팩코몬버관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame029.png ------------------------------------
+GPU : 0
+맛외고준비반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+테어니대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시민커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "맛외고준비반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame030.png ------------------------------------
+GPU : 0
+x꽃외고준비반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+두[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티씨어니[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다고대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+더x찌가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고필어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "x꽃외고준비반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame031.png ------------------------------------
+GPU : 0
+통퍼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티씨어대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아타대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+애가른하[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시글어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "통퍼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame032.png ------------------------------------
+GPU : 0
+바오호[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+준비반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+두[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티시니드[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+에애가토[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "바오호[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame033.png ------------------------------------
+GPU : 0
+네비비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거음복강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미새시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "네비비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame034.png ------------------------------------
+GPU : 0
+자카엘나[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+겨울복강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+부계시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "자카엘나[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame035.png ------------------------------------
+GPU : 0
+거철직량[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+애제[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "거철직량[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame036.png ------------------------------------
+GPU : 0
+재울투장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "재울투장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame037.png ------------------------------------
+GPU : 0
+xx국[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지영용갑[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+라백[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x새[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx국[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame038.png ------------------------------------
+GPU : 0
+히이브[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+린[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지물딩[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차일도아[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+실새[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+한이중연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+중화당[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x만다오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뼈크[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "히이브[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame039.png ------------------------------------
+GPU : 0
+지울딩량[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+황야또츠[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+디드필[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정등새[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+코터북강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+실런우오네대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+바임[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뼈미시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "지울딩량[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame040.png ------------------------------------
+GPU : 0
+거대락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+커x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+관그리나[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+김루새[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대신[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+보수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원티복강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아년[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성복이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+큰탄개요작탕[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "거대락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame041.png ------------------------------------
+GPU : 0
+원터북강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지물볶렁[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+노래[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "원터북강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame042.png ------------------------------------
+GPU : 0
+김더[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원터둑방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "김더[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame043.png ------------------------------------
+GPU : 0
+원터투방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+김더지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x리비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+칠xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미요[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+갈라장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx발꾸리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리파프크[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비라포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "원터투방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame044.png ------------------------------------
+GPU : 0
+자명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x니보[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다한연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+설풍[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x발선[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가비워생원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "자명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame045.png ------------------------------------
+GPU : 0
+까[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차림[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미오브[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영을[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+국[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+실x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어유[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나헤재[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거래주[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+맑는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공루니니[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+착맛대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모리린[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "까[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame046.png ------------------------------------
+GPU : 0
+스머드[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지물[s]락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+건과[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s]등서[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+백[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나메게[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+필수오나페[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+헤어나선[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+맑는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x기커자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x루쓰을[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+착맛대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx프[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+네반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+바프[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도마x미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "스머드[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame047.png ------------------------------------
+GPU : 0
+함박옷[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "함박옷[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame048.png ------------------------------------
+GPU : 0
+합박옷[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "합박옷[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame049.png ------------------------------------
+GPU : 0
+황희포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "황희포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame050.png ------------------------------------
+GPU : 0
+조통기조환요점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모황[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "조통기조환요점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame051.png ------------------------------------
+GPU : 0
+메봉체x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx치야주[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+석하[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+초맛가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "메봉체x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame052.png ------------------------------------
+GPU : 0
+가x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+홍모x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "가x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame053.png ------------------------------------
+GPU : 0
+버칼헤야[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+서우화화화[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+맑[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x물생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+찻위그[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x준[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+궁동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+메그[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+표x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "버칼헤야[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame054.png ------------------------------------
+GPU : 0
+버라커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+황인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "버라커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame055.png ------------------------------------
+GPU : 0
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고창[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가동미물[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+프[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame056.png ------------------------------------
+GPU : 0
+xxxxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오호꼬[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+만[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxxxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame057.png ------------------------------------
+GPU : 0
+xxxx와[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오호[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x가통미술두차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공석[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxxx와[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame058.png ------------------------------------
+GPU : 0
+모x이포와모텔[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x리히[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "모x이포와모텔[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame059.png ------------------------------------
+GPU : 0
+모토기조화요텔[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x미상기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+경진상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+디바요리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가바인어인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+머교폰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "모토기조화요텔[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame060.png ------------------------------------
+GPU : 0
+순동기조한모텔[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+산이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+엄마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공밀공일[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+자있어위[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x가래[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x우빌디[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x파x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+네비가운[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "순동기조한모텔[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame061.png ------------------------------------
+GPU : 0
+모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+초등기초반도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+특장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+사평그리기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도꾸이용하기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x마미리도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x아통미술국[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+꿈의쎄수원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+체우점현미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+파xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame062.png ------------------------------------
+GPU : 0
+조동기쇼한모점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+사물그리기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+특장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모온아움하기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+참외협수원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x아봉미술두[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x로아리재도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오접반귀대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+금xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+츠치[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "조동기쇼한모점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame063.png ------------------------------------
+GPU : 0
+모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+초동기초반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x야불미순복사[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도꾸이용하기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx까장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수업[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+장의력[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+즉심방범[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+동은도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+헤테[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame064.png ------------------------------------
+GPU : 0
+이동미술복개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+떡칠방법[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s]동두[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x꼬차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대물[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시태매술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "이동미술복개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame065.png ------------------------------------
+GPU : 0
+찌아[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이청게도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모침입니대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기래[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이레간[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비은한[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시더[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x츠맨[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+연동로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오모[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+홍[s]연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+건[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리화만[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+홍영[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+하기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "찌아[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame066.png ------------------------------------
+GPU : 0
+로이청지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모점험대대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+바그[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+꼬[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+노따[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+우민는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "로이청지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame067.png ------------------------------------
+GPU : 0
+리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame068.png ------------------------------------
+GPU : 0
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+무머는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x림[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+연x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미뇨찌[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x하방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+설단국[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame069.png ------------------------------------
+GPU : 0
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의월[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+키x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+후에는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이일[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+압판디[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+엄머도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+니도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+교성자교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대디해[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+버[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame070.png ------------------------------------
+GPU : 0
+벼귀옷용[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "벼귀옷용[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame071.png ------------------------------------
+GPU : 0
+향다옷명건[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "향다옷명건[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame072.png ------------------------------------
+GPU : 0
+향박옷음관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "향박옷음관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame073.png ------------------------------------
+GPU : 0
+참학옷음관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "참학옷음관[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame074.png ------------------------------------
+GPU : 0
+노래동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "노래동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame075.png ------------------------------------
+GPU : 0
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame076.png ------------------------------------
+GPU : 0
+엉배[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+찌공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가페인커인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "엉배[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame077.png ------------------------------------
+GPU : 0
+행기정[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+겨울복강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기뜨는헤안[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아니안[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "행기정[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame078.png ------------------------------------
+GPU : 0
+이x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+남미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+겨울복강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x구백[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이세위[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인딩[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구즈[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "이x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame079.png ------------------------------------
+GPU : 0
+영미랑[s]시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정품장점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가x요머코[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "영미랑[s]시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame080.png ------------------------------------
+GPU : 0
+영미항이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+황콜상월[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+그빠워대요[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "영미항이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame081.png ------------------------------------
+GPU : 0
+명공점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "명공점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame082.png ------------------------------------
+GPU : 0
+홍하폰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+장남[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+점리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx완어의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx가다인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인영[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "홍하폰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame083.png ------------------------------------
+GPU : 0
+반하히부[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+책[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나에게[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영미숙군이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+맑는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공부맛이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가얀어요[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+착맛대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+하x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미요[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+유뼈피머[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시드이와우어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이머[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모티피어브[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+껍지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx씨구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수성x다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성근리마파피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "반하히부[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame084.png ------------------------------------
+GPU : 0
+영미술보[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정알[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+재이있[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+클[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+헤머[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이바싱[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기나니[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+바물미점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정원담[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구조[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "영미술보[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame085.png ------------------------------------
+GPU : 0
+영에술효[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+그[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정알[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+재미있[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+키x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+그[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x개원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+오꺼리저터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지금[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구조[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "영에술효[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame086.png ------------------------------------
+GPU : 0
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구조[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame087.png ------------------------------------
+GPU : 0
+프이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+구조[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "프이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame088.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame089.png ------------------------------------
+GPU : 0
+흥[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "흥[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame090.png ------------------------------------
+GPU : 0
+연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame091.png ------------------------------------
+GPU : 0
+이인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+불[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "이인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame092.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame093.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame094.png ------------------------------------
+GPU : 0
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+타화[s]품[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame095.png ------------------------------------
+GPU : 0
+단터뼈광[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+황여왕힘[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+헤이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미데x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+휴화금[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "단터뼈광[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame096.png ------------------------------------
+GPU : 0
+연터공공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+행복상급소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x즈키[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+음가이금[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뒷x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "연터공공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame097.png ------------------------------------
+GPU : 0
+행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x스[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+락마이금[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뒷이마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame098.png ------------------------------------
+GPU : 0
+행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+니케[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+홍머용[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뒷아마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame099.png ------------------------------------
+GPU : 0
+행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+방x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame100.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame101.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame102.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame103.png ------------------------------------
+GPU : 0
+홍구주[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+에이고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+길인떡대네비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "홍구주[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame104.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame105.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame106.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame107.png ------------------------------------
+GPU : 0
+상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame108.png ------------------------------------
+GPU : 0
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame109.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame110.png ------------------------------------
+GPU : 0
+비델이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+안다운[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+불승할연개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "비델이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame111.png ------------------------------------
+GPU : 0
+비법이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인다민[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+열증할건개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "비법이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame112.png ------------------------------------
+GPU : 0
+비법이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인다면[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+볼승할건가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나리표크[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "비법이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame113.png ------------------------------------
+GPU : 0
+비법이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인다면[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+을능활건가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미리학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+진[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공릭기사복리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x하야미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+하구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "비법이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame114.png ------------------------------------
+GPU : 0
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+위다민[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+중부기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+사곡원래[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+신환리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+트항[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가해[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+에키시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame115.png ------------------------------------
+GPU : 0
+자트주비실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "자트주비실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame116.png ------------------------------------
+GPU : 0
+자르족례심[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "자르족례심[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame117.png ------------------------------------
+GPU : 0
+자란준미집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이어이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+에이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이에인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "자란준미집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame118.png ------------------------------------
+GPU : 0
+그형[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이x이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이이어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "그형[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame119.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame120.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame121.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame122.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame123.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame124.png ------------------------------------
+GPU : 0
+한진술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피성[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마자[s]어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "한진술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame125.png ------------------------------------
+GPU : 0
+대리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x몸봉로퍼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "대리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame126.png ------------------------------------
+GPU : 0
+인다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수농천외[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피정[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+더기는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+민구금[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다입환식[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "인다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame127.png ------------------------------------
+GPU : 0
+인다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+제핑이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+필남어[s]커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+귀리지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+더리고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이거는정대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+집완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시해식정[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "인다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame128.png ------------------------------------
+GPU : 0
+회다넷[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비랜야우[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+별올요가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x가커[s]맨[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+건락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피엄[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+건재[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+씨수수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "회다넷[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame129.png ------------------------------------
+GPU : 0
+희다뷰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+햇을[s][s]가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비일알[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+노리비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+경보기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리희몬리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+카트딩[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+체인인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x먼닭점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+메비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+준디홀맛[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티기는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+싱[s]수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "희다뷰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame130.png ------------------------------------
+GPU : 0
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+찌치점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+데비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어거는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+진다품맛[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+경공수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+선[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame131.png ------------------------------------
+GPU : 0
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전택점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+네리고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이거는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+김완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame132.png ------------------------------------
+GPU : 0
+비오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이기는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전라운[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비바[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "비오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame133.png ------------------------------------
+GPU : 0
+성공수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이x일[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+궁입희점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "성공수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame134.png ------------------------------------
+GPU : 0
+업시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+찻는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락운[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이기는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+따고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "업시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame135.png ------------------------------------
+GPU : 0
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+김림탁원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리이리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+커피모기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이기는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+건타운[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+갓는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame136.png ------------------------------------
+GPU : 0
+년터낚장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+민이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고경라고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전라을곳는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이기는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+위시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시고xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성공수능[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "년터낚장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame137.png ------------------------------------
+GPU : 0
+성공수능전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피도가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+예고고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽대비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대입[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "성공수능전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame138.png ------------------------------------
+GPU : 0
+미기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "미기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame139.png ------------------------------------
+GPU : 0
+번터둑김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고동회교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+진리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고회[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "번터둑김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame140.png ------------------------------------
+GPU : 0
+원터낚강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+커이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고등학교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+진락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+김대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고매[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "원터낚강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame141.png ------------------------------------
+GPU : 0
+원터특강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+테어[s]대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+그하[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "원터특강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame142.png ------------------------------------
+GPU : 0
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+등밥[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+노른[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame143.png ------------------------------------
+GPU : 0
+원터특강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+서타오종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "원터특강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame144.png ------------------------------------
+GPU : 0
+고동학교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시타은종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+찌x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x포[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고크[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피연반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "고동학교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame145.png ------------------------------------
+GPU : 0
+더바클[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+르타기스[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고x약교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대차x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시타종합합학[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+와고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+리리고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비예나성[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이x땅국방식[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마이닭서[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+스반연[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고고수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+입시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+진프[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+보리기가너[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+형복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "더바클[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame146.png ------------------------------------
+GPU : 0
+교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시드[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+행복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame147.png ------------------------------------
+GPU : 0
+시타[s]종합학원[s][s][s]원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기야고코소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+형복상담소[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "시타[s]종합학원[s][s][s]원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame148.png ------------------------------------
+GPU : 0
+서어올종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기그코수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "서어올종합학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame149.png ------------------------------------
+GPU : 0
+xx순영명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나고공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx순영명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame150.png ------------------------------------
+GPU : 0
+예xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+애김팅[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+메더게[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+키이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+우원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x마우[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+메는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+효피x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "예xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame151.png ------------------------------------
+GPU : 0
+기xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이전미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미시미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+야당[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인본이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+유찌실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티민손다곱[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+양희나미즈[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+하티이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+키이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기x아[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+매는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대찌[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기치[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "기xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame152.png ------------------------------------
+GPU : 0
+유계실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+산판판[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+서미배[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxxxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "유계실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame153.png ------------------------------------
+GPU : 0
+휴계실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+후하는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영x로영벤다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가산[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기기지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+학고자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+태인어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+여x꼬동어요[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공린로모[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "휴계실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame154.png ------------------------------------
+GPU : 0
+더비대희[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+너레비구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+후에는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기일[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+맘뻐디[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+니도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+화년자로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+태이해[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도히점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+민x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뼈운요회[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "더비대희[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame155.png ------------------------------------
+GPU : 0
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+적[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+희절자교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다아래[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+민x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame156.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame157.png ------------------------------------
+GPU : 0
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+무원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+워는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기일[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+클반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영[s]르[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame158.png ------------------------------------
+GPU : 0
+대어재회x이시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+어린이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어학원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+무의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이일[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+후애는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+나도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+딸한마[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+약습자문[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+더리자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+꽃차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "대어재회x이시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame159.png ------------------------------------
+GPU : 0
+상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+생훈의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame160.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame161.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame162.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame163.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame164.png ------------------------------------
+GPU : 0
+임시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "임시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame165.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame166.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame167.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame168.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame169.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame170.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame171.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame172.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame173.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame174.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame175.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame176.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame177.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame178.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame179.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame180.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame181.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame182.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame183.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame184.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame185.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame186.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame187.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame188.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame189.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame190.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame191.png ------------------------------------
+GPU : 0
+더우집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "더우집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame192.png ------------------------------------
+GPU : 0
+나이[s]시어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "나이[s]시어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame193.png ------------------------------------
+GPU : 0
+또미니스어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "또미니스어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame194.png ------------------------------------
+GPU : 0
+파이섬[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+네미김김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "파이섬[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame195.png ------------------------------------
+GPU : 0
+파이널[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+클x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "파이널[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame196.png ------------------------------------
+GPU : 0
+네마복김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+파이널[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+터태[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x인인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+노래방[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+해거x배찌대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "네마복김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame197.png ------------------------------------
+GPU : 0
+산[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공엔다터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+머특[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+파이널[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+민몬대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+학성운[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+최고드[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+터터지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+건라옥[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수김로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지시고[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도있[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+할인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도카네[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+만으[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+남다른[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+공부비비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다다[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x표향규피피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수표[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+더기가[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+치빼사개[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "산[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame198.png ------------------------------------
+GPU : 0
+티곰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+발[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+과이널[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+낚특김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+등학교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지락전락[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피국생요연권[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+더데[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+산만욕[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+스구로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+갈인[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+만희남하론[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+중부타글[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+품천xx커터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수복[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+강포돼점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+관구원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "티곰[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame199.png ------------------------------------
+GPU : 0
+짜작전럭[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "짜작전럭[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame200.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame201.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame202.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame203.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame204.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame205.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame206.png ------------------------------------
+GPU : 0
+xx[s]커원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx[s]커원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame207.png ------------------------------------
+GPU : 0
+홍이장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정알[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+청발[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가x[s]어원[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+다xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "홍이장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame208.png ------------------------------------
+GPU : 0
+영애술로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+정알[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+재미있[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x가턴[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+누돼리재한머[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지글머보[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "영애술로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame209.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame210.png ------------------------------------
+GPU : 0
+x직제수판자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "x직제수판자[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame211.png ------------------------------------
+GPU : 0
+국커컴문[s]장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "국커컴문[s]장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame212.png ------------------------------------
+GPU : 0
+서다직청수점있[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "서다직청수점있[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame213.png ------------------------------------
+GPU : 0
+유닭리장구공어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+인도[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의로집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "유닭리장구공어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame214.png ------------------------------------
+GPU : 0
+바이노래빛[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미둥매술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "바이노래빛[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame215.png ------------------------------------
+GPU : 0
+마동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+피[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고신[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "마동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame216.png ------------------------------------
+GPU : 0
+마동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+두카[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+파과절[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "마동미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame217.png ------------------------------------
+GPU : 0
+키우[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+꿀어드션리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대화경의태[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s]하는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수강생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성적만[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성적항상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+점양주요은기과[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+범우처리마품[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+청수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+의실히[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미술돼[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+이꽃라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+외[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수런대금[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+민러[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+코토[s]드[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+서네[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+만x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+거고전[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "키우[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame218.png ------------------------------------
+GPU : 0
+리우지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성적은신력봄[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+패화성원터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+소차명[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마동미을는[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수강생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+득강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성적만[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+성적향상[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+한주커리노활있로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+싸페[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+파이[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+홈일수피는기회[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+막실이점숙[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+식비x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+코xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+현코수월재공[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x꽃은동[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "리우지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame219.png ------------------------------------
+GPU : 0
+성적어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx와렌[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+재학설료[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+수강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+지한대한[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+커리콜령의로[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+완벽한[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+학잘이점수문[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미술둑[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+득감[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+비[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+뉴x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+파[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx네[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+크리[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+스장[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+당당[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "성적어[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame220.png ------------------------------------
+GPU : 0
+xx산부계[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+머이하[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미술두[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+특간[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+치꼬오[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+샤머[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+까x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xx산부계[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame221.png ------------------------------------
+GPU : 0
+x대뉴[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+치치대대헤지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마동미술둑[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+득각[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아기[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시x더미을[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+가까[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "x대뉴[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame222.png ------------------------------------
+GPU : 0
+머이양x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxxxx지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+마동미술록[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어교[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+특간[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시어나미을[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+차xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "머이양x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame223.png ------------------------------------
+GPU : 0
+피모플라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx[s]x[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+커치x[s]피캐[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+키x수습[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어교실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+아동미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고동전규[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+부민야[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시어어미술[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기포차[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+미식[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "피모플라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame224.png ------------------------------------
+GPU : 0
+x인양헤[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+기워수[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+대미[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영어교실[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+득강[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+조중기조원약점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+도뚜[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+시[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "x인양헤[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame225.png ------------------------------------
+GPU : 0
+교x학[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+재학생[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "교x학[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame226.png ------------------------------------
+GPU : 0
+구xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+끼기권[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+새학생원터[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+영악하나라[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+카[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+김[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+모집[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xx의의악[s]점[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+쭈반[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x산[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+천해문[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+티뇨[s]커[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+고제x돈차돈[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+상담문의[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "구xx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame227.png ------------------------------------
+GPU : 0
+다꽃초하[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "다꽃초하[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame228.png ------------------------------------
+GPU : 0
+다기꽃초청[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+x대찌[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "다기꽃초청[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame229.png ------------------------------------
+GPU : 0
+가대대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "가대대[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame230.png ------------------------------------
+GPU : 0
+가입지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+니구[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "가입지[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame231.png ------------------------------------
+GPU : 0
+xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]
+here
+{
+    "team_id": "rony2",
+    "secret": "h8pnwElZ3FBnCwA4",
+    "answer_sheet": {
+        "room_id": null,
+        "mission": 3,
+        "answer": {
+            "place": "xxx[s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s][s]"
+        }
+    }
+}
+------------------------------------ frame232.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame233.png ------------------------------------
+GPU : 0
+No Text!
+------------------------------------ frame234.png ------------------------------------
+GPU : 0
+No Text!
+TASK3 TIME : 70.49177551269531

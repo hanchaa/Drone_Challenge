@@ -19,22 +19,14 @@ from .models import Estimator
 from .utils import *
 
 
-def update_result(initial_result):
-    if initial_result["male"] == 1:
-        self.result["male"] = initial_result["male"]
-    if initial_result["female"] == 1:
-        self.result["female"] = initial_result["female"]
-    if initial_result["baby"] == 1:
-        self.result["baby"] = initial_result["baby"]
-
-
 def write_csv(state, result):
-    file_path = os.path.join("./task2_audio/results", str(state) + ".csv")
-    file_mode = "a" if os.path.isfile(file_path) else "w"
-
-    with open(file_path, file_mode, newline="") as f:
-        wr = csv.writer(f)
-        wr.writerow([result["male"], result["female"], result["baby"]])
+    print(f"state: {state}, male: {result['male']}, female: {result['female']}, baby: {result['baby']}")
+    # file_path = os.path.join("./task2_audio/results", str(state) + ".csv")
+    # file_mode = "a" if os.path.isfile(file_path) else "w"
+    #
+    # with open(file_path, file_mode, newline="") as f:
+    #     wr = csv.writer(f)
+    #     wr.writerow([result["male"], result["female"], result["baby"]])
 
 
 def get_setting(ckpt_path):
@@ -43,21 +35,26 @@ def get_setting(ckpt_path):
     elif os.path.basename(ckpt_path) == '16k_magspec.0030.pt':
         return 0.6, 3, 20, 12
     elif os.path.basename(ckpt_path) == '16k_magspec.light.0050.pt':
-        return 0.64, 7, 12, 18
+        return 0.64, 7, 12, 18 
     elif os.path.basename(ckpt_path) == '16k_magspec.light.0030.pt':
         return 0.63, 5, 20, 16
+    elif os.path.basename(ckpt_path) == '2022_11_03_17_47_47.0100.pt':
+        return 0.71, 3, 28, 10
+    elif os.path.basename(ckpt_path) == '2022_11_03_17_49_30.0110.pt':
+        return 0.6, 5, 20, 12
     else:
         raise Exception('InvalidPathError')
 
 
 class Task2Audio():
-    def __init__(self, args, pub):
-        self.pub = pub
+    def __init__(self, args):
+        self.args = args
 
         ckpt = torch.load(args.checkpoint, map_location="cpu")
-        self.estimator = Estimator(lightweight=args.lightweight, sr=args.sr, mel=args.mel, ipd=args.ipd, n_channels=args.n_channels)
+        self.estimator = Estimator(lightweight=args.lightweight, sr=args.sr, mel=True, ipd=args.ipd, n_channels=args.n_channels)
         self.estimator.load_state_dict(ckpt["net"])
-        self.estimator = self.estimator.to("cuda" if torch.cuda.is_available() else "cpu")
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.estimator = self.estimator.to(self.device)
         self.estimator.eval()
 
         self.threshold, self.smooth, self.merge_frame, self.min_frame = get_setting(args.checkpoint)
@@ -65,24 +62,10 @@ class Task2Audio():
 
         self.current_index = 0
         self.duration = args.sr * 1
-        self.hop_size = duration // 2
+        self.hop_size = self.duration // 2
 
         self.prev_state = -1
         self.result = {"male": 0, "female": 0, "baby": 0}
-
-    def move(self, x, y):
-        plt.scatter(x, y, color="red")
-
-        goal = PoseStamped()
-
-        goal.header.stamp = rospy.Time.now()
-        goal.header.frame_id = "map"
-        goal.pose.position.x = x
-        goal.pose.position.y = y
-        goal.pose.position.z = 1.4
-        goal.pose.orientation.w = 1.0
-
-        self.pub.publish(goal)
 
     def __call__(self, state):
         if os.path.isfile(self.audio_path):
@@ -94,26 +77,19 @@ class Task2Audio():
                 y = np.mean(y, axis=0)
                 audio = torch.Tensor(y)
                 audio = audio.unsqueeze(0).unsqueeze(0)
-                audio = audio.to(device)
+                audio = audio.to(self.device)
 
                 initial_result = test(self.estimator, audio, self.threshold, self.smooth, self.min_frame, self.merge_frame)
-                update_result(initial_result)
+                self.update_result(initial_result)
 
                 if self.prev_state != state:
                     write_csv(state, self.result)
                     self.prev_state = state
 
-                    if state == 1:
-                        move(-6.11, -17.6)
-                    elif state == 3:
-                        move(-6.09, -10.94)
-                    elif state == 5:
-                        move(-6.17, -4.46)
-
                 self.current_index += self.hop_size
 
             except AssertionError:
-                if args.debug:
+                if self.args.debug:
                     print(f"audio not yet ready. current index is {self.current_index}")
                     time.sleep(0.1)
             except SystemError as e:
@@ -122,3 +98,11 @@ class Task2Audio():
 
         else:
             time.sleep(0.1)
+
+    def update_result(self, initial_result):
+        if initial_result["male"] == 1:
+            self.result["male"] = initial_result["male"]
+        if initial_result["female"] == 1:
+            self.result["female"] = initial_result["female"]
+        if initial_result["baby"] == 1:
+            self.result["baby"] = initial_result["baby"]

@@ -88,6 +88,7 @@ def create_dataloader(path, imgsz, batch_size, stride, opt, hyp=None, augment=Fa
                         sampler=sampler,
                         pin_memory=True,
                         collate_fn=LoadImagesAndLabels.collate_fn4 if quad else LoadImagesAndLabels.collate_fn)
+    #import pdb; pdb.set_trace()
     return dataloader, dataset
 
 
@@ -387,6 +388,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
 
         # Check cache
         self.label_files = img2label_paths(self.img_files)  # labels
+        #import pdb; pdb.set_trace()
         cache_path = (p if p.is_file() else Path(self.label_files[0]).parent).with_suffix('.cache')  # cached labels
         if cache_path.is_file():
             cache, exists = torch.load(cache_path), True  # load
@@ -406,6 +408,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
         cache.pop('hash')  # remove hash
         cache.pop('version')  # remove version
         labels, shapes, self.segments = zip(*cache.values())
+        
         self.labels = list(labels)
         self.shapes = np.array(shapes, dtype=np.float64)
         self.img_files = list(cache.keys())  # update
@@ -454,6 +457,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                 self.im_cache_dir.mkdir(parents=True, exist_ok=True)
             gb = 0  # Gigabytes of cached images
             self.img_hw0, self.img_hw = [None] * n, [None] * n
+            #import pdb; pdb.set_trace()
             results = ThreadPool(8).imap(lambda x: load_image(*x), zip(repeat(self), range(n)))
             pbar = tqdm(enumerate(results), total=n)
             for i, x in pbar:
@@ -493,10 +497,12 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                             l = np.concatenate((classes.reshape(-1, 1), segments2boxes(segments)), 1)  # (cls, xywh)
                         l = np.array(l, dtype=np.float32)
                     if len(l):
-                        assert l.shape[1] == 5, 'labels require 5 columns each'
+                        ########################################### DC
+                        # assert l.shape[1] == 5, 'labels require 5 columns each'
                         assert (l >= 0).all(), 'negative labels'
-                        assert (l[:, 1:] <= 1).all(), 'non-normalized or out of bounds coordinate labels'
-                        assert np.unique(l, axis=0).shape[0] == l.shape[0], 'duplicate labels'
+                        # assert (l[:, 1:] <= 1).all(), 'non-normalized or out of bounds coordinate labels'
+                        # assert np.unique(l, axis=0).shape[0] == l.shape[0], 'duplicate labels'
+                        ########################################### DC
                     else:
                         ne += 1  # label empty
                         l = np.zeros((0, 5), dtype=np.float32)
@@ -514,7 +520,6 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
 
         if nf == 0:
             print(f'{prefix}WARNING: No labels found in {path}. See {help_url}')
-
         x['hash'] = get_hash(self.label_files + self.img_files)
         x['results'] = nf, nm, ne, nc, i + 1
         x['version'] = 0.1  # cache version
@@ -536,6 +541,9 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
 
         hyp = self.hyp
         mosaic = self.mosaic and random.random() < hyp['mosaic']
+
+        #import pdb; pdb.set_trace()
+        
         if mosaic:
             # Load mosaic
             if random.random() < 0.8:
@@ -564,6 +572,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
             shapes = (h0, w0), ((h / h0, w / w0), pad)  # for COCO mAP rescaling
 
             labels = self.labels[index].copy()
+            #import pdb; pdb.set_trace()
             if labels.size:  # normalized xywh to pixel xyxy format
                 labels[:, 1:] = xywhn2xyxy(labels[:, 1:], ratio[0] * w, ratio[1] * h, padw=pad[0], padh=pad[1])
 
@@ -618,7 +627,7 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                 if nL:
                     labels[:, 1] = 1 - labels[:, 1]
 
-        labels_out = torch.zeros((nL, 6))
+        labels_out = torch.zeros((nL, 8))
         if nL:
             labels_out[:, 1:] = torch.from_numpy(labels)
 
@@ -631,13 +640,16 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
     @staticmethod
     def collate_fn(batch):
         img, label, path, shapes = zip(*batch)  # transposed
+        #import pdb; pdb.set_trace()
         for i, l in enumerate(label):
             l[:, 0] = i  # add target image index for build_targets()
+        #import pdb; pdb.set_trace()
         return torch.stack(img, 0), torch.cat(label, 0), path, shapes
 
     @staticmethod
     def collate_fn4(batch):
         img, label, path, shapes = zip(*batch)  # transposed
+    
         n = len(shapes) // 4
         img4, label4, path4, shapes4 = [], [], path[:n], shapes[:n]
 
@@ -996,7 +1008,6 @@ def letterbox(img, new_shape=(640, 640), color=(114, 114, 114), auto=True, scale
     ratio = r, r  # width, height ratios
     new_unpad = int(round(shape[1] * r)), int(round(shape[0] * r))
     dw, dh = new_shape[1] - new_unpad[0], new_shape[0] - new_unpad[1]  # wh padding
-        
     if auto:  # minimum rectangle
         dw, dh = np.mod(dw, stride), np.mod(dh, stride)  # wh padding
     elif scaleFill:  # stretch
@@ -1009,9 +1020,8 @@ def letterbox(img, new_shape=(640, 640), color=(114, 114, 114), auto=True, scale
 
     if shape[::-1] != new_unpad:  # resize
         img = cv2.resize(img, new_unpad, interpolation=cv2.INTER_LINEAR)
-
-    top, bottom = int(round(float(dh) - 0.1)), int(round(float(dh) + 0.1))
-    left, right = int(round(float(dw) - 0.1)), int(round(float(dw) + 0.1))
+    top, bottom = int(round(dh - 0.1)), int(round(dh + 0.1))
+    left, right = int(round(dw - 0.1)), int(round(dw + 0.1))
     img = cv2.copyMakeBorder(img, top, bottom, left, right, cv2.BORDER_CONSTANT, value=color)  # add border
     return img, ratio, (dw, dh)
 

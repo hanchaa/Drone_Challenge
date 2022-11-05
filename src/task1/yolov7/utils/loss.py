@@ -1,11 +1,13 @@
 # Loss functions
+import os.path
 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 import sys
-sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/utils')
+#sys.path.append('/home/eulrang/workspace/git/Drone_Challenge/task1/yolov7/utils')
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 from general import bbox_iou, bbox_alpha_iou, box_iou, box_giou, box_diou, box_ciou, xywh2xyxy
 from torch_utils import is_parallel
 

@@ -51,6 +51,7 @@ class Task2Vision:
 
         WEIGHTS.mkdir(parents=True, exist_ok=True)
         self.model = attempt_load(Path(args.yolo_weights), map_location=self.device).eval()  # load FP32 model
+
         self.names, = self.model.names,
         self.stride = self.model.stride.max().cpu().numpy()  # model stride
         self.img_size = check_img_size(args.imgsz[0], s=self.stride)  # check image size
@@ -108,10 +109,12 @@ class Task2Vision:
             img = img[None]  # expand for batch dim
 
         # Inference
-        pred = self.model(img)
-
+        pred_all = self.model(img) # contains prediction for (location, objectiveness, object classes, upper color, lower color)
+        # @?�랑??pred_all[0][:,:,-20:] ???�의 ?�의 ??prediction, pred_all[0][:,:,5:8] ???�람 class ?��?지???�??logit ?�니??
+        pred_obj = pred_all[0][:,:,:-20]
+        
         # Apply NMS
-        pred = non_max_suppression(pred[0], self.conf_thres, self.iou_thres, self.classes, self.cls_agnostic_nms)
+        pred = non_max_suppression(pred_obj, self.conf_thres, self.iou_thres, self.classes, self.cls_agnostic_nms)
 
         # Process detections
         for i, det in enumerate(pred):  # detections per image
@@ -161,8 +164,8 @@ class Task2Vision:
             else:
                 self.strong_sort.increment_ages()
 
-
-            self.save_results(state)
+            
+            save_result = self.save_results(state)
 
             # Stream results
             if self.show_video:
@@ -176,39 +179,44 @@ class Task2Vision:
 
             self.prev_frames = self.curr_frames
 
+        return save_result
 
-    def save_results(state):
+    def save_results(self,state):
         # TODO SANITY CHECK!!!!! 꼭꼭꼭꼭꼭!!!
-        if state % 2 == 1 : # if in room
-            if self.prev_state == 0 :
-                for k in ['man', 'woman', 'child']:
-                    self.count_dict[k] = 0
-            self.prev_state = 1
-            return None
-        else : # if in hallway    
-            answer_sheet = dict()
-            answer_sheet["room_id"] = state #state가 들어감
-            answer_sheet["mission"] = "2"
-            count_format = dict()
-            count_format["person_num"] = {"M":str(self.count_dict['man']),
-                                          "W":str(self.count_dict['man']),
-                                          "C":str(self.count_dict['child'])}
-            answer_sheet["answer"] = count_format
-            self.prev_state = 0
-            return answer_sheet
+        if self.prev_state == 0 and state % 2 == 1:  # = just entered room
+            for k in ['man', 'woman', 'child']:
+                self.count_dict[k] = 0
+        if state == 0:
+            room_id = state
+        else:
+            if state % 2 == 0:
+                room_id = state - 1
+            else:
+                room_id = state
+        return_sheet = {"team_id": "convai", "secret": "3dlZhXRPPyt22tR9"}
+        answer_sheet = dict()
+        answer_sheet["room_id"] = room_id  # state가 들어감
+        answer_sheet["mission"] = "2"
+        count_format = dict()
+        count_format["person_num"] = {"M": str(min(self.count_dict['man'], 16)),
+                                      "W": str(min(self.count_dict['woman'], 16)),
+                                      "C": str(min(self.count_dict['child'], 16))}
+        answer_sheet["answer"] = count_format
+        return_sheet['answer_sheet'] = answer_sheet
+        self.prev_state = state % 2
+        return return_sheet
 
 
 
 
-if __name__ == "__main__":
-    from tools.parse_args import parse_args
-    args = parse_args()
-    source = args.source
-    del args.source
-
-    task1 = Task2Vision(**vars(args))
-    dataset = LoadImages(source, img_size=args.imgsz, stride=task1.stride)
-
-    with torch.no_grad():
-        for _, _, original_frame, _ in dataset:
-            task1(original_frame)
+# if __name__ == "__main__":
+#     from tools.parse_args import parse_args
+#     args = parse_args()
+#     source = "task2_vision/yolov7/video/set03_drone03.mp4"
+#     task2vision = Task2Vision(args)
+#     # task2vision = Task2Vision(**vars(args))
+#     dataset = LoadImages(source, img_size=args.imgsz, stride=task1.stride)
+#     import pdb;pdb.set_trace()
+#     with torch.no_grad():
+#         for _, _, original_frame, _ in dataset:
+#             task2vision(original_frame)
