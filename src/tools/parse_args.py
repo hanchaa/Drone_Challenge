@@ -31,7 +31,7 @@ def parse_args():
     parser.add_argument('--classes', type=int, default=None, help='filter by class: --classes 0, or --classes 0 2 3')
     parser.add_argument('--agnostic_nms', action='store_true', default=False, help='class-agnostic NMS')
     parser.add_argument('--half', action='store_true', default=False, help='use FP16 half-precision inference')
-    parser.add_argument('--train', type=bool, default=False)
+    parser.add_argument('--unclear_thres', type=int, default=10)
 
     # task 2 audio
     parser.add_argument('--checkpoint', type=str, default='./task2_audio/ckpts/2022_11_03_17_47_47.0100.pt')
