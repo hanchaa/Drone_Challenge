@@ -65,7 +65,7 @@ class Tracker:
         for track in self.tracks:
             track.camera_update(previous_img, current_img)
 
-    def update(self, detections, classes, confidences):
+    def update(self, detections, classes, confidences, attributes=None):
         """Perform measurement update and track management.
 
         Parameters
@@ -75,17 +75,19 @@ class Tracker:
 
         """
         # Run matching cascade.
-        matches, unmatched_tracks, unmatched_detections = \
-            self._match(detections)
+        matches, unmatched_tracks, unmatched_detections = self._match(detections)
 
         # Update track set.
         for track_idx, detection_idx in matches:
-            self.tracks[track_idx].update(
-                detections[detection_idx], classes[detection_idx], confidences[detection_idx])
+            if attributes is not None :
+                attri = [attr[detection_idx] for attr in attributes]
+            self.tracks[track_idx].update(detections[detection_idx], classes[detection_idx], confidences[detection_idx], attri)
         for track_idx in unmatched_tracks:
             self.tracks[track_idx].mark_missed()
         for detection_idx in unmatched_detections:
-            self._initiate_track(detections[detection_idx], classes[detection_idx].item(), confidences[detection_idx].item())
+            if attributes is not None :
+                attri = [attr[detection_idx].item() for attr in attributes]
+            self._initiate_track(detections[detection_idx], classes[detection_idx].item(), confidences[detection_idx].item(), attri)
         self.tracks = [t for t in self.tracks if not t.is_deleted()]
 
         # Update distance metric.
@@ -170,8 +172,8 @@ class Tracker:
         unmatched_tracks = list(set(unmatched_tracks_a + unmatched_tracks_b))
         return matches, unmatched_tracks, unmatched_detections
 
-    def _initiate_track(self, detection, class_id, conf):
+    def _initiate_track(self, detection, class_id, conf, attr):
         self.tracks.append(Track(
-            detection.to_xyah(), self._next_id, class_id, conf, self.n_init, self.max_age, self.ema_alpha,
+            detection.to_xyah(), self._next_id, class_id, conf, attr, self.n_init, self.max_age, self.ema_alpha,
             detection.feature))
         self._next_id += 1

@@ -13,11 +13,11 @@ def parse_args():
     parser.add_argument('--debug_output_path', default=None, help='debugging output image path')
     
     parser.add_argument('--yolo_path', default='.', help='yolo task1 checkpoint path')
-    parser.add_argument('--img_conf_th', type=float, default=0.6, help='img threshold')   # NOTE: determine best confidence threshold value
-    parser.add_argument('--img_kp_th', type=float, default=50, help='img threshold')      # NOTE: determine best keypoint threshold value
-    parser.add_argument('--txt_th', type=float, default=0.8, help='txt threshold')        # NOTE: determine value
-    parser.add_argument('--od_th', type=float, default=0.5, help='OD threshold')          # NOTE: determine value
-    parser.add_argument('--total_th', type=float, default=0.9, help='img+txt threshold')  # NOTE: determine value
+    parser.add_argument('--img_conf_th', type=float, default=0.6, help='img threshold')   # NOTE: determine best confidence threshold value (unsafe: 0.6)
+    parser.add_argument('--img_kp_th', type=float, default=100, help='img threshold')      # NOTE: determine best keypoint threshold value (unsafe: 100)
+    parser.add_argument('--txt_th', type=float, default=0.3, help='txt threshold')        # NOTE: determine value (unsafe: 0.3)
+    parser.add_argument('--od_th', type=float, default=0.5, help='OD threshold')          # NOTE: determine value (unsafe: 0.5)
+    parser.add_argument('--total_th', type=float, default=0.9, help='img+txt threshold')  # NOTE: determine value (unsafe: 0.9)
 
     # task 2 vision
     parser.add_argument('--yolo_weights', type=str, help='model.pt path(s)')

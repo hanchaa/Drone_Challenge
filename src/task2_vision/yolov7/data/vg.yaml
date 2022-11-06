@@ -1,9 +1,19 @@
-train: dataset/visual_genome/train.txt
-val: dataset/visual_genome/train.txt
+# train: dataset/visual_genome/train.txt
+# val: dataset/visual_genome/train.txt
+train: dataset/0_integrated/train.txt
+val: dataset/0_integrated/valid.txt
 
-nc: 46 #26 + 9+1 + 9+1 #0~16, #lifeguard : 2->15, medical staff : 7->16 
-names: ['man','woman','child','monitor','cabinet','basket','box','trash bin','computer','laptop',
-        'bookshelf', 'chair', 'printer','desk','whiteboard','lifeguard','medical staff','banner','mirror', 'stairs',
-        'toy','fire extinguisher','poster','sink','exercise tool','speaker',
-        'up_occluded','up_red','up_orange','up_yellow','up_green','up_blue','up_purple','up_white','up_gray','up_black',
-        'low_occluded','low_red','low_orange','low_yellow','low_green','low_blue','low_purple','low_white','low_gray','low_black']
+# nc: 46 #26 + 9+1 + 9+1 #0~16, #lifeguard : 2->15, medical staff : 7->16 
+# names: ['man','woman','child','monitor','cabinet','basket','box','trash bin','computer','laptop',
+#         'bookshelf', 'chair', 'printer','desk','whiteboard','lifeguard','medical staff','banner','mirror', 'stairs',
+#         'toy','fire extinguisher','poster','sink','exercise tool','speaker',
+#         'up_occluded','up_red','up_orange','up_yellow','up_green','up_blue','up_purple','up_white','up_gray','up_black',
+#         'low_occluded','low_red','low_orange','low_yellow','low_green','low_blue','low_purple','low_white','low_gray','low_black']
+nc: 47 # 22 + (1+9) + (1+9) + 3 + 2
+names: ['person',
+        'monitor','cabinet','basket','box','trash bin','computer','laptop','bookshelf','chair','printer','desk','whiteboard', # index -2
+        'banner','mirror', 'stairs','toy','fire extinguisher','poster','sink','exercise tool','speaker', # index -4
+        'up_occluded','up_red','up_orange','up_yellow','up_green','up_blue','up_purple','up_white','up_gray','up_black', 
+        'low_occluded','low_red','low_orange','low_yellow','low_green','low_blue','low_purple','low_white','low_gray','low_black', 
+        'person_man','person_woman','person_child',
+        'others_lifeguard','others_medic']

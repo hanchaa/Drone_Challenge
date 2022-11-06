@@ -2064,6 +2064,8 @@ class ComputeLossDrone:
         ################################################ DC
         BCEuppercol = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([h['cls_pw']], device=device))
         BCElowercol = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([h['cls_pw']], device=device))
+        BCEpersontype = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([h['cls_pw']], device=device))
+        BCEotherstype = nn.BCEWithLogitsLoss(pos_weight=torch.tensor([h['cls_pw']], device=device))
         ################################################ DC
 
         # Class label smoothing https://arxiv.org/pdf/1902.04103.pdf eqn 3
@@ -2075,6 +2077,7 @@ class ComputeLossDrone:
             BCEcls, BCEobj = FocalLoss(BCEcls, g), FocalLoss(BCEobj, g)
             ################################################ DC
             BCEuppercol, BCElowercol = FocalLoss(BCEuppercol, g), FocalLoss(BCElowercol, g)
+            BCEpersontype, BCEotherstype = FocalLoss(BCEpersontype, g), FocalLoss(BCEotherstype, g)
             ################################################ DC
 
         det = model.module.model[-1] if is_parallel(model) else model.model[-1]  # Detect() module
@@ -2084,6 +2087,7 @@ class ComputeLossDrone:
         self.ssi = list(det.stride).index(16) if autobalance else 0  # stride 16 index
         ################################################ DC
         self.BCElowercol, self.BCEuppercol = BCElowercol, BCEuppercol
+        self.BCEpersontype, self.BCEotherstype = BCEpersontype, BCEotherstype
         ################################################ DC
         self.BCEcls, self.BCEobj, self.gr, self.hyp, self.autobalance = BCEcls, BCEobj, model.gr, h, autobalance
         for k in 'na', 'nc', 'nl', 'anchors':
@@ -2093,7 +2097,8 @@ class ComputeLossDrone:
         device = targets.device
         lcls, lbox, lobj = torch.zeros(1, device=device), torch.zeros(1, device=device), torch.zeros(1, device=device)
         lupcls, llocls = torch.zeros(1, device=device), torch.zeros(1, device=device)
-        tcls, upcls, locls, tbox, indices, anchors = self.build_targets(p, targets)  # targets
+        lpplcls, lothercls = torch.zeros(1, device=device), torch.zeros(1, device=device)
+        tcls, upcls, locls, pplcls, othcls, tbox, indices, anchors = self.build_targets(p, targets)  # targets
 
         # Losses
         for i, pi in enumerate(p):  # layer index, layer predictions
@@ -2116,13 +2121,15 @@ class ComputeLossDrone:
 
                 # Classification
                 if self.nc > 1:  # cls loss (only if multiple classes)
-                    t = torch.full_like(ps[:, 5:-20], self.cn, device=device)  # targets
+                    t = torch.full_like(ps[:, 5:27], self.cn, device=device)  # targets
                     t[range(n), tcls[i]] = self.cp
                     #t[t==self.cp] = iou.detach().clamp(0).type(t.dtype)
                     #################################################### DC
-                    lcls += self.BCEcls(ps[:, 5:-20], t)  # BCE
-                    lupcls += self.BCEuppercol(ps[:, -20:-10], upcls[i].float())
-                    llocls += self.BCElowercol(ps[:, -10:   ], locls[i].float())
+                    lcls += self.BCEcls(ps[:, 5:27], t)  # BCE
+                    lupcls += self.BCEuppercol(ps[:, 27:37], upcls[i].float())
+                    llocls += self.BCElowercol(ps[:, 37:47], locls[i].float())
+                    lpplcls += self.BCEpersontype(ps[:, 47:50], pplcls[i].float())
+                    lothercls += self.BCEotherstype(ps[:, 50:], othcls[i].float())
                     #################################################### DC
 
                 # Append targets to text file
@@ -2142,20 +2149,22 @@ class ComputeLossDrone:
         #################################################### DC
         lupcls *= self.hyp['cls']
         llocls *= self.hyp['cls']
+        lpplcls *= self.hyp['cls']
+        lothercls *= self.hyp['cls']
         #################################################### DC
         bs = tobj.shape[0]  # batch size
 
-        loss = lbox + lobj + lcls + lupcls + llocls
-        return loss * bs, torch.cat((lbox, lobj, lcls, loss)).detach()
+        loss = lbox + lobj + lcls + lupcls + llocls + lpplcls + lothercls
+        return loss * bs, torch.cat((lbox, lobj, lcls, lupcls, llocls, lpplcls, lothercls, loss)).detach()
 
     def build_targets(self, p, targets):
         # Build targets for compute_loss(), input targets(image,class,x,y,w,h,uppercolcls,lowercolcls)
         na, nt = self.na, targets.shape[0]  # number of anchors, targets
-        tcls, ucls, lcls, tbox, indices, anch = [], [], [], [], [], []
-        gain = torch.ones(9, device=targets.device).long()  # normalized to gridspace gain
+        tcls, ucls, lcls, pcls, ocls, tbox, indices, anch = [], [], [], [], [], [], [], []
+        gain = torch.ones(11, device=targets.device).long()  # normalized to gridspace gain
         ai = torch.arange(na, device=targets.device).float().view(na, 1).repeat(1, nt)  # same as .repeat_interleave(nt)
         targets = torch.cat((targets.repeat(na, 1, 1), ai[:, :, None]), 2)  # append anchor indices
-        
+
         g = 0.5  # bias
         off = torch.tensor([[0, 0],
                             [1, 0], [0, 1], [-1, 0], [0, -1],  # j,k,l,m
@@ -2195,8 +2204,12 @@ class ComputeLossDrone:
             gi, gj = gij.T  # grid xy indices
 
             COLOR_TYPE_COUNT = 10 # 1(occluded) + 9
-            uc = F.one_hot(t[:,-3].long(), COLOR_TYPE_COUNT+1)[:,1:] # upper one hot (NULL case deleted)
-            lc = F.one_hot(t[:,-2].long(), COLOR_TYPE_COUNT+1)[:,1:]
+            uc = F.one_hot(t[:,-5].long(), COLOR_TYPE_COUNT+1)[:,1:] # upper one hot (NULL case deleted)
+            lc = F.one_hot(t[:,-4].long(), COLOR_TYPE_COUNT+1)[:,1:]
+            PPL_TYPE_COUNT = 3
+            ppl_c = F.one_hot(t[:,-3].long(), PPL_TYPE_COUNT+1)[:,1:]
+            OTH_TYPE_COUNT = 2
+            oth_c = F.one_hot(t[:,-2].long(), OTH_TYPE_COUNT+1)[:,1:]
             
             # Append
             a = t[:, -1].long()  # anchor indices
@@ -2206,5 +2219,7 @@ class ComputeLossDrone:
             tcls.append(c)  # class
             ucls.append(uc) # color class of upper
             lcls.append(lc) # color class of lower
+            pcls.append(ppl_c) # people class
+            ocls.append(oth_c) # other(don't care) class
 
-        return tcls, ucls, lcls, tbox, indices, anch
+        return tcls, ucls, lcls, pcls, ocls, tbox, indices, anch
