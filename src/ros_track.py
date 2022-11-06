@@ -31,7 +31,6 @@ class Rony2:
         self.url_mission = os.environ["REST_MISSION_URL"]
         self.url_answer = os.environ["REST_ANSWER_URL"]
 
-        self.room_id = 0
         self.template = {
         "team_id": "mlvlab",
         "secret": "h8pnwElZ3FBnCwA4",
@@ -108,8 +107,6 @@ class Rony2:
                 }
 
         if self.prev_state > 0 and self.state == 0:
-            self.room_id = self.prev_state
-
             self.result_task2['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
             self.result_task3['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
 
