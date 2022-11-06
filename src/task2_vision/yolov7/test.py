@@ -112,6 +112,7 @@ def test(data,
             # Run model
             t = time_synchronized()
             out, train_out = model(img, augment=augment)  # inference and training outputs
+            # out = out[:,:,:27]
             t0 += time_synchronized() - t
 
             # Compute loss
@@ -124,7 +125,9 @@ def test(data,
             ################## DC
             lb = [targets[targets[:, 0] == i, 1:] for i in range(nb)] if save_hybrid else []  # for autolabelling
             t = time_synchronized()
+            ################## DC
             out = non_max_suppression(out, conf_thres=conf_thres, iou_thres=iou_thres, labels=lb, multi_label=True)
+            ################## DC
             t1 += time_synchronized() - t
 
         # Statistics per image

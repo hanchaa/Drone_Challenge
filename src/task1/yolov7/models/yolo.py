@@ -1,23 +1,25 @@
 import argparse
 import logging
-import os.path
 import sys
 from copy import deepcopy
 
-# sys.path.append('./')  # to run '$ python *.py' files in subdirectories
-sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+sys.path.append('./')  # to run '$ python *.py' files in subdirectories
 logger = logging.getLogger(__name__)
 import torch
-
-from models.common import *
-from models.experimental import *
-#sys.path.append('/home/eulrang/workspace/git/AGC2022_round3_task1/yolov7/utils')
-sys.path.append(os.path.join(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))), 'utils'))
-from autoanchor import check_anchor_order
-from general import make_divisible, check_file, set_logging
-from torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
-    select_device, copy_attr
-from loss import SigmoidBin
+from .common import *
+from .experimental import *
+try :
+    from ..utils.autoanchor import check_anchor_order
+    from ..utils.general import make_divisible, check_file, set_logging
+    from ..utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
+        select_device, copy_attr
+    from ..utils.loss import SigmoidBin
+except :
+    from utils.autoanchor import check_anchor_order
+    from utils.general import make_divisible, check_file, set_logging
+    from utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
+        select_device, copy_attr
+    from utils.loss import SigmoidBin
 
 try:
     import thop  # for FLOPS computation
@@ -29,7 +31,8 @@ class Detect(nn.Module):
     stride = None  # strides computed during build
     export = False  # onnx export
     end2end = False
-    include_nms = False 
+    include_nms = False
+    concat = False
 
     def __init__(self, nc=80, anchors=(), ch=()):  # detection layer
         super(Detect, self).__init__()
@@ -60,9 +63,10 @@ class Detect(nn.Module):
                     y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
                     y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
                 else:
-                    xy = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
-                    wh = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i].data  # wh
-                    y = torch.cat((xy, wh, y[..., 4:]), -1)
+                    xy, wh, conf = y.split((2, 2, self.nc + 1), 4)  # y.tensor_split((2, 4, 5), 4)  # torch 1.8.0
+                    xy = xy * (2. * self.stride[i]) + (self.stride[i] * (self.grid[i] - 0.5))  # new xy
+                    wh = wh ** 2 * (4 * self.anchor_grid[i].data)  # new wh
+                    y = torch.cat((xy, wh, conf), 4)
                 z.append(y.view(bs, -1, self.no))
 
         if self.training:
@@ -72,6 +76,8 @@ class Detect(nn.Module):
         elif self.include_nms:
             z = self.convert(z)
             out = (z, )
+        elif self.concat:
+            out = torch.cat(z, 1)
         else:
             out = (torch.cat(z, 1), x)
 
@@ -99,7 +105,8 @@ class IDetect(nn.Module):
     stride = None  # strides computed during build
     export = False  # onnx export
     end2end = False
-    include_nms = False 
+    include_nms = False
+    concat = False
 
     def __init__(self, nc=80, anchors=(), ch=()):  # detection layer
         super(IDetect, self).__init__()
@@ -111,7 +118,10 @@ class IDetect(nn.Module):
         a = torch.tensor(anchors).float().view(self.nl, -1, 2)
         self.register_buffer('anchors', a)  # shape(nl,na,2)
         self.register_buffer('anchor_grid', a.clone().view(self.nl, 1, -1, 1, 1, 2))  # shape(nl,1,na,1,1,2)
-        self.m = nn.ModuleList(nn.Conv2d(x, self.no * self.na, 1) for x in ch)  # output conv
+        # self.m = nn.ModuleList(nn.Conv2d(x, self.no * self.na, 1) for x in ch)  # output conv 22 x 3
+        self.m = nn.ModuleList(nn.Conv2d(x, 85 * 3, 1) for x in ch)
+        # self.m_loc = nn.ModuleList(nn.Conv2d(x, 5 * self.na, 1) for x in ch)
+        self.m_cls = nn.ModuleList(nn.Conv2d(x, (self.no - 5) * self.na, 1) for x in ch)
         
         self.ia = nn.ModuleList(ImplicitA(x) for x in ch)
         self.im = nn.ModuleList(ImplicitM(self.no * self.na) for _ in ch)
@@ -121,7 +131,8 @@ class IDetect(nn.Module):
         z = []  # inference output
         self.training |= self.export
         for i in range(self.nl):
-            x[i] = self.m[i](self.ia[i](x[i]))  # conv
+            # x[i] = self.m[i](self.ia[i](x[i]))  # conv
+            x[i] = torch.cat([self.m[i](self.ia[i](x[i]))[:,:5*self.na], self.m_cls[i](self.ia[i](x[i]))], 1)
             x[i] = self.im[i](x[i])
             bs, _, ny, nx = x[i].shape  # x(bs,255,20,20) to x(bs,3,20,20,85)
             x[i] = x[i].view(bs, self.na, self.no, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
@@ -155,9 +166,10 @@ class IDetect(nn.Module):
                     y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
                     y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
                 else:
-                    xy = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
-                    wh = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i].data  # wh
-                    y = torch.cat((xy, wh, y[..., 4:]), -1)
+                    xy, wh, conf = y.split((2, 2, self.nc + 1), 4)  # y.tensor_split((2, 4, 5), 4)  # torch 1.8.0
+                    xy = xy * (2. * self.stride[i]) + (self.stride[i] * (self.grid[i] - 0.5))  # new xy
+                    wh = wh ** 2 * (4 * self.anchor_grid[i].data)  # new wh
+                    y = torch.cat((xy, wh, conf), 4)
                 z.append(y.view(bs, -1, self.no))
 
         if self.training:
@@ -167,6 +179,8 @@ class IDetect(nn.Module):
         elif self.include_nms:
             z = self.convert(z)
             out = (z, )
+        elif self.concat:
+            out = torch.cat(z, 1)            
         else:
             out = (torch.cat(z, 1), x)
 
@@ -310,6 +324,7 @@ class IAuxDetect(nn.Module):
     export = False  # onnx export
     end2end = False
     include_nms = False
+    concat = False
 
     def __init__(self, nc=80, anchors=(), ch=()):  # detection layer
         super(IAuxDetect, self).__init__()
@@ -349,9 +364,10 @@ class IAuxDetect(nn.Module):
                     y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
                     y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
                 else:
-                    xy = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
-                    wh = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i].data  # wh
-                    y = torch.cat((xy, wh, y[..., 4:]), -1)
+                    xy, wh, conf = y.split((2, 2, self.nc + 1), 4)  # y.tensor_split((2, 4, 5), 4)  # torch 1.8.0
+                    xy = xy * (2. * self.stride[i]) + (self.stride[i] * (self.grid[i] - 0.5))  # new xy
+                    wh = wh ** 2 * (4 * self.anchor_grid[i].data)  # new wh
+                    y = torch.cat((xy, wh, conf), 4)
                 z.append(y.view(bs, -1, self.no))
 
         return x if self.training else (torch.cat(z, 1), x[:self.nl])
@@ -386,6 +402,8 @@ class IAuxDetect(nn.Module):
         elif self.include_nms:
             z = self.convert(z)
             out = (z, )
+        elif self.concat:
+            out = torch.cat(z, 1)            
         else:
             out = (torch.cat(z, 1), x)
 
