@@ -95,7 +95,7 @@ class Task2Vision:
             self.count_dict[k] = 0
         self.prev_room_return_sheet = None
         self.prev_state = -1
-        self.UNCLEAR_THRES = 10
+        self.UNCLEAR_THRES = args.unclear_thres
 
     def __call__(self, original_img, state):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
