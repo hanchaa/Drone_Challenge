@@ -13,7 +13,7 @@ rate = rospy.Rate(5)
 rospy.loginfo("SUBSCRIBING START")
 
 MESSAGE_MISSION_START = {
-        "team_id": "user30",
+        "team_id": "mlvlab",
         "command": "MISSION_START"
         }
 

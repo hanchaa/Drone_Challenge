@@ -129,7 +129,7 @@ class Rony2:
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
                 data = json.dumps(self.template).encode('unicode-escape')
                 print(data)
-                req = request.Request(api_url_answer, data=data)
+                req = request.Request(self.url_answer, data=data)
                 resp = request.urlopen(req)
                 status = resp.read().decode('utf8')
                 if "OK" in status:
