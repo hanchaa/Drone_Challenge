@@ -1,30 +1,23 @@
 import argparse
 import logging
+import os.path
 import sys
 from copy import deepcopy
 
-sys.path.append('./')  # to run '$ python *.py' files in subdirectories
+# sys.path.append('./')  # to run '$ python *.py' files in subdirectories
+sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 logger = logging.getLogger(__name__)
 import torch
-from .common import *
-from .experimental import *
-try :
-    from ..utils.autoanchor import check_anchor_order
-    from ..utils.general import make_divisible, check_file, set_logging
-    from ..utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
-        select_device, copy_attr
-    from ..utils.loss import SigmoidBin
-except :
-    from utils.autoanchor import check_anchor_order
-    from utils.general import make_divisible, check_file, set_logging
-    from utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
-        select_device, copy_attr
-    from utils.loss import SigmoidBin
 
-try:
-    import thop  # for FLOPS computation
-except ImportError:
-    thop = None
+from models.common import *
+from models.experimental import  *
+#sys.path.append('/home/eulrang/workspace/git/AGC2022_round3_task1/yolov7/utils')
+sys.path.append(os.path.join(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))), 'utils'))
+from autoanchor import check_anchor_order
+from general import make_divisible, check_file, set_logging
+from torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
+    select_device, copy_attr
+from loss import SigmoidBin
 
 
 class Detect(nn.Module):
