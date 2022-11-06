@@ -293,7 +293,7 @@ class Task1:
                 for i in range(0, len(ans_keys)):
                     self.json['answer_sheet']['answer']['person_id'][ans_keys[i]] = ["UNCLEAR"]
             
-            print(self.json)
+            # print(self.json)
             return self.json
 
         except:
@@ -305,7 +305,7 @@ class Task1:
                             }   
                         }   
                     }
-            print('exception!')
+            # print('exception!')
             return self.json
 
 if __name__ == "__main__":
