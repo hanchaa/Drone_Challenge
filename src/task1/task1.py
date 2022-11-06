@@ -92,7 +92,7 @@ class Task1:
     def __call__(self, img: np.ndarray, state):
         try:
             clue_info = []
-            if state == 0:  # NOTE: 복도에서 json, room_id 초기화
+            if (state == 0 or state == -1):  # NOTE: 복도에서 json, room_id 초기화
                 self.json = {'answer_sheet': {
                         'room_id': None,
                         'mission': "1",
