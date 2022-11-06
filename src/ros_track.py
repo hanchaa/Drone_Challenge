@@ -79,7 +79,7 @@ class Rony2:
                 }
 
             try:
-                self.result_task2 = self.task2_vision(image, self.state)
+                self.result_task2, poster_bbox = self.task2_vision(image, self.state)
             except:
                 self.result_task2 = {
                     "answer_sheet": {
@@ -92,9 +92,10 @@ class Rony2:
                         }
                     }
                 }
+                poster_bbox = None
 
             try:
-                self.result_task3 = self.task3(image, self.state)
+                self.result_task3 = self.task3(image, self.state, poster_bbox)
             except:
                 self.result_task3 = {
                     "answer_sheet": {
