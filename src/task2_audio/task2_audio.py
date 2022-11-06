@@ -83,8 +83,9 @@ class Task2Audio():
                 self.update_result(initial_result)
 
                 if self.prev_state != state:
-                    write_csv(state, self.result)
+                    write_csv(self.prev_state, self.result)
                     self.prev_state = state
+                    self.result = {"male": 0, "female": 0, "baby": 0}
 
                 self.current_index += self.hop_size
 
