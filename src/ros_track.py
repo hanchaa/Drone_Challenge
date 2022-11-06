@@ -110,9 +110,8 @@ class Rony2:
         if self.prev_state > 0 and self.state == 0:
             self.room_id = self.prev_state
 
-            self.result_task1['answer_sheet']['room_id'] = self.room_id
-            self.result_task2['answer_sheet']['room_id'] = self.room_id
-            self.result_task3['answer_sheet']['room_id'] = self.room_id
+            self.result_task2['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
+            self.result_task3['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
 
             for i in range(1, 4):
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
