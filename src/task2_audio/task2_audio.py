@@ -20,11 +20,9 @@ from .utils import *
 
 
 def write_csv(state, result):
-    #print(f"state: {state}, male: {result['male']}, female: {result['female']}, baby: {result['baby']}")
     file_path = os.path.join("./task2_audio/results", str(state) + ".csv")
-    filr_mode = "w"
     
-    with open(file_path, file_mode, newline="") as f:
+    with open(file_path, "w") as f:
          wr = csv.writer(f)
          wr.writerow([result["male"], result["female"], result["baby"]])
 
@@ -84,6 +82,7 @@ class Task2Audio():
                 write_csv(state, self.result)
 
                 if self.prev_state != state:
+                    print(f"{self.prev_state}: {self.result}")
                     self.prev_state = state
                     self.result = {"male": 0, "female": 0, "baby": 0}
 
