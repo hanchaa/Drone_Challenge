@@ -1,4 +1,5 @@
 import os
+import cv2
 
 # limit the number of cpus used by high performance libraries
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -48,7 +49,9 @@ class Task2Vision:
         self.classes = args.classes
         # self.classes = []
         self.cls_agnostic_nms = args.agnostic_nms
+        self.save_path = args.video_path[:-4] + '_task2.mp4'
         self.show_video = args.show_vid
+        self.video_writer = None
 
         WEIGHTS.mkdir(parents=True, exist_ok=True)
         self.model = attempt_load(Path(args.yolo_weights), map_location=self.device).eval()  # load FP32 model
@@ -76,7 +79,8 @@ class Task2Vision:
         self.strong_sort.model.warmup()
         self.strong_sort_ecc = cfg.STRONGSORT.ECC
 
-        self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
+        # self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
+        self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in ['man','woman','child']]
 
         # Run tracking
         self.curr_frames, self.prev_frames = None, None
@@ -97,7 +101,7 @@ class Task2Vision:
         self.prev_state = -1
         self.UNCLEAR_THRES = 10
 
-    def __call__(self, original_img, state):
+    def __call__(self, original_img, state, fid=None, cap=None):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
         FRAME_DATA_PARSE = dict()
 
@@ -218,10 +222,11 @@ class Task2Vision:
                         
                         if self.show_video:
                             # label = f'{id} {self.names[c]} {conf:.2f}'
-                            label = f'{id} {name} {conf:.2f} {upper_color} {lower_color}'
-                            plot_one_box(bboxes, original_img, label=label, color=self.colors[c], line_thickness=2)
+                            # label = f'{id} {name} {conf:.2f} {upper_color} {lower_color}'
+                            label = f'{id} {name} {conf:.2f}'
+                            plot_one_box(bboxes, original_img, label=label, color=self.colors[int(ppl_cls)], line_thickness=2)
 
-                        if (id, name) not in self.id_list :
+                        if (id, name) not in self.id_list and state > 0:
                             self.id_list.append((id, name))
 
                             if name == 'man':
@@ -252,15 +257,27 @@ class Task2Vision:
 
             # Stream results
             if self.show_video:
-                text = ''
+                assert fid is not None
+                assert cap is not None
+                text = f'{fid}   #2   State {state}        '
                 for k, v in self.count_dict.items():
                     text += f'{k}:{v} '
-                cv2.putText(original_img, text, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+                img = cv2.putText(original_img, text, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
 
-                cv2.imshow("Visualize", original_img)
-                cv2.waitKey(1)  # 1 millisecond
+                
+                fps = cap.get(cv2.CAP_PROP_FPS)
+                w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+                if self.video_writer is None:
+                    self.video_writer = cv2.VideoWriter(self.save_path, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), fps, (w, h))
+                self.video_writer.write(img)
+                # cv2.imshow("Visualize", original_img)
+                cv2.waitKey(1)  # 1 millisecond     
+
 
             self.prev_frames = self.curr_frames
+            self.prev_state = state
 
         return ANSWER_PARSE, FRAME_DATA_PARSE
 
