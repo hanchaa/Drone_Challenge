@@ -51,9 +51,8 @@ class Task2Audio():
         self.audio_path = os.path.join("./task2_audio", args.filename)
 
         self.current_index = 0
-        self.duration = args.sr * 10
-        self.hop_size = args.sr // 2
-        self.start_index = 0
+        self.duration = args.sr * 5
+        self.hop_size = self.duration // 2
 
         self.prev_state = -1
         self.result = {"male": 0, "female": 0, "baby": 0}
@@ -61,20 +60,13 @@ class Task2Audio():
     def __call__(self, state):
         if os.path.isfile(self.audio_path):
             try:
-
                 if self.prev_state != state:
-                    
                     print(f"{self.prev_state}: {self.result}")
                     self.prev_state = state
                     self.result = {"male": 0, "female": 0, "baby": 0}
-                    self.current_index = torchaudio.info(self.audio_path)[0].length
-    
+
                 y, xr = sf.read(self.audio_path, start=self.current_index, stop=self.current_index + self.duration)
-                assert y.shape[0] > 16000 * 2
-                
-                if y.shape[0] > self.duration:
-                    self.current_index += self.hop_size
-                    y = y[-self.duration:,:]                
+                assert y.shape[0] == self.duration
 
                 y = np.transpose(y)
                 y = np.mean(y, axis=0)
@@ -85,7 +77,7 @@ class Task2Audio():
                 initial_result = test(self.estimator, audio, self.threshold, self.smooth, self.min_frame, self.merge_frame)
                 self.update_result(initial_result)
 
-                
+                self.current_index += self.hop_size
 
             except AssertionError:
                 if self.args.debug:
