@@ -39,8 +39,9 @@ class Rony2:
 
         self.result_task1 = {}
         self.result_task2 = {}
-        #self.answer_task2_audio
         self.result_task3 = {}
+
+        self.result_audio = {}
 
         self.mission_ended = False
 
@@ -86,9 +87,11 @@ class Rony2:
                         "room_id": "500",
                         "mission": "2",
                         "answer": {
-                            "M": "UNCLEAR",
-                            "W": "UNCLEAR",
-                            "C": "UNCLEAR"
+                            "person_num": {
+                                "M": "UNCLEAR",
+                                "W": "UNCLEAR",
+                                "C": "UNCLEAR"
+                            }
                         }
                     }
                 }
@@ -109,20 +112,16 @@ class Rony2:
 
         if self.prev_state > 0 and self.state == 0:
             try:
-                file_path = os.path.join("./task2_audio/results", str(self.state) + ".csv")
-                with open(file_path, 'r') as f:
-                    rdr = csv.reader(f)
-                    for r in rdr:
-                        task2_result_audio = r
+                audio_result = self.result_audio[self.prev_state]
 
-                if self.result_task2['answer_sheet']['answer']['person_num']["M"] != 'UNCLEAR':
-                    self.result_task2['answer_sheet']['answer']['person_num']["M"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["M"]) + int(task2_result_audio[0]))
+                if self.result_task2['answer_sheet']['answer']["person_num"]["M"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["M"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["M"]) + audio_result["male"])
                 
                 if self.result_task2['answer_sheet']['answer']['person_num']["W"] != 'UNCLEAR':
-                    self.result_task2['answer_sheet']['answer']['person_num']["W"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["W"]) + int(task2_result_audio[1]))
+                    self.result_task2['answer_sheet']['answer']['person_num']["W"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["W"]) + audio_result["female"])
                 
                 if self.result_task2['answer_sheet']['answer']['person_num']["C"] != 'UNCLEAR':
-                    self.result_task2['answer_sheet']['answer']['person_num']["C"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["C"]) + int(task2_result_audio[2]))
+                    self.result_task2['answer_sheet']['answer']['person_num']["C"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["C"]) + audio_result["baby"])
             except:
                 pass
 
@@ -189,7 +188,7 @@ class Rony2:
     def __call__(self):
         while not rospy.is_shutdown():
             with torch.no_grad():
-                self.task2_audio(self.state)
+                self.result_audio[self.state] = self.task2_audio(self.state)
 
 
 if __name__ == "__main__":
