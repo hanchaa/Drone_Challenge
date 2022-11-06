@@ -4,13 +4,10 @@ import torch
 import numpy as np
 from sensor_msgs.msg import CompressedImage
 from geometry_msgs.msg import PoseStamped
-import matplotlib.pyplot as plt
 import os
-import csv
-import time
 import json
-import csv
 from tools import parse_args
+from urllib import request
 
 from task1 import Task1
 from task2_vision import Task2Vision
@@ -132,7 +129,7 @@ class Rony2:
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
                 data = json.dumps(self.template).encode('unicode-escape')
                 print(data)
-                req = request.Request(api_url_answer,data=data)
+                req = request.Request(api_url_answer, data=data)
                 resp = request.urlopen(req)
                 status = resp.read().decode('utf8')
                 if "OK" in status:
