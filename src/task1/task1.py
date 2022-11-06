@@ -8,8 +8,7 @@ import torch
 
 from .utils.json_utils import json_preprocess, json_postprocess
 from .utils.args_utils import parse_args
-from .utils.image_matching_utils import matching, read_image, make_matching_plot
-from .utils.od_utils import plot_one_box
+from .utils.model_utils import matching, read_image, make_matching_plot, plot_one_box
 from .superglue.superpoint import SuperPoint
 from .superglue.superglue import SuperGlue
 
