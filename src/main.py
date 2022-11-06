@@ -47,11 +47,11 @@ class MissionStart:
                 print("Take-Off and Mission Start!")
                 data_mission = json.dumps(MESSAGE_MISSION_START).encode('utf8')
                 print(data_mission)
-                # req = request.Request(api_url_mission, data=data_mission)
-                # resp = request.urlopen(req)
-                # status = resp.read().decode('utf8')
-                # if "OK" in status:
-                #     print("Complete send : Mission Start!!")
+                req = request.Request(api_url_mission, data=data_mission)
+                resp = request.urlopen(req)
+                status = resp.read().decode('utf8')
+                if "OK" in status:
+                    print("Complete send : Mission Start!!")
                 mission_trigger=False
 
 def main():

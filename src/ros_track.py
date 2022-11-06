@@ -132,13 +132,13 @@ class Rony2:
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
                 data = json.dumps(self.template).encode('unicode-escape')
                 print(data)
-                # req = request.Request(api_url_answer,data=data)
-                # resp = request.urlopen(req)
-                # status = resp.read().decode('utf8')
-                # if "OK" in status:
-                #     print("Complete send : Answersheet!!")
-                # elif "ERROR" == status:
-                #     raise ValueError("Receive ERROR status. Please check your source code.")
+                req = request.Request(api_url_answer,data=data)
+                resp = request.urlopen(req)
+                status = resp.read().decode('utf8')
+                if "OK" in status:
+                    print("Complete send : Answersheet!!")
+                elif "ERROR" == status:
+                    raise ValueError("Receive ERROR status. Please check your source code.")
 
         self.prev_state = self.state
 
@@ -174,13 +174,13 @@ class Rony2:
             }
             data_mission = json.dumps(MESSAGE_MISSION_END).encode('utf8')
             print(data_mission)
-            # req = request.Request(self.url_answer, data=data_mission)
-            # resp = request.urlopen(req)
-            # status = resp.read().decode('utf8')
-            # if "OK" in status:
-            #     print("Complete send : Mission Start!!")
-            # elif "ERROR" == status:
-            #     raise ValueError("Receive ERROR status. Please check your source code.")
+            req = request.Request(self.url_answer, data=data_mission)
+            resp = request.urlopen(req)
+            status = resp.read().decode('utf8')
+            if "OK" in status:
+                print("Complete send : Mission Start!!")
+            elif "ERROR" == status:
+                raise ValueError("Receive ERROR status. Please check your source code.")
 
         if old_state != self.state:
             print(f"state is changed from {old_state} to {self.state}")
