@@ -9,7 +9,7 @@ import os
 import csv
 import time
 import json
-
+import csv
 from tools import parse_args
 
 from task1 import Task1
@@ -79,6 +79,7 @@ class Rony2:
 
             try:
                 self.result_task2, poster_bbox = self.task2_vision(image, self.state)
+
             except:
                 self.result_task2 = {
                     "answer_sheet": {
@@ -107,6 +108,24 @@ class Rony2:
                 }
 
         if self.prev_state > 0 and self.state == 0:
+            try:
+                file_path = os.path.join("./task2_audio/results", str(self.state) + ".csv")
+                with open(file_path, 'r') as f:
+                    rdr = csv.reader(f)
+                    for r in rdr:
+                        task2_result_audio = r
+
+                if self.result_task2['answer_sheet']['answer']['person_num']["M"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["M"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["M"]) + int(task2_result_audio[0]))
+                
+                if self.result_task2['answer_sheet']['answer']['person_num']["W"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["W"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["W"]) + int(task2_result_audio[1]))
+                
+                if self.result_task2['answer_sheet']['answer']['person_num']["C"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["C"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["C"]) + int(task2_result_audio[2]))
+            except:
+                pass
+
             self.result_task2['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
             self.result_task3['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
 
