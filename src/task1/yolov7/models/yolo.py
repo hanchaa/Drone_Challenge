@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 import torch
 
 from models.common import *
-from models.experimental import  *
+from models.experimental import *
 #sys.path.append('/home/eulrang/workspace/git/AGC2022_round3_task1/yolov7/utils')
 sys.path.append(os.path.join(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__)))), 'utils'))
 from autoanchor import check_anchor_order
