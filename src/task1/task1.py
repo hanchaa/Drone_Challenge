@@ -301,7 +301,7 @@ class Task1:
                         'room_id': None,
                         'mission': "1",
                         'answer': {
-                            'person_id': {['UNCLEAR']}
+                            'person_id': 'UNCLEAR'
                             }   
                         }   
                     }
