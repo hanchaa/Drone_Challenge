@@ -2051,6 +2051,18 @@ class ComputeLossAuxOTA:
 
 
 ################################## DRONE CHALLENGE
+CLS_LIST = [
+        'person','monitor','cabinet','basket','box','trash bin','computer','laptop','bookshelf','chair','printer','desk','whiteboard',
+        'banner','mirror', 'stairs','toy','fire extinguisher','poster','sink','exercise tool','speaker'
+]
+CLS_COUNT = {
+            'basket': 2788, 'mirror': 5141, 'computer': 1784, 'monitor': 1993, 'person': 24538, 'stairs': 1210, 'chair': 15536, 
+            'cabinet': 4334, 'desk': 4636, 'sink': 3063, 'box': 5449, 'trash bin': 664, 'laptop': 2301, 'banner': 1630, 'poster': 1240,
+            'bookshelf': 862, 'toy': 612, 'speaker': 970, 'whiteboard': 424, 'exercise tool': 524, 'fire extinguisher': 358, 'printer': 264
+}
+minval = 264
+WEIGHT = torch.Tensor([minval/CLS_COUNT[CLS] for CLS in CLS_LIST])
+
 class ComputeLossDrone:
     # Compute losses
     def __init__(self, model, autobalance=False):
@@ -2099,7 +2111,9 @@ class ComputeLossDrone:
         lupcls, llocls = torch.zeros(1, device=device), torch.zeros(1, device=device)
         lpplcls, lothercls = torch.zeros(1, device=device), torch.zeros(1, device=device)
         tcls, upcls, locls, pplcls, othcls, tbox, indices, anchors = self.build_targets(p, targets)  # targets
-
+        # tcls_reweight = [WEIGHT.to(device)[item] for item in tcls]
+        # tcls_reweight = [1.0 for item in tcls]
+        
         # Losses
         for i, pi in enumerate(p):  # layer index, layer predictions
             b, a, gj, gi = indices[i]  # image, anchor, gridy, gridx
@@ -2126,6 +2140,7 @@ class ComputeLossDrone:
                     #t[t==self.cp] = iou.detach().clamp(0).type(t.dtype)
                     #################################################### DC
                     lcls += self.BCEcls(ps[:, 5:27], t)  # BCE
+                    # lcls += (tcls_reweight[i].unsqueeze(-1) * self.BCEcls(ps[:,5:27], t)).mean()
                     lupcls += self.BCEuppercol(ps[:, 27:37], upcls[i].float())
                     llocls += self.BCElowercol(ps[:, 37:47], locls[i].float())
                     lpplcls += self.BCEpersontype(ps[:, 47:50], pplcls[i].float())

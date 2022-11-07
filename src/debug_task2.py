@@ -9,6 +9,7 @@ from tools import parse_args
 # from task1 import Task1
 from task2_vision import Task2Vision
 # from task3 import Task3
+import pandas as pd
 
 
 if __name__ == "__main__":
@@ -99,7 +100,7 @@ if __name__ == "__main__":
             
             # result_task1 = task1(frame, state)
             result_task2, detection_info = task2_vision(frame,state)
-            print(result_task2)
+            print(result_task2['answer_sheet'])
             #task2_audio(frame,state)
             # result_task3 = task3(frame,state)
 

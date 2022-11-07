@@ -69,7 +69,8 @@ class StrongSORT(object):
             upper = track.attr[0]
             lower = track.attr[1]
             ptype = track.attr[2]
-            outputs.append(np.array([x1, y1, x2, y2, track_id, class_id, conf, upper, lower, ptype]))
+            otype = track.attr[3]
+            outputs.append(np.array([x1, y1, x2, y2, track_id, class_id, conf, upper, lower, ptype, otype]))
         if len(outputs) > 0:
             outputs = np.stack(outputs, axis=0)
         return outputs

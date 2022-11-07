@@ -94,7 +94,10 @@ def test(data,
         print("Testing with YOLOv5 AP metric...")
     
     seen = 0
-    confusion_matrix = ConfusionMatrix(nc=nc)
+    confusion_matrix = ConfusionMatrix(nc=nc-25)
+    ucol_confusion_matrix = ConfusionMatrix(nc=10)
+    lcol_confusion_matrix = ConfusionMatrix(nc=10)
+    ptype_confusion_matrix = ConfusionMatrix(nc=3)
     names = {k: v for k, v in enumerate(model.names if hasattr(model, 'names') else model.module.names)}
     coco91class = coco80_to_coco91_class()
     s = ('%20s' + '%12s' * 6) % ('Class', 'Images', 'Labels', 'P', 'R', 'mAP@.5', 'mAP@.5:.95')
@@ -126,13 +129,23 @@ def test(data,
             lb = [targets[targets[:, 0] == i, 1:] for i in range(nb)] if save_hybrid else []  # for autolabelling
             t = time_synchronized()
             ################## DC
-            out = non_max_suppression(out, conf_thres=conf_thres, iou_thres=iou_thres, labels=lb, multi_label=True)
+            out = non_max_suppression(out, conf_thres=conf_thres, iou_thres=iou_thres, labels=lb, multi_label=False, return_attributes=True)
+            # out = non_max_suppression(out, conf_thres=conf_thres, iou_thres=iou_thres, labels=lb, multi_label=True)
             ################## DC
             t1 += time_synchronized() - t
 
         # Statistics per image
         for si, pred in enumerate(out):
+            ucol_pred = pred[:,7:8]
+            lcol_pred = pred[:,9:10]
+            ptype_pred = pred[:,11:12]
+            pred = pred[:,:6]
             labels = targets[targets[:, 0] == si, 1:]
+            ucol_labels = labels[:,6:7]
+            lcol_labels = labels[:,7:8]
+            ptype_labels = labels[:,8:9]
+            labels = labels[:,:6]
+            
             nl = len(labels)
             tcls = labels[:, 0].tolist() if nl else []  # target class
             path = Path(paths[si])
@@ -191,6 +204,7 @@ def test(data,
                 scale_coords(img[si].shape[1:], tbox, shapes[si][0], shapes[si][1])  # native-space labels
                 if plots:
                     confusion_matrix.process_batch(predn, torch.cat((labels[:, 0:1], tbox), 1))
+                    # ucol_confusion_matrix.process_batch()
 
                 # Per target class
                 for cls in torch.unique(tcls_tensor):
