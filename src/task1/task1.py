@@ -35,6 +35,7 @@ class Task1:
         self.txt_th = args.txt_th
         self.od_th = args.od_th
         self.total_th = args.total_th
+        self.show_video = args.show_vid
         self.cnt = 0
         self.state = 0
         self.room_id = None
@@ -143,7 +144,6 @@ class Task1:
                 input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             else:
                 input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                       # NOTE: copy된 frame image 사용
-                input_img_vid = cv2.cvtColor(frame_for_vis, cv2.COLOR_BGR2GRAY)
             image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')           # NOTE: video frame image
 
             if len(clue_img_list) > 0:
@@ -274,31 +274,32 @@ class Task1:
                             od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
                         
-                            for j in range(0, pred.shape[0]):
-                                bboxes = pred[j][0:4]
-                                confs = pred[j][4]
-                                clss = pred[j][5]
-                                upper_clss = pred[j][7]
-                                lower_clss = pred[j][9]
-                                ppl_clss = pred[j][11]
+                            if self.show_video:
+                                for j in range(0, pred.shape[0]):
+                                    bboxes = pred[j][0:4]
+                                    confs = pred[j][4]
+                                    clss = pred[j][5]
+                                    upper_clss = pred[j][7]
+                                    lower_clss = pred[j][9]
+                                    ppl_clss = pred[j][11]
 
-                                if clss == 0:   # NOTE: person
-                                    if ppl_clss == 0:
-                                        name = 'man'
-                                    elif ppl_clss == 1:
-                                        name = 'woman'
-                                    else:
-                                        name = 'child'
+                                    if clss == 0:   # NOTE: person
+                                        if ppl_clss == 0:
+                                            name = 'man'
+                                        elif ppl_clss == 1:
+                                            name = 'woman'
+                                        else:
+                                            name = 'child'
 
-                                    upper_color = self.color_list[int(upper_clss.item())]
-                                    lower_color = self.color_list[int(lower_clss.item())]
+                                        upper_color = self.color_list[int(upper_clss.item())]
+                                        lower_color = self.color_list[int(lower_clss.item())]
 
-                                    label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
-                                else:   # NOTE: object
-                                    label = f'{self.names[int(clss)]} {float(confs):.2f}'
+                                        label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
+                                    else:   # NOTE: object
+                                        label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
-                                plot_one_box(bboxes, input_img_vid, label=label, color=self.colors[int(clss)], line_thickness=2)
-                            # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                                    plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
+                                # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
 
                         clue_info.append(clue_txts[i][-7:-5])
 
