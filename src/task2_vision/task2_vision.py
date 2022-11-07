@@ -97,7 +97,7 @@ class Task2Vision:
         self.prev_state = -1
         self.UNCLEAR_THRES = args.unclear_thres
 
-    def __call__(self, original_img, state):
+    def __call__(self, original_img, state, frame_for_vis=None):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
         FRAME_DATA_PARSE = dict()
 
