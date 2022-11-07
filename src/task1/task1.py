@@ -285,7 +285,7 @@ class Task1:
 
                                 cls_match_num = len(set(self.clue_txt_list[i]).intersection(self.ppl_cls.union(self.obj_cls)))
 
-                        cv2.putText(frame_for_vis, str(cls_match_num), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+                        cv2.putText(frame_for_vis, str(self.ppl_cls.union(self.obj_cls)), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
 
                         if cls_match_num > self.txt_th:
                             od_detections = []
@@ -324,7 +324,7 @@ class Task1:
                                     label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
                                 plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
-                            cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', frame_for_vis)
+                            # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', frame_for_vis)
 
                         clue_info.append(self.clue_txts[i][-7:-5])
 
