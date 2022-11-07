@@ -72,6 +72,9 @@ class Task3:
         self.final_answer_confidence = 0
         self.search_margin = 100
 
+        self.frame_candidate = []
+        self.hallway_candidate = []
+        self.save_dict = {}
 
         self.inner_answer_list = [] ## list: []
         self.inner_answer = "UNCLEAR"
@@ -265,7 +268,6 @@ class Task3:
                 max_idx = confidence_score_list.index(max_confidence)
                 frame_answer = preds_txt[max_idx].split('[s]')[0]
 
-
                 ### 'x'가 들어가거나, 길이가 2이하면 그 frame에 대한 예측은 "UNCLEAR"
                 if ('x' in frame_answer) or (len(frame_answer)<3):
                     frame_answer = "UNCLEAR"
@@ -277,17 +279,19 @@ class Task3:
                 else:
                     self.frame_array[-1][1] = frame_answer
                     self.frame_array[-1][2] = max_confidence
+                    self.frame_candidate.append(frame_answer)
 
-
-        if self.show_video:
+   
+        if self.show_video: # B, G, R
             ## Box plot
+
             for bbox in bbox_list:
                 cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (0, 0, 255), 2)
 
             for bbox in final_bbox_list:
                 cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (255, 0, 0), 2)
 
-            if poster:
+            if poster and len(post_bbox) > 0:
                 for bbox in poster_bbox:
                     cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (128, 128, 255), 4)
 
@@ -299,14 +303,13 @@ class Task3:
             img_pil = Image.fromarray(frame_for_vis)
             draw = ImageDraw.Draw(img_pil)
             ## frame answer
-            draw.text((1500, 870), self.frame_array[-1][1], font=self.font, fill=(0,255,0,0))
+            draw.text((1500, 170), self.frame_array[-1][1], font=self.font, fill=(255,0,0,0))
             frame_for_vis = np.array(img_pil)
 
                 
         # -----------------------------------------
         # json export
         # -----------------------------------------
-        # print(self.frame_array[-1][1])
         ####### 답안을 제출하는 로직 (self.final_answer 작성, self.inner_answer 작성) #######
         ## 이전 frame의 sate < 지금 frame의 state: 방안에 들어온 상태
         if len(self.frame_array) > 1 and self.frame_array[-2][0] < self.frame_array[-1][0]:
@@ -320,9 +323,13 @@ class Task3:
                     max_value = self.frame_array[idx][2]
                     max_idx = idx
 
+                if self.frame_array[idx][2] > self.max_confidence: # state, text, score
+                    self.hallway_candidate.append(self.frame_array[idx][1])
+
             ## 이전 프레임에서 가장 자신있는 answer를 final answer로
             self.final_answer = self.frame_array[max_idx][1]
             self.final_answer_confidence = self.frame_array[max_idx][2]
+
             
             ## 이떄도 UNCLEAR 내줘도 상관없음
             json_output = json_postprocess(self.final_answer)
@@ -337,6 +344,10 @@ class Task3:
             self.final_answer = "UNCLEAR"
             self.final_answer_confidence = 0
             self.search_margin = 30
+
+            self.frame_candidate = []
+            self.hallway_candidate = []
+            self.save_dict = {}
 
             self.inner_answer = "UNCLEAR"
             self.inner_answer_confidence = 0
@@ -361,46 +372,51 @@ class Task3:
             else:
                 ##2. 방안에 있는 경우 -> 계속 inner answer를 업데이트 해줘야함
                 ##(중요***) 여기서 최종 answer를 내줘야함
-
-                ## inner answer update 
-                if self.frame_array[-1][2] > self.max_confidence:
-                    ## 일정 confidence 이상이면 방안에서 발견한거 다 저장
-                    self.inner_answer_list.append(self.frame_array[-1][1])
-                    
-
-                ## inner answer vs final answer
-                for inner_answer in self.inner_answer_list:
-                    if len(inner_answer)>len(self.final_answer) and\
-                    (self.final_answer in self.inner_answer):
-                        ## 내부에서 찾은 장소명이 더 길고
-                        ## 외부 장소명이 내부 장소명의 일부일 경우 -> 확실한 케이스
-                        self.find_answer = True
-                        ### 내부에서 찾은 장소명을 output ###
-                        self.inner_answer = inner_answer
+                if len(self.frame_candidate) > 0 and len(self.hallway_candidate) > 0:
+                    if self.find_answer == True:
+                        ##### 답 찾았다면 그거 계속 내뱉음
                         json_output = json_postprocess(self.inner_answer)
                         return json_output
-                            
 
-                    elif len(inner_answer)>len(self.final_answer):
-                        ## 내부에서 찾은 장소명이 더 길면
-                        for string in self.final_answer:
-                            if string in inner_answer:
-                                ## 게다가 밖에서 찾은 문자 하나가 안에서 찾은 문자열에 포함되어 있다면?
-
-                                ### 내부에서 찾은 장소명을 output ###
-                                if self.find_answer == False:
-                                    self.inner_answer = inner_answer
+                    else:
+                        for inner_answer in self.frame_candidate:
+                            for hall_answer in self.hallway_candidate:
+                                
+                                if len(inner_answer) >= len(hall_answer) and hall_answer in inner_answer:
+                                    ## 내부에서 찾은 장소명이 더 길고
+                                    ## 외부 장소명이 내부 장소명의 일부일 경우 -> 확실한 케이스
                                     self.find_answer = True
+                                    self.inner_answer = inner_answer
                                     json_output = json_postprocess(self.inner_answer)
                                     return json_output
-                            
-                
-                if self.find_answer == False:
-                    ##### 아직도 답을 못찾은 경우
-                    json_output = json_postprocess(self.final_answer)
-                    return json_output
 
-                elif self.find_answer == True:
-                    ##### 답 찾았다면 그거 계속 내뱉음
-                    json_output = json_postprocess(self.inner_answer)
-                    return json_output
+                                elif len(inner_answer) <= len(hall_answer) and inner_answer in hall_answer:
+                                    ## 외부에서 찾은 장소명이 더 길고
+                                    ## 내부 장소명이 외부 장소명의 일부일 경우 -> 확실한 케이스
+                                    self.find_answer = True
+                                    self.inner_answer = hall_answer
+                                    json_output = json_postprocess(self.inner_answer)
+                                    return json_output
+
+                            if inner_answer in self.save_dict.keys():
+                                self.save_dict[inner_answer] += 1
+                            else:
+                                self.save_dict[inner_answer] = 0 
+
+                        # 복도랑 방 안에서 뭔가를 봤지만 제대로 된 답을 내지 못한 경우
+                        # 다 카운트한 것에서 세기
+
+                        new_dict = sorted(self.save_dict.items(), key=lambda x: x[1], reverse=True)                
+                        self.inner_answer = new_dict[0][0]
+                        json_output = json_postprocess(self.inner_answer)
+                        return json_output
+
+                else:
+                    if self.find_answer == True:
+                        ##### 답 찾았다면 그거 계속 내뱉음
+                        json_output = json_postprocess(self.inner_answer)
+                        return json_output
+
+                    else:
+                        json_output = json_postprocess(self.final_answer)
+                        return json_output
