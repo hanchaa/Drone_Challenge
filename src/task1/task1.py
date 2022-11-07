@@ -278,12 +278,12 @@ class Task1:
                                     if name == self.clue_txt_list[i][j]:
                                         score_bbox = score_bbox+pred[k][10]
                                         self.ppl_cls.add(name)
-                                        
+
                                 elif (pred[k][5] == self.clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
                                     score_bbox = score_bbox+pred[k][4]                                  # NOTE: bbox마다 score 계산
                                     self.obj_cls.add(pred[k][5])
 
-                                cls_match_num = len(self.clue_txt_list[i][j].intersection(self.ppl_cls.union(self.obj_cls)))
+                                cls_match_num = len(set(self.clue_txt_list[i]).intersection(self.ppl_cls.union(self.obj_cls)))
 
                         cv2.putText(frame_for_vis, str(cls_match_num), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
 
