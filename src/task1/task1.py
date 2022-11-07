@@ -142,7 +142,7 @@ class Task1:
             if self.task1_debug:
                 input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             else:
-                input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                input_img = cv2.cvtColor(frame_for_vis, cv2.COLOR_BGR2GRAY)             # NOTE: copy된 frame image 사용
             image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')           # NOTE: video frame image
 
             if len(clue_img_list) > 0:
@@ -190,10 +190,12 @@ class Task1:
                 for i in range(0, len(clue_txt_list)):
                     self.yolo(torch.zeros(1, 3, self.img_size, self.img_size).to('cuda').type_as(next(self.yolo.parameters())))
                     if self.task1_debug:
-                        load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
+                        # load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
+                        load_img = LoadImages(frame_for_vis, img_size=self.imgsz, stride=self.stride)
                         _, yolo_img, im0s, _ = next(iter(load_img))
                     else:
-                        im0s = img
+                        # im0s = img
+                        im0s = frame_for_vis    # NOTE: video frame image 사용
                         yolo_img = letterbox(im0s, self.img_size, stride=self.stride)[0]
                         yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
                         yolo_img = np.ascontiguousarray(yolo_img)
