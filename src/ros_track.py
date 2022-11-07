@@ -198,7 +198,7 @@ class Rony2:
             resp = request.urlopen(req)
             status = resp.read().decode('utf8')
             if "OK" in status:
-                print("Complete send : Mission Start!!")
+                print("Complete send : Mission END!!")
             elif "ERROR" == status:
                 raise ValueError("Receive ERROR status. Please check your source code.")
 
