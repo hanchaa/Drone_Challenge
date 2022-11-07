@@ -63,7 +63,7 @@ class Rony2:
 
         with torch.no_grad():
             try:
-                self.result_task1 = self.task1(image, self.state)    # NOTE: return added
+                self.result_task1 = self.task1(image.copy(), self.state)    # NOTE: return added
             except:
                 self.result_task1 = {
                     "answer_sheet": {
@@ -76,7 +76,7 @@ class Rony2:
                 }
 
             try:
-                self.result_task2, poster_bbox = self.task2_vision(image, self.state)
+                self.result_task2, poster_bbox = self.task2_vision(image.copy(), self.state)
 
             except:
                 self.result_task2 = {
@@ -95,7 +95,7 @@ class Rony2:
                 poster_bbox = None
 
             try:
-                self.result_task3 = self.task3(image, self.state, poster_bbox)
+                self.result_task3 = self.task3(image.copy(), self.state, poster_bbox)
             except:
                 self.result_task3 = {
                     "answer_sheet": {
