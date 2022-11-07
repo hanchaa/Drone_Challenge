@@ -11,7 +11,6 @@ from torch.autograd import Variable
 import torch.utils.data
 import torch.nn.functional as F
 
-from PIL import Image
 
 import cv2
 from skimage import io
@@ -24,6 +23,9 @@ from .task3_parse_args import parse_args
 from .imgproc import *
 from .craft import CRAFT ## detection model
 from .wiw import WIW ## recognition model
+
+from PIL import Image, ImageFont, ImageDraw
+
 
 import pdb
 
@@ -63,7 +65,6 @@ class Task3:
     def __init__(self, **kwargs):
         # self.out_path = kwargs['out_path']
         ## Config
-
         ####################################################################
         ## state, confidence score, prediction text
         self.frame_array = [] ## list of list: [[state, pred_txt, confidence_score],[],[],...,[] ]
@@ -78,6 +79,10 @@ class Task3:
 
         self.find_answer = False # flag - if I find an answer
         ####################################################################
+        self.show_video = kwargs['show_vid']
+        fontpath = 'task3/fonts/gulim.ttc'
+        if self.show_video:
+            self.font = ImageFont.truetype(fontpath, 30)
 
         self.text_threshold = kwargs['text_threshold']
         self.link_threshold = kwargs['link_threshold']
@@ -127,8 +132,6 @@ class Task3:
         self.frame_array.append(pred_info) ## 매 프레임마다 해줘야함
         ####
 
-
-        #print("GPU :",torch.cuda.current_device())
         image = image[:, :, ::-1] ## # BGR to RGB
         image = np.ascontiguousarray(image)
 
@@ -198,8 +201,6 @@ class Task3:
         ######################################################### end
 
         ######### Box processsing 3. Poster Processing #########
-        ##
-        # import pdb;pdb.set_trace()
 
         try:
             if poster:
@@ -225,7 +226,7 @@ class Task3:
 
         ######### Recognition (WIW) #########
         confidence_score_list = []
-
+        max_idx = -1
         ### 그 frame에서 예측된 bounding box가 있을 경우 ###
         if len(processing_image)!=0:
             image_tensors = torch.cat(processing_image)
@@ -249,8 +250,12 @@ class Task3:
                 pred_EOS = pred.find('[s]')
                 pred = pred[:pred_EOS]  # prune after "end of sentence" token ([s])
                 pred_max_prob = pred_max_prob[:pred_EOS]
-                confidence_score = pred_max_prob.cumprod(dim=0)[-1]
-                confidence_score_list.append(confidence_score)
+                if pred_EOS > 0:
+                    confidence_score = pred_max_prob.cumprod(dim=0)[-1]
+                    confidence_score_list.append(confidence_score)
+
+                else:
+                    confidence_score_list.append(0)
 
             ## final_text : confidence가 가장 높은 text
             frame_answer = "UNCLEAR" ## Default
@@ -273,6 +278,31 @@ class Task3:
                     self.frame_array[-1][1] = frame_answer
                     self.frame_array[-1][2] = max_confidence
 
+
+        if self.show_video:
+            ## Box plot
+            for bbox in bbox_list:
+                cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (0, 0, 255), 2)
+
+            for bbox in final_bbox_list:
+                cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (255, 0, 0), 2)
+
+            if poster:
+                for bbox in poster_bbox:
+                    cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (128, 128, 255), 4)
+
+            if max_idx!= -1:
+                bbox = final_bbox_list[max_idx]
+                cv2.rectangle(frame_for_vis,(bbox[0], bbox[1]),(bbox[2], bbox[3]), (0, 255, 0), 2)
+
+            ## Drawing KOREAN ANSWER 
+            img_pil = Image.fromarray(frame_for_vis)
+            draw = ImageDraw.Draw(img_pil)
+            ## frame answer
+            draw.text((1500, 870), self.frame_array[-1][1], font=self.font, fill=(0,255,0,0))
+            frame_for_vis = np.array(img_pil)
+
+                
         # -----------------------------------------
         # json export
         # -----------------------------------------
@@ -374,90 +404,3 @@ class Task3:
                     ##### 답 찾았다면 그거 계속 내뱉음
                     json_output = json_postprocess(self.inner_answer)
                     return json_output
-                    
-        
-if __name__ == "__main__":
-    import sys
-    args = parse_args()
-    task3 = Task3(**vars(args))
-
-    start = time.time()
-    ## log 생성
-    sys.stdout = open('./result/inference.txt', 'w')
-    # -----------------------------------------
-
-    # image_path = '/home/sojin/Drone_Challenge/task3/Image_example/간판들.png'
-    # image_list = '/hub_data2/drone_2022sample/flight07'
-    image_list = ['/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame048.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame050.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame059.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame059.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame059.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame070.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame070.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame070.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame070.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame070.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame073.png',
-    '/hub_data2/drone_2021sample/super_resolution_annotation_img/함박웃음반_2.png',
-    '/hub_data2/drone_2021sample/super_resolution_annotation_img/함박웃음반_2.png',
-    '/hub_data2/drone_2021sample/super_resolution_annotation_img/함박웃음반_2.png',
-    '/hub_data2/drone_2021sample/super_resolution_annotation_img/함박웃음반_2.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame079.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame079.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame079.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame079.png',
-    '/hub_data2/drone_2021sample/set03_drone01_30/frame079.png']
-
-    state_list = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-    0,0,0,0,0]
-
-    # pdb.set_trace()
-    for idx, image_ in enumerate(image_list):
-        if image_ == '.DS_Store': continue
-
-        image_path = image_
-        state = state_list[idx]
-        print("------------------------------------ {} ------------------------------------".format(state))
-        with open(image_path, 'rb') as f:
-            data = f.read()
-        encoded_img = np.fromstring(data, dtype = np.uint8)
-        image = cv2.imdecode(encoded_img, cv2.IMREAD_COLOR) ## (H,W,3) BGR
-        with torch.no_grad():
-            answer_dict = task3(image, state)
-
-        print(answer_dict)
-    print("TASK3 TIME :", time.time()-start)
-    sys.stdout.close()
-    

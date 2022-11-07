@@ -4,17 +4,19 @@ import os
 import json
 from urllib import request
 
+import numpy as np
 
 from tools import parse_args
 from task1 import Task1
 from task2_vision import Task2Vision
 from task3 import Task3
 import pandas as pd
-
+from PIL import ImageFont, ImageDraw, Image
 
 if __name__ == "__main__":
     
-    
+    fontpath = "task3/fonts/gulim.ttc"
+    font = ImageFont.truetype(fontpath, 30)
     # load environment variable
     # api_url_answer = os.environ["REST_ANSWER_URL"]  
     # api_url_mission = os.environ["REST_MISSION_URL"]
@@ -91,6 +93,16 @@ if __name__ == "__main__":
             titletext = f'{fid}   #2   State {state}'
             cv2.putText(frame_for_vis, titletext, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
             
+            # task 3: final answer
+            ## Drawing KOREAN ANSWER 
+            img_pil = Image.fromarray(frame_for_vis)
+            draw = ImageDraw.Draw(img_pil)
+            final_answer = result_task3['answer_sheet']['answer']['place']
+            ## frame answer
+            draw.text((1500, 750),  final_answer, font=font, fill=(0,255,0,0))
+            frame_for_vis = np.array(img_pil)
+
+
             video_writer.write(frame_for_vis)
             print('video write success - frame',fid, '   state',state)
             cv2.waitKey(1)  # 1 millisecond     
