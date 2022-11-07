@@ -1,3 +1,6 @@
+import os
+import pandas as pd
+import tqdm
 import cv2
 import glob
 import apriltag
@@ -6,16 +9,16 @@ import matplotlib.cm as cm
 from numpy import random
 import torch
 
-from .utils.json_utils import json_preprocess, json_postprocess
-from .utils.args_utils import parse_args
-from .utils.model_utils import matching, read_image, make_matching_plot, plot_one_box
-from .superglue.superpoint import SuperPoint
-from .superglue.superglue import SuperGlue
+from utils.json_utils import json_preprocess, json_postprocess
+from utils.args_utils import parse_args
+from utils.model_utils import matching, read_image, make_matching_plot, plot_one_box
+from superglue.superpoint import SuperPoint
+from superglue.superglue import SuperGlue
 
-from .yolov7.models.experimental import attempt_load
-from .yolov7.utils.datasets import letterbox, LoadImages
-from .yolov7.utils.general import check_img_size, non_max_suppression, scale_coords, cv2
-from .yolov7.utils.torch_utils import TracedModel
+from yolov7.models.experimental import attempt_load
+from yolov7.utils.datasets import letterbox, LoadImages
+from yolov7.utils.general import check_img_size, non_max_suppression, scale_coords, cv2
+from yolov7.utils.torch_utils import TracedModel
 
 
 CLASS_MAP = {'person': 0, 'monitor': 1, 'cabinet': 2, 'basket': 3, 'box': 4, 'trash bin': 5, 'computer': 6, 'laptop': 7, 'bookshelf': 8, 'chair': 9, 'printer': 10, 'desk': 11,
@@ -35,7 +38,6 @@ class Task1:
         self.txt_th = args.txt_th
         self.od_th = args.od_th
         self.total_th = args.total_th
-        self.show_video = args.show_vid
         self.cnt = 0
         self.state = 0
         self.room_id = None
@@ -82,7 +84,6 @@ class Task1:
         self.stride = int(yolo.stride.max())
         self.img_size = check_img_size(self.imgsz[0], s=self.stride)
         self.names = yolo.names
-        self.color_list = ['OCC','RED','ORG','YLW','GRN','BLU','PRP','WHT','GRY','BLK']
         self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
         if self.half:
             self.yolo = TracedModel(yolo, 'cuda', self.img_size).half()
@@ -90,9 +91,11 @@ class Task1:
             self.yolo = TracedModel(yolo, 'cuda', self.img_size)
 
         self.true=1 # NOTE: dummy code for debugging
+        self.color_list = ['OCC','RED','ORG','YLW','GRN','BLU','PRP','WHT','GRY','BLK']
 
     def __call__(self, img: np.ndarray, state, frame_for_vis=None):
-        try:
+        # try:
+        if self.true == 1:
             clue_info = []
             if (state == 0 or state == -1):  # NOTE: 복도에서 json, room_id 초기화
                 self.json = {'answer_sheet': {
@@ -143,7 +146,7 @@ class Task1:
             if self.task1_debug:
                 input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             else:
-                input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                       # NOTE: copy된 frame image 사용
+                input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')           # NOTE: video frame image
 
             if len(clue_img_list) > 0:
@@ -195,7 +198,6 @@ class Task1:
                         _, yolo_img, im0s, _ = next(iter(load_img))
                     else:
                         im0s = img
-                        # im0s = frame_for_vis    # NOTE: video frame image 사용
                         yolo_img = letterbox(im0s, self.img_size, stride=self.stride)[0]
                         yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
                         yolo_img = np.ascontiguousarray(yolo_img)
@@ -205,6 +207,19 @@ class Task1:
                     if len(yolo_img.shape) == 3:
                         yolo_img = yolo_img.unsqueeze(0)
 
+                    old_img_w = old_img_h = self.img_size
+                    old_img_b = 1
+
+                    # # Warmup
+                    # if (old_img_b != yolo_img.shape[0] or old_img_h != yolo_img.shape[2] or old_img_w != yolo_img.shape[3]):
+                    #     old_img_b = yolo_img.shape[0]
+                    #     old_img_h = yolo_img.shape[2]
+                    #     old_img_w = yolo_img.shape[3]
+                    #     for j in range(3):
+                    #         self.yolo(yolo_img)[0]
+
+                    # with torch.no_grad():
+                    #     pred = self.yolo(yolo_img)
                     pred = self.yolo(yolo_img)
                     pred = non_max_suppression(pred[0], self.conf_th, self.iou_th, self.classes, self.cls_agnostic_nms, multi_label=False, return_attributes=True)[0]
                     pred[:, :4] = scale_coords(yolo_img.shape[2:], pred[:, :4], im0s.shape).round()
@@ -240,23 +255,13 @@ class Task1:
                                     new_person_pred.append(pep)
                             person_pred = torch.stack(new_person_pred)
                             pred = [torch.cat([person_pred, not_person_pred])][0]
-                            
+
                         # NOTE: pred[0] = [X, Y, W, H, cls_conf, cls, upper_conf, upper_cls, lower_conf, lower_cls, ppl_conf, ppl_cls, oth_conf, oth_cls]
                         # NOTE: other confidence and other class not used in task1
                         cls_match_num = 0.0
-                        for j in range(0, len(clue_txt_list[i])):
+                        for j in range(0, len(clue_txt_list[i])):   # TODO: people로 detecting 시 attribute 계산하는 부분 추가할 것.
                             for k in range(0, pred.shape[0]):                                           # NOTE: bbox 여러개 쳐진 경우
-                                if (pred[k][5] == 0 and pred[k][4] >= 0.7):                             # NOTE: 사람인경우
-                                    if pred[k][11] == 0:
-                                        name = 43
-                                    elif pred[k][11] == 1:
-                                        name = 43
-                                    else:
-                                        name = 44
-                                    if name == clue_txt_list[i][j]:
-                                        score_bbox = score_bbox+pred[k][4]
-                                        cls_match_num = cls_match_num+1
-                                elif (pred[k][5] == clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
+                                if (pred[k][5] == clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
                                     score_bbox = score_bbox+pred[k][4]                                  # NOTE: bbox마다 score 계산
                                     cls_match_num = cls_match_num+1
 
@@ -274,32 +279,35 @@ class Task1:
                             od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
                         
-                            if self.show_video:
-                                for j in range(0, pred.shape[0]):
-                                    bboxes = pred[j][0:4]
-                                    confs = pred[j][4]
-                                    clss = pred[j][5]
-                                    upper_clss = pred[j][7]
-                                    lower_clss = pred[j][9]
-                                    ppl_clss = pred[j][11]
+                        if (self.task1_debug or self.debug_output_path != None):
+                            for j in range(0, pred.shape[0]):
+                                bboxes = pred[j][0:4]
+                                confs = pred[j][4]
+                                clss = pred[j][5]
+                                upper_confs = pred[j][6]
+                                upper_clss = pred[j][7]
+                                lower_confs = pred[j][8]
+                                lower_clss = pred[j][9]
+                                ppl_confs = pred[j][10]
+                                ppl_clss = pred[j][11]
 
-                                    if clss == 0:   # NOTE: person
-                                        if ppl_clss == 0:
-                                            name = 'man'
-                                        elif ppl_clss == 1:
-                                            name = 'woman'
-                                        else:
-                                            name = 'child'
+                                if clss == 0:   # NOTE: person
+                                    if ppl_clss == 0:
+                                        name = 'man'
+                                    elif ppl_clss == 1:
+                                        name = 'woman'
+                                    else:
+                                        name = 'child'
 
-                                        upper_color = self.color_list[int(upper_clss.item())]
-                                        lower_color = self.color_list[int(lower_clss.item())]
+                                    upper_color = self.color_list[int(upper_clss.item())]
+                                    lower_color = self.color_list[int(lower_clss.item())]
 
-                                        label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
-                                    else:   # NOTE: object
-                                        label = f'{self.names[int(clss)]} {float(confs):.2f}'
+                                    label = f'{self.names[int(clss)]} {float(confs):.2f} {upper_color} {lower_color} {name}'
+                                else:   # NOTE: object
+                                    label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
-                                    plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
-                                # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                                plot_one_box(bboxes, im0s, label=label, color=self.colors[int(clss)], line_thickness=2)
+                            # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
 
                         clue_info.append(clue_txts[i][-7:-5])
 
@@ -349,28 +357,78 @@ class Task1:
                 for i in range(0, len(ans_keys)):
                     self.json['answer_sheet']['answer']['person_id'][ans_keys[i]] = ["UNCLEAR"]
             
-            # print(self.cnt, self.state)
-            return self.json
+            return self.json, im0s
 
-        except:
-            self.json = {'answer_sheet': {
-                        'room_id': None,
-                        'mission': "1",
-                        'answer': {
-                            'person_id': 'UNCLEAR'
-                            }   
-                        }   
-                    }
-            # print('exception!')
-            return self.json
+        # except:
+        #     self.json = {'answer_sheet': {
+        #                 'room_id': None,
+        #                 'mission': "1",
+        #                 'answer': {
+        #                     'person_id': 'UNCLEAR'
+        #                     }   
+        #                 }   
+        #             }
+        #     # print('exception!')
+        #     return self.json
 
 if __name__ == "__main__":
     args = parse_args()
     task1 = Task1(args)
 
-    if args.task1_debug == None:
-        frames = None
-    else:
-        frames = args.debug_input_path              # NOTE: superglue 테스트이미지 (이미지 한장)
+    ### video_config
+    video_root = '/hub_data2/drone_data'
+    video_name = 'set03_drone03'    # NOTE: set03_drone03, set05_drone01, set05_drone02, set05_drone03
+    resolution = 'frame_640_480' ## 1280 720 or 640 480
+    frame_path = os.path.join(video_root, video_name, resolution)
+    video_save_path = os.path.join('/home/eulrang/workspace',video_name + resolution.lstrip('frame') + '.mp4')
 
-    task1(frames)
+    frame_list = sorted(os.listdir(frame_path))
+    csv_file = pd.read_csv(os.path.join(video_root,video_name,'state.csv'))
+    frame_info = csv_file['frame']
+    state_info = csv_file['state']
+    video_writer = cv2.VideoWriter(video_save_path, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), 30, (int(resolution.split('_')[1]), int(resolution.split('_')[2])))
+
+    with tqdm.tqdm(total=len(state_info)) as pbar:
+        for state, frame  in zip(state_info, frame_list):
+            if frame == '.DS_Store': continue
+            image_path = os.path.join(frame_path, frame)
+            with open(image_path, 'rb') as f:
+                data = f.read()
+            encoded_img = np.fromstring(data, dtype = np.uint8)
+            image = cv2.imdecode(encoded_img, cv2.IMREAD_COLOR) ## (H,W,3) BGR
+
+            with torch.no_grad():
+                answer_dict, img = task1(image, state)
+            
+            ## make video
+            # final_answer = "                     Final Answer: "+answer_dict['answer_sheet']['answer']['place']
+            # frame_answer = "                     Frame Answer: "+video_dict['frame_answer']
+
+            # frame_name = frame.rstrip('.png')
+            # text = f'{frame_name}   #Task3   State {state}      '
+            # cv2.putText(img, text, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+            
+            # ## frame answer
+            # img_pil = Image.fromarray(image_show)
+            # draw = ImageDraw.Draw(img_pil)
+            # ## frame answer
+            # draw.text((600, 150),  frame_answer, font=font, fill=(0,255,0,0))
+            # ## final answer
+            # draw.text((600, 80),  final_answer, font=font, fill=(0,255,0,0))
+            # image_show = np.array(img_pil)
+
+            video_writer.write(img)
+            
+            cv2.waitKey(1)  # 1 millisecond   
+            pbar.update(1)
+
+        # video_writer.write()
+        # pdb.set_trace()
+        # print(answer_dict)
+
+    # if args.task1_debug == None:
+    #     frames = None
+    # else:
+    #     frames = args.debug_input_path              # NOTE: superglue 테스트이미지 (이미지 한장)
+
+    # task1(frames)
