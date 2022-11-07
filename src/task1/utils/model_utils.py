@@ -132,7 +132,6 @@ def make_matching_plot(image0, image1, mkpts0, mkpts1,
 # -----------------------------------------
 # YOLO utils
 # -----------------------------------------
-
 def plot_one_box(x, img, color=None, label=None, line_thickness=3):
     # Plots one bounding box on image img
     tl = line_thickness or round(0.002 * (img.shape[0] + img.shape[1]) / 2) + 1  # line/font thickness
