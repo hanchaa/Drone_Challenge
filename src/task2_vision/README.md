@@ -70,6 +70,18 @@ python debug_task2.py \
 ```
 
 
+Task2 UNCLEAR VERSION @ "src/"
+```shell
+python debug_task2.py \
+--config_strongsort task2_vision/strong_sort/configs/strong_sort.yaml \
+--strong_sort_weights task2_vision/weights/osnet_x0_25_msmt17.pt \
+--yolo_weights task2_vision/weights/task2_safe.pt \
+--video_path task2_vision/yolov7/video/set03_drone03.mp4 \
+--unclear_thres 0 \
+--device 0
+```
+
+
 Train YOLOV7 @ "yolov7/"
 ```
 python -m torch.distributed.launch --nproc_per_node 4 \

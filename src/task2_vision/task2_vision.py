@@ -99,10 +99,10 @@ class Task2Vision:
             self.count_dict[k] = 0
         self.prev_room_return_sheet = None
         self.prev_state = -1
-        self.UNCLEAR_THRES = 10
+        self.UNCLEAR_THRES = args.unclear_thres
         self.count_b4_rotate = 0
 
-    def __call__(self, original_img, state, fid=None, cap=None):
+    def __call__(self, original_img, state, frame_for_vis=None):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
         FRAME_DATA_PARSE = dict()
         self.count_b4_rotate += 1
@@ -231,7 +231,7 @@ class Task2Vision:
                             # label = f'{id} {self.names[c]} {conf:.2f}'
                             # label = f'{id} {name} {conf:.2f} {upper_color} {lower_color}'
                             label = f'{id} {name} {conf:.2f}'
-                            plot_one_box(bboxes, original_img, label=label, color=self.colors[int(ppl_cls)], line_thickness=2)
+                            plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(ppl_cls)], line_thickness=2)
                             
                         tau = 0.4
                         is_corner = (np.abs(0.5 - 0.5 * (bboxes[0]+bboxes[2]) / original_img.shape[1]) > tau) or \
@@ -269,23 +269,20 @@ class Task2Vision:
 
             # Stream results
             if self.show_video:
-                assert fid is not None
-                assert cap is not None
-                text = f'{fid}   #2   State {state}        '
+                task2text = 'TASK 2   '
                 for k, v in self.count_dict.items():
-                    text += f'{k}:{v} '
-                img = cv2.putText(original_img, text, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
-
+                    task2text += f'{k}:{v} '
+                cv2.putText(frame_for_vis, task2text, (1200, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 2)
                 
-                fps = cap.get(cv2.CAP_PROP_FPS)
-                w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                # fps = cap.get(cv2.CAP_PROP_FPS)
+                # w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                # h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-                if self.video_writer is None:
-                    self.video_writer = cv2.VideoWriter(self.save_path, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), fps, (w, h))
-                self.video_writer.write(img)
-                # cv2.imshow("Visualize", original_img)
-                cv2.waitKey(1)  # 1 millisecond     
+                # if self.video_writer is None:
+                #     self.video_writer = cv2.VideoWriter(self.save_path, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), fps, (w, h))
+                # self.video_writer.write(img)
+                # # cv2.imshow("Visualize", original_img)
+                # cv2.waitKey(1)  # 1 millisecond     
 
 
             self.prev_frames = self.curr_frames
