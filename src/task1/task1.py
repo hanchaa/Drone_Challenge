@@ -254,7 +254,7 @@ class Task1:
                                     else:
                                         name = 44
                                     if name == clue_txt_list[i][j]:
-                                        score_bbox = score_bbox+pred[k][4]
+                                        score_bbox = score_bbox+pred[k][10]
                                         cls_match_num = cls_match_num+1
                                 elif (pred[k][5] == clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
                                     score_bbox = score_bbox+pred[k][4]                                  # NOTE: bbox마다 score 계산
