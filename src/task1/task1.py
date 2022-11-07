@@ -48,6 +48,8 @@ class Task1:
                         }   
                     }
         self.json_list = []
+        self.obj_cls = set()
+        self.ppl_cls = set()
 
         # -----------------------------------------
         # image matching model & preprocessing
@@ -116,6 +118,8 @@ class Task1:
                     }
                 self.json_list = []
                 self.room_id = None
+                self.obj_cls = set()
+                self.ppl_cls = set()
 
             if self.clue_json_read is False:
                 # -----------------------------------------
@@ -273,16 +277,17 @@ class Task1:
                                         name = 44
                                     if name == self.clue_txt_list[i][j]:
                                         score_bbox = score_bbox+pred[k][10]
-                                        cls_match_num = cls_match_num+1
+                                        self.ppl_cls.add(name)
+                                        
                                 elif (pred[k][5] == self.clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
                                     score_bbox = score_bbox+pred[k][4]                                  # NOTE: bbox마다 score 계산
-                                    cls_match_num = cls_match_num+1
+                                    self.obj_cls.add(pred[k][5])
 
-                        if cls_match_num != 0:
-                            score_txt = score_bbox / cls_match_num
-                        cv2.putText(frame_for_vis, str(score_txt), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+                                cls_match_num = len(self.clue_txt_list[i][j].intersection(self.ppl_cls.union(self.obj_cls)))
 
-                        if score_txt > self.txt_th:
+                        cv2.putText(frame_for_vis, str(cls_match_num), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+
+                        if cls_match_num > self.txt_th:
                             od_detections = []
                             od_detector = apriltag.Detector()
                             od_detections.append(od_detector.detect(input_img))
