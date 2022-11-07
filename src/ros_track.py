@@ -143,21 +143,44 @@ class Rony2:
         x, y = data.pose.position.x, data.pose.position.y
         old_state = self.state
 
-        # 1번 방에 들어감
-        if (old_state == 0 or old_state == -1) and float(x) > 1 and float(y) < -2:
+        # 1번 방
+        if (old_state == 0 or old_state == -1) and float(x) < 0 and float(y) < -2.2 and float(y) > -7.7:
             self.state = 1
 
-        # 1번 방에서 나옴
-        if (old_state == 1) and float(y) > -2:
-            self.state = 0
-
-
-        # 2번 방에 들어감
-        if (old_state == 0 or old_state == -1) and float(y) > 2:
+        # 2번 방
+        if (old_state == 0 or old_state == -1) and float(x) < 0 and float(y) < -7.7 and float(y) > -14.2:
             self.state = 2
 
-        # 2번 방에서 나옴
-        if (old_state == 2) and float(y) < 2:
+        # 3번 방
+        if (old_state == 0 or old_state == -1) and float(x) < 0 and float(y) < -14.2 and float(y) > -20.75:
+            self.state = 3
+
+        # 4번 방
+        if (old_state == 0 or old_state == -1) and float(x) < 0 and float(y) < 10 and float(y) > 3.5:
+            self.state = 4
+
+        # 5번 방
+        if (old_state == 0 or old_state == -1) and float(x) > 3 and float(y) < 8.1 and float(y) > 4:
+            self.state = 5
+
+        # 복도
+        if old_state == 1 and float(x) > 0.5:
+            self.state = 0
+
+        # 복도
+        if old_state == 2 and float(x) > 0.5:
+            self.state = 0
+
+        # 복도
+        if old_state == 3 and float(x) > 0.5:
+            self.state = 0
+
+        # 복도
+        if old_state == 4 and float(x) > 0.5:
+            self.state = 0
+
+        # 복도
+        if old_state == 5 and float(x) < 2.5:
             self.state = 0
 
         # 착륙 중
