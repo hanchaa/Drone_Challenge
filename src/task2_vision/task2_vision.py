@@ -237,8 +237,8 @@ class Task2Vision:
                         is_corner = (np.abs(0.5 - 0.5 * (bboxes[0]+bboxes[2]) / original_img.shape[1]) > tau) or \
                                     (np.abs(0.5 - 0.5 * (bboxes[1]+bboxes[3]) / original_img.shape[0]) > tau)
                         is_corner = is_corner and self.count_b4_rotate > 32
-                        if (id, name) not in self.id_list and state > 0 and oth_conf < 0.9 and \
-                                 self.count_b4_rotate < 270 and not is_corner:
+                        if (id, name) not in self.id_list and state > 0 and oth_conf < 0.95 and \
+                                 self.count_b4_rotate < 300 and not is_corner:
                             self.id_list.append((id, name))
                             
                             if name == 'man':
