@@ -84,12 +84,12 @@ class Task1:
         self.names = yolo.names
         self.color_list = ['OCC','RED','ORG','YLW','GRN','BLU','PRP','WHT','GRY','BLK']
         self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
-        if self.half:
-            self.yolo = TracedModel(yolo, 'cuda', self.img_size).half()
-        else:
-            self.yolo = TracedModel(yolo, 'cuda', self.img_size)
-
-        self.true=1 # NOTE: dummy code for debugging
+        # if self.half:
+        #     self.yolo = TracedModel(yolo, 'cuda', self.img_size).half()
+        # else:
+        #     self.yolo = TracedModel(yolo, 'cuda', self.img_size)
+        self.yolo = yolo.half()
+        # self.true=1 # NOTE: dummy code for debugging
 
     def __call__(self, img: np.ndarray, state, frame_for_vis=None):
         try:
