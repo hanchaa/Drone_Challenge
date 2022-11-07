@@ -120,7 +120,7 @@ class Task3:
         # transform = NormalizePAD((3, self.imgH, resized_max_w))
         self.img_cnt=0
 
-    def __call__(self, image, state, poster = None):
+    def __call__(self, image, state, poster = None, frame_for_vis=None):
         
         ####
         pred_info = [state,"UNCLEAR",0] ## frame_array 에 들어갈 list [state, pred text, confidence score]
