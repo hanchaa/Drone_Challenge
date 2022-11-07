@@ -1,4 +1,5 @@
 import os
+import cv2
 
 # limit the number of cpus used by high performance libraries
 os.environ["OMP_NUM_THREADS"] = "1"
@@ -48,7 +49,9 @@ class Task2Vision:
         self.classes = args.classes
         # self.classes = []
         self.cls_agnostic_nms = args.agnostic_nms
+        self.save_path = args.video_path[:-4] + '_task2.mp4'
         self.show_video = args.show_vid
+        self.video_writer = None
 
         WEIGHTS.mkdir(parents=True, exist_ok=True)
         self.model = attempt_load(Path(args.yolo_weights), map_location=self.device).eval()  # load FP32 model
@@ -76,7 +79,8 @@ class Task2Vision:
         self.strong_sort.model.warmup()
         self.strong_sort_ecc = cfg.STRONGSORT.ECC
 
-        self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
+        # self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
+        self.colors = [[random.randint(128, 255) for _ in range(3)] for _ in ['man','woman','child']]
 
         # Run tracking
         self.curr_frames, self.prev_frames = None, None
@@ -96,11 +100,13 @@ class Task2Vision:
         self.prev_room_return_sheet = None
         self.prev_state = -1
         self.UNCLEAR_THRES = args.unclear_thres
+        self.count_b4_rotate = 0
 
     def __call__(self, original_img, state, frame_for_vis=None):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
         FRAME_DATA_PARSE = dict()
-
+        self.count_b4_rotate += 1
+        
         # Convert
         img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
         img = np.ascontiguousarray(img)
@@ -118,6 +124,7 @@ class Task2Vision:
         pred_uppercol = pred_all[0][:,:,27:37]
         pred_lowercol = pred_all[0][:,:,37:47]
         pred_ppltype = pred_all[0][:,:,47:50]
+        pred_othtype = pred_all[0][:,:,50:]
 
         # Apply NMS
         pred = non_max_suppression(pred_all[0], self.conf_thres, self.iou_thres, self.classes, self.cls_agnostic_nms, multi_label=False, return_attributes=True)        
@@ -190,8 +197,11 @@ class Task2Vision:
                 lower_clss = det[:, 9]
                 ppl_confs = det[:, 10]
                 ppl_clss = det[:, 11]
+                oth_confs = det[:,12]
+                oth_clss = det[:,13]
+                
                 outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), original_img,
-                                                  attributes=[upper_clss.cpu(),lower_clss.cpu(),ppl_clss.cpu()])
+                                                  attributes=[upper_clss.cpu(),lower_clss.cpu(),ppl_clss.cpu(),oth_confs.cpu()])
                 # @ TASK1 WORKERS : tracking output of 'person' class only; need to modify the line above.
 
                 # draw boxes for visualization
@@ -204,6 +214,7 @@ class Task2Vision:
                         upper_cls = output[7]
                         lower_cls = output[8]
                         ppl_cls = output[9]
+                        oth_conf = output[10]
                         if ppl_cls == 0 :
                             name = 'man'
                         elif ppl_cls == 1 :
@@ -218,12 +229,18 @@ class Task2Vision:
                         
                         if self.show_video:
                             # label = f'{id} {self.names[c]} {conf:.2f}'
-                            label = f'{id} {name} {conf:.2f} {upper_color} {lower_color}'
-                            plot_one_box(bboxes, original_img, label=label, color=self.colors[c], line_thickness=2)
-
-                        if (id, name) not in self.id_list :
+                            # label = f'{id} {name} {conf:.2f} {upper_color} {lower_color}'
+                            label = f'{id} {name} {conf:.2f}'
+                            plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(ppl_cls)], line_thickness=2)
+                            
+                        tau = 0.4
+                        is_corner = (np.abs(0.5 - 0.5 * (bboxes[0]+bboxes[2]) / original_img.shape[1]) > tau) or \
+                                    (np.abs(0.5 - 0.5 * (bboxes[1]+bboxes[3]) / original_img.shape[0]) > tau)
+                        is_corner = is_corner and self.count_b4_rotate > 32
+                        if (id, name) not in self.id_list and state > 0 and oth_conf < 0.9 and \
+                                 self.count_b4_rotate < 270 and not is_corner:
                             self.id_list.append((id, name))
-
+                            
                             if name == 'man':
                                 self.count_dict['man'] += 1
                             if name == 'woman':
@@ -252,15 +269,24 @@ class Task2Vision:
 
             # Stream results
             if self.show_video:
-                text = ''
+                task2text = 'TASK 2   '
                 for k, v in self.count_dict.items():
-                    text += f'{k}:{v} '
-                cv2.putText(original_img, text, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+                    task2text += f'{k}:{v} '
+                cv2.putText(frame_for_vis, task2text, (1200, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 255), 2)
+                
+                # fps = cap.get(cv2.CAP_PROP_FPS)
+                # w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                # h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-                cv2.imshow("Visualize", original_img)
-                cv2.waitKey(1)  # 1 millisecond
+                # if self.video_writer is None:
+                #     self.video_writer = cv2.VideoWriter(self.save_path, cv2.VideoWriter_fourcc('m', 'p', '4', 'v'), fps, (w, h))
+                # self.video_writer.write(img)
+                # # cv2.imshow("Visualize", original_img)
+                # cv2.waitKey(1)  # 1 millisecond     
+
 
             self.prev_frames = self.curr_frames
+            self.prev_state = state
 
         return ANSWER_PARSE, FRAME_DATA_PARSE
 
@@ -268,9 +294,11 @@ class Task2Vision:
     def answer_parser(self,state):
         # TODO SANITY CHECK!!!!! 
         # init if needed
-        if self.prev_state == 0 and state > 0 :  # = just entered room
+        if self.prev_state in (0, -1) and state > 0 :  # = just entered room
             for k in ['man', 'woman', 'child']:
                 self.count_dict[k] = 0
+            self.id_list = []
+            self.count_b4_rotate = 0
 
         # parse data
         if state > 0 :
