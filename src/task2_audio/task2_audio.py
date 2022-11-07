@@ -19,16 +19,6 @@ from .models import Estimator
 from .utils import *
 
 
-def write_csv(state, result):
-    print(f"state: {state}, male: {result['male']}, female: {result['female']}, baby: {result['baby']}")
-    # file_path = os.path.join("./task2_audio/results", str(state) + ".csv")
-    # file_mode = "a" if os.path.isfile(file_path) else "w"
-    #
-    # with open(file_path, file_mode, newline="") as f:
-    #     wr = csv.writer(f)
-    #     wr.writerow([result["male"], result["female"], result["baby"]])
-
-
 def get_setting(ckpt_path):
     if os.path.basename(ckpt_path) == '16k_magspec.0080.pt':
         return float(0.6), 3, 28, 22
@@ -61,7 +51,7 @@ class Task2Audio():
         self.audio_path = os.path.join("./task2_audio", args.filename)
 
         self.current_index = 0
-        self.duration = args.sr * 1
+        self.duration = args.sr * 5
         self.hop_size = self.duration // 2
 
         self.prev_state = -1
@@ -70,6 +60,11 @@ class Task2Audio():
     def __call__(self, state):
         if os.path.isfile(self.audio_path):
             try:
+                if self.prev_state != state:
+                    print(f"{self.prev_state}: {self.result}")
+                    self.prev_state = state
+                    self.result = {"male": 0, "female": 0, "baby": 0}
+
                 y, xr = sf.read(self.audio_path, start=self.current_index, stop=self.current_index + self.duration)
                 assert y.shape[0] == self.duration
 
@@ -82,10 +77,6 @@ class Task2Audio():
                 initial_result = test(self.estimator, audio, self.threshold, self.smooth, self.min_frame, self.merge_frame)
                 self.update_result(initial_result)
 
-                if self.prev_state != state:
-                    write_csv(state, self.result)
-                    self.prev_state = state
-
                 self.current_index += self.hop_size
 
             except AssertionError:
@@ -96,8 +87,11 @@ class Task2Audio():
                 print(e)
                 time.sleep(0.5)
 
+            return self.result
+
         else:
             time.sleep(0.1)
+            return self.result
 
     def update_result(self, initial_result):
         if initial_result["male"] == 1:

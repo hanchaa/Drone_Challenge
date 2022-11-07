@@ -16,7 +16,6 @@ import numpy as np
 import pandas as pd
 import torch
 import torchvision
-# from torch_utils import init_torch_seeds
 
 # Settings
 torch.set_printoptions(linewidth=320, precision=5, profile='long')
@@ -31,12 +30,6 @@ def set_logging(rank=-1):
         format="%(message)s",
         level=logging.INFO if rank in [-1, 0] else logging.WARN)
 
-
-# def init_seeds(seed=0):
-#     # Initialize random number generator (RNG) seeds
-#     random.seed(seed)
-#     np.random.seed(seed)
-#     init_torch_seeds(seed)
 
 
 def get_latest_run(search_dir='.'):
@@ -153,7 +146,9 @@ def check_dataset(dict):
     # Download dataset if not found locally
     val, s = dict.get('val'), dict.get('download')
     if val and len(val):
+
         val = [Path(x).resolve() for x in (val if isinstance(val, list) else [val])]  # val path
+        #import pdb; pdb.set_trace()
         if not all(x.exists() for x in val):
             print('\nWARNING: Dataset not found, nonexistent paths: %s' % [str(x) for x in val if not x.exists()])
             if s and len(s):  # download script
@@ -306,6 +301,7 @@ def segments2boxes(segments):
 def resample_segments(segments, n=1000):
     # Up-sample an (n,2) segment
     for i, s in enumerate(segments):
+        s = np.concatenate((s, s[0:1, :]), axis=0)
         x = np.linspace(0, len(s) - 1, n)
         xp = np.arange(len(s))
         segments[i] = np.concatenate([np.interp(x, xp, s[:, i]) for i in range(2)]).reshape(2, -1).T  # segment xy
@@ -601,14 +597,17 @@ def box_diou(box1, box2, eps: float = 1e-7):
 
 
 def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=None, agnostic=False, multi_label=False,
-                        labels=()):
+                        labels=(), return_attributes=False):
     """Runs Non-Maximum Suppression (NMS) on inference results
 
     Returns:
          list of detections, on (n,6) tensor per image [xyxy, conf, cls]
     """
+    # nc = prediction.shape[2] - 5  # number of classes
+    ######################################## DC
+    nc = prediction.shape[2] - 30
+    ######################################## DC
 
-    nc = prediction.shape[2] - 5  # number of classes
     xc = prediction[..., 4] > conf_thres  # candidates
 
     # Settings
@@ -621,12 +620,15 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=Non
     merge = False  # use merge-NMS
 
     t = time.time()
-    output = [torch.zeros((0, 6), device=prediction.device)] * prediction.shape[0]
+    if return_attributes :
+        # also return upper color, lower color, people type, other type
+        output = [torch.zeros((0, 10), device=prediction.device)] * prediction.shape[0]
+    else:
+        output = [torch.zeros((0, 6), device=prediction.device)] * prediction.shape[0]
     for xi, x in enumerate(prediction):  # image index, image inference
         # Apply constraints
         # x[((x[..., 2:4] < min_wh) | (x[..., 2:4] > max_wh)).any(1), 4] = 0  # width-height
         x = x[xc[xi]]  # confidence
-
         # Cat apriori labels if autolabelling
         if labels and len(labels[xi]):
             l = labels[xi]
@@ -642,22 +644,47 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=Non
 
         # Compute conf
         if nc == 1:
-            x[:, 5:] = x[:, 4:5] # for models with one class, cls_loss is 0 and cls_conf is always 0.5,
+            x[:, 5:nc+5] = x[:, 4:5] # for models with one class, cls_loss is 0 and cls_conf is always 0.5,
                                  # so there is no need to multiplicate.
         else:
-            x[:, 5:] *= x[:, 4:5]  # conf = obj_conf * cls_conf
+            x[:, 5:nc+5] *= x[:, 4:5]  # conf = obj_conf * cls_conf
 
         # Box (center x, center y, width, height) to (x1, y1, x2, y2)
         box = xywh2xyxy(x[:, :4])
 
         # Detections matrix nx6 (xyxy, conf, cls)
+        ######################################## DC
         if multi_label:
-            i, j = (x[:, 5:] > conf_thres).nonzero(as_tuple=False).T
-            x = torch.cat((box[i], x[i, j + 5, None], j[:, None].float()), 1)
+            i, j = (x[:, 5:nc+5] > conf_thres).nonzero(as_tuple=False).T
+            if return_attributes:
+                upcol_i, upcol_j = (x[:, 5:nc+15] > conf_thres).nonzero(as_tuple=False).T
+                lowcol_i, lowcol_j = (x[:, nc+15:nc+25] > conf_thres).nonzero(as_tuple=False).T
+                ppl_i, ppl_j = (x[:, nc+25:nc+28] > conf_thres).nonzero(as_tuple=False).T
+                oth_i, oth_j = (x[:, nc+28:nc+30] > conf_thres).nonzero(as_tuple=False).T
+                to_cat = [box[i], x[i, j + 5, None], j[:, None].float(), 
+                          x[upcol_i, upcol_j + 5, None], upcol_j[:, None].float(),
+                          x[lowcol_i, lowcol_j + 5, None], lowcol_j[:, None].float(),
+                          x[ppl_i, ppl_j + 5, None], ppl_j[:, None].float(),
+                          x[oth_i, oth_j + 5, None], oth_j[:, None].float()]
+            else :
+                to_cat = [box[i], x[i, j + 5, None], j[:, None].float()]
+            x = torch.cat(to_cat, 1)
         else:  # best class only
-            conf, j = x[:, 5:].max(1, keepdim=True)
-            x = torch.cat((box, conf, j.float()), 1)[conf.view(-1) > conf_thres]
-
+            conf, j = x[:, 5:nc+5].max(1, keepdim=True)
+            if return_attributes:
+                upcol_conf, upcol_j = x[:, nc+5:nc+15].max(1, keepdim=True)
+                lowcol_conf, lowcol_j = x[:, nc+15:nc+25].max(1, keepdim=True)
+                ppl_conf, ppl_j = x[:, nc+25:nc+28].max(1, keepdim=True)
+                oth_conf, oth_j = x[:, nc+28:nc+30].max(1, keepdim=True)
+                to_cat = [box, conf, j.float(), upcol_conf, upcol_j.float(),
+                          lowcol_conf, lowcol_j.float(), ppl_conf, ppl_j.float(),
+                          oth_conf, oth_j.float()]
+            else :
+                to_cat = [box, conf, j.float()]
+            x = torch.cat(to_cat, 1)[conf.view(-1) > conf_thres]
+            # x = torch.cat((box, conf, j.float()), 1)[conf.view(-1) > conf_thres]
+        ######################################## DC
+            
         # Filter by class
         if classes is not None:
             x = x[(x[:, 5:6] == torch.tensor(classes, device=x.device)).any(1)]
@@ -686,7 +713,6 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=Non
             x[i, :4] = torch.mm(weights, x[:, :4]).float() / weights.sum(1, keepdim=True)  # merged boxes
             if redundant:
                 i = i[iou.sum(1) > 1]  # require redundancy
-
         output[xi] = x[i]
         if (time.time() - t) > time_limit:
             print(f'WARNING: NMS time limit {time_limit}s exceeded')

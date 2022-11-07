@@ -13,11 +13,11 @@ def parse_args():
     parser.add_argument('--debug_output_path', default=None, help='debugging output image path')
     
     parser.add_argument('--yolo_path', default='.', help='yolo task1 checkpoint path')
-    parser.add_argument('--img_conf_th', type=float, default=0.6, help='img threshold')   # NOTE: determine best confidence threshold value
-    parser.add_argument('--img_kp_th', type=float, default=50, help='img threshold')      # NOTE: determine best keypoint threshold value
-    parser.add_argument('--txt_th', type=float, default=0.8, help='txt threshold')        # NOTE: determine value
-    parser.add_argument('--od_th', type=float, default=0.5, help='OD threshold')          # NOTE: determine value
-    parser.add_argument('--total_th', type=float, default=0.9, help='img+txt threshold')  # NOTE: determine value
+    parser.add_argument('--img_conf_th', type=float, default=0.5, help='img threshold')   # NOTE: determine best confidence threshold value (unsafe: 0.6)
+    parser.add_argument('--img_kp_th', type=float, default=100, help='img threshold')      # NOTE: determine best keypoint threshold value (unsafe: 100)
+    parser.add_argument('--txt_th', type=float, default=0.2, help='txt threshold')        # NOTE: determine value (unsafe: 0.3)
+    parser.add_argument('--od_th', type=float, default=0.3, help='OD threshold')          # NOTE: determine value (unsafe: 0.5)
+    parser.add_argument('--total_th', type=float, default=0.9, help='img+txt threshold')  # NOTE: determine value (unsafe: 0.9)
 
     # task 2 vision
     parser.add_argument('--yolo_weights', type=str, help='model.pt path(s)')
@@ -31,7 +31,7 @@ def parse_args():
     parser.add_argument('--classes', type=int, default=None, help='filter by class: --classes 0, or --classes 0 2 3')
     parser.add_argument('--agnostic_nms', action='store_true', default=False, help='class-agnostic NMS')
     parser.add_argument('--half', action='store_true', default=False, help='use FP16 half-precision inference')
-    parser.add_argument('--train', type=bool, default=False)
+    parser.add_argument('--unclear_thres', type=int, default=10)
 
     # task 2 audio
     parser.add_argument('--checkpoint', type=str, default='./task2_audio/ckpts/2022_11_03_17_47_47.0100.pt')
@@ -46,11 +46,12 @@ def parse_args():
     parser.add_argument('--sr', type=int, default=16000)
     parser.add_argument('--debug', type=bool, default=False)
 
-    # task 3
+   # task 3
     ## Craft (Detection)
-    parser.add_argument('--craft_weight', default='task3/trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')
-    parser.add_argument('--text_threshold', default=0.5, type=float, help='text confidence threshold')
-    parser.add_argument('--max_confidence', default=0.2, type=float, help='outputlist confidence threshold')
+    parser.add_argument('--craft_weight', default='./task3/trained_model/craft_mlt_25k.pth', type=str, help='pretrained model')
+    parser.add_argument('--text_threshold', default=0.7, type=float, help='text confidence threshold')
+    parser.add_argument('--search_margin', default=30, type=int, help='outputlist confidence threshold')
+
     parser.add_argument('--low_text', default=0.4, type=float, help='text low-bound score')
     parser.add_argument('--link_threshold', default=0.4, type=float, help='link confidence threshold')
     parser.add_argument('--canvas_size', default=1280, type=int, help='image size for inference')
@@ -59,8 +60,9 @@ def parse_args():
     ## WIW (Recognition)
     parser.add_argument('--workers', type=int, help='number of data loading workers', default=0)
     parser.add_argument('--batch_size', type=int, default=64, help='input batch size')
-    parser.add_argument('--wiw_wieght', default='task3/trained_model/best_accuracy_new.pth', help="path to saved_model to evaluation")
-    
+    parser.add_argument('--wiw_wieght', default='./task3/trained_model/best_accuracy_new.pth', help="path to saved_model to evaluation")
+    parser.add_argument('--max_confidence', default=0.6, type=float, help='outputlist confidence threshold')
+
     parser.add_argument('--batch_max_length', type=int, default=25, help='maximum-label-length')
     parser.add_argument('--imgH', type=int, default=32, help='the height of the input image')
     parser.add_argument('--imgW', type=int, default=100, help='the width of the input image')

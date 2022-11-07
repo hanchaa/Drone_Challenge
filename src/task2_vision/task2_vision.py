@@ -46,12 +46,12 @@ class Task2Vision:
         self.conf_thres = args.conf_thres
         self.iou_thres = args.iou_thres
         self.classes = args.classes
+        # self.classes = []
         self.cls_agnostic_nms = args.agnostic_nms
         self.show_video = args.show_vid
 
         WEIGHTS.mkdir(parents=True, exist_ok=True)
         self.model = attempt_load(Path(args.yolo_weights), map_location=self.device).eval()  # load FP32 model
-
         self.names, = self.model.names,
         self.stride = self.model.stride.max().cpu().numpy()  # model stride
         self.img_size = check_img_size(args.imgsz[0], s=self.stride)  # check image size
@@ -87,15 +87,19 @@ class Task2Vision:
         self.woman_list = ['woman', 'lying_woman']
         self.child_list = ['child', 'lying_child']
         self.delete_list = ['lifeguard', 'medical staff', 'poster_image']
+        self.color_list = ['OCC','RED','ORG','YLW','GRN','BLU','PRP','WHT','GRY','BLK']
 
         # count dict
         self.count_dict = dict()
         for k in ['man', 'woman', 'child']:
             self.count_dict[k] = 0
+        self.prev_room_return_sheet = None
         self.prev_state = -1
+        self.UNCLEAR_THRES = args.unclear_thres
 
-    def __call__(self, original_img, state):
+    def __call__(self, original_img, state, frame_for_vis=None):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
+        FRAME_DATA_PARSE = dict()
 
         # Convert
         img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
@@ -109,20 +113,70 @@ class Task2Vision:
             img = img[None]  # expand for batch dim
 
         # Inference
-        pred_all = self.model(img) # contains prediction for (location, objectiveness, object classes, upper color, lower color)
-        # @?�랑??pred_all[0][:,:,-20:] ???�의 ?�의 ??prediction, pred_all[0][:,:,5:8] ???�람 class ?��?지???�??logit ?�니??
-        pred_obj = pred_all[0][:,:,:-20]
-        
-        # Apply NMS
-        pred = non_max_suppression(pred_obj, self.conf_thres, self.iou_thres, self.classes, self.cls_agnostic_nms)
+        pred_all = self.model(img)
+        pred_loc_obj = pred_all[0][:,:,:27]
+        pred_uppercol = pred_all[0][:,:,27:37]
+        pred_lowercol = pred_all[0][:,:,37:47]
+        pred_ppltype = pred_all[0][:,:,47:50]
 
+        # Apply NMS
+        pred = non_max_suppression(pred_all[0], self.conf_thres, self.iou_thres, self.classes, self.cls_agnostic_nms, multi_label=False, return_attributes=True)        
+        # pred[0] : [X, Y, W, H, cls_conf, cls, upper_conf, upper_cls, lower_conf, lower_cls, ppl_conf, ppl_cls, oth_conf, oth_cls]
+        # @ TASK1 WORKERS : detection output of all objects, along with attribute confidences and classes
+        FRAME_DATA_PARSE['object_bbox'] = pred[0][:, :4]
+        FRAME_DATA_PARSE['object_class'] = pred[0][:, 5:6]
+        FRAME_DATA_PARSE['object_confidence'] = pred[0][:, 4:5]
+        FRAME_DATA_PARSE['object_is_poster'] = pred[0][:, 5:6] == 18
+        FRAME_DATA_PARSE['object_is_person'] = pred[0][:, 5:6] == 0
+        FRAME_DATA_PARSE['upper_color_confidence'] = pred[0][:, 6:7]
+        FRAME_DATA_PARSE['upper_color_class'] = pred[0][:, 7:8]
+        FRAME_DATA_PARSE['lower_color_confidence'] = pred[0][:, 8:9]
+        FRAME_DATA_PARSE['lower_color_class'] = pred[0][:, 9:10]
+        FRAME_DATA_PARSE['person_type_confidence'] = pred[0][:, 10:11]
+        FRAME_DATA_PARSE['person_type_class'] = pred[0][:, 11:12]
+
+        
         # Process detections
+
+        # remove poster person
+        person_pred = pred[0][pred[0][:, 5] == 0]
+        not_person_pred = pred[0][pred[0][:, 5] != 0]
+        poster_pred = pred[0][pred[0][:, 5] == 18]
+        if len(person_pred) != 0 :
+            new_person_pred = []
+            for pep in person_pred :
+                flag = False
+                for pop in poster_pred :
+                    person_loc = pep[:4]
+                    poster_loc = pop[:4]
+                    person_left = person_loc[0] - person_loc[2]/2
+                    person_right = person_loc[0] + person_loc[2]/2
+                    person_top = person_loc[1] - person_loc[3]/2
+                    person_bottom = person_loc[1] + person_loc[3]/2
+                    poster_left = poster_loc[0] - poster_loc[2]/2
+                    poster_right = poster_loc[0] + poster_loc[2]/2
+                    poster_top = poster_loc[1] - poster_loc[3]/2
+                    poster_bottom = poster_loc[1] + poster_loc[3]/2
+                    if (poster_left < person_left) and (poster_top < person_top) and \
+                            (poster_right > person_right) and (poster_bottom > person_bottom):
+                        # person is in poster
+                        flag = True
+                        break
+                    else :
+                        flag = False
+                if not flag :
+                    new_person_pred.append(pep)
+            person_pred = torch.stack(new_person_pred)
+            pred = [torch.cat([person_pred, not_person_pred])]
+
         for i, det in enumerate(pred):  # detections per image
             self.curr_frames = original_img.copy()
 
             if self.strong_sort_ecc:  # camera motion compensation
                 self.strong_sort.tracker.camera_update(self.prev_frames, self.curr_frames)
 
+            # @ TASK1 WORKERS : this considers only person class!
+            det = det[det[:,5] == 0]
             if det is not None and len(det):
                 # Rescale boxes from img_size to im0 size
                 det[:, :4] = scale_coords(img.shape[2:], det[:, :4], original_img.shape).round()
@@ -130,8 +184,15 @@ class Task2Vision:
                 xywhs = xyxy2xywh(det[:, 0:4])
                 confs = det[:, 4]
                 clss = det[:, 5]
-
-                outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), original_img)
+                upper_confs = det[:, 6]
+                upper_clss = det[:, 7]
+                lower_confs = det[:, 8]
+                lower_clss = det[:, 9]
+                ppl_confs = det[:, 10]
+                ppl_clss = det[:, 11]
+                outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), original_img,
+                                                  attributes=[upper_clss.cpu(),lower_clss.cpu(),ppl_clss.cpu()])
+                # @ TASK1 WORKERS : tracking output of 'person' class only; need to modify the line above.
 
                 # draw boxes for visualization
                 if len(outputs) > 0:
@@ -140,32 +201,54 @@ class Task2Vision:
                         id = output[4]
                         cls = output[5]
                         conf = output[6]
-
-                        c = int(cls)  # integer class
+                        upper_cls = output[7]
+                        lower_cls = output[8]
+                        ppl_cls = output[9]
+                        if ppl_cls == 0 :
+                            name = 'man'
+                        elif ppl_cls == 1 :
+                            name = 'woman'
+                        else :
+                            name = 'child'
+                        upper_color = self.color_list[int(upper_cls.item())]
+                        lower_color = self.color_list[int(lower_cls.item())]
+                        # c = int(cls)  # integer class
                         id = int(id)  # integer id
-                        name = self.names[c]
-
+                        # name = self.names[c]
+                        
                         if self.show_video:
-                            label = f'{id} {self.names[c]} {conf:.2f}'
+                            # label = f'{id} {self.names[c]} {conf:.2f}'
+                            label = f'{id} {name} {conf:.2f} {upper_color} {lower_color}'
                             plot_one_box(bboxes, original_img, label=label, color=self.colors[c], line_thickness=2)
 
-                        if name in self.target_list and state % 2 == 1:
-                            if (id, name) not in self.id_list:
+                        if (id, name) not in self.id_list :
+                            self.id_list.append((id, name))
 
-                                self.id_list.append((id, name))
+                            if name == 'man':
+                                self.count_dict['man'] += 1
+                            if name == 'woman':
+                                self.count_dict['woman'] += 1
+                            if name == 'child':
+                                self.count_dict['child'] += 1
 
-                                if name in self.man_list:
-                                    self.count_dict['man'] += 1
-                                if name in self.woman_list:
-                                    self.count_dict['woman'] += 1
-                                if name in self.child_list:
-                                    self.count_dict['child'] += 1
+
+                        # if name in self.target_list and state % 2 == 1:
+                        #     if (id, name) not in self.id_list:
+
+                        #         self.id_list.append((id, name))
+
+                        #         if name in self.man_list:
+                        #             self.count_dict['man'] += 1
+                        #         if name in self.woman_list:
+                        #             self.count_dict['woman'] += 1
+                        #         if name in self.child_list:
+                        #             self.count_dict['child'] += 1
 
             else:
                 self.strong_sort.increment_ages()
 
             
-            save_result = self.save_results(state)
+            ANSWER_PARSE = self.answer_parser(state)
 
             # Stream results
             if self.show_video:
@@ -179,32 +262,83 @@ class Task2Vision:
 
             self.prev_frames = self.curr_frames
 
-        return save_result
+        return ANSWER_PARSE, FRAME_DATA_PARSE
 
-    def save_results(self,state):
-        # TODO SANITY CHECK!!!!! 꼭꼭꼭꼭꼭!!!
-        if self.prev_state == 0 and state % 2 == 1:  # = just entered room
+
+    def answer_parser(self,state):
+        # TODO SANITY CHECK!!!!! 
+        # init if needed
+        if self.prev_state == 0 and state > 0 :  # = just entered room
             for k in ['man', 'woman', 'child']:
                 self.count_dict[k] = 0
-        if state == 0:
-            room_id = state
-        else:
-            if state % 2 == 0:
-                room_id = state - 1
-            else:
-                room_id = state
-        return_sheet = {"team_id": "convai", "secret": "3dlZhXRPPyt22tR9"}
-        answer_sheet = dict()
-        answer_sheet["room_id"] = room_id  # state가 들어감
-        answer_sheet["mission"] = "2"
-        count_format = dict()
-        count_format["person_num"] = {"M": str(min(self.count_dict['man'], 16)),
-                                      "W": str(min(self.count_dict['woman'], 16)),
-                                      "C": str(min(self.count_dict['child'], 16))}
-        answer_sheet["answer"] = count_format
-        return_sheet['answer_sheet'] = answer_sheet
-        self.prev_state = state % 2
-        return return_sheet
+
+        # parse data
+        if state > 0 :
+            room_id = str(state)
+            self.prev_room = state
+
+            return_sheet = dict()
+            answer_sheet = dict()
+            answer_sheet["room_id"] = room_id 
+            answer_sheet["mission"] = "2"
+            count_format = dict()
+            m = str(self.count_dict['man']) if self.count_dict['man'] < self.UNCLEAR_THRES else 'UNCLEAR'
+            w = str(self.count_dict['woman']) if self.count_dict['woman'] < self.UNCLEAR_THRES else 'UNCLEAR'
+            c = str(self.count_dict['child']) if self.count_dict['child'] < self.UNCLEAR_THRES else 'UNCLEAR'
+            count_format["person_num"] = {"M": m, "W": w, "C": c}
+            answer_sheet["answer"] = count_format
+            return_sheet['answer_sheet'] = answer_sheet
+
+            self.prev_room_return_sheet = return_sheet
+            self.prev_state = state
+
+            return return_sheet
+
+        elif state == 0 :
+            self.prev_state = state
+            if self.prev_room_return_sheet is not None :
+                return self.prev_room_return_sheet
+            else :
+                room_id = "-1"
+                return_sheet = dict()
+                answer_sheet = dict()
+                answer_sheet["room_id"] = room_id 
+                answer_sheet["mission"] = "2"
+                count_format = dict()
+                count_format["person_num"] = {"M": '0', "W": '0', "C": '0'}
+                answer_sheet["answer"] = count_format
+                return_sheet['answer_sheet'] = answer_sheet
+
+                self.prev_room_return_sheet = return_sheet
+                return return_sheet
+                
+        elif state == -1 :
+            room_id = "-1"
+            self.prev_room = -1
+            self.prev_state = state
+
+            return_sheet = dict()
+            answer_sheet = dict()
+            answer_sheet["room_id"] = room_id 
+            answer_sheet["mission"] = "2"
+            count_format = dict()
+            count_format["person_num"] = {"M": '0', "W": '0', "C": '0'}
+            answer_sheet["answer"] = count_format
+            return_sheet['answer_sheet'] = answer_sheet
+
+            self.prev_room_return_sheet = return_sheet
+            
+            return return_sheet
+
+        # if state == 0:
+        #     room_id = state
+        # else:
+        #     if state % 2 == 0:
+        #         room_id = state - 1
+        #     else:
+        #         room_id = state
+        # self.prev_state = state
+        # return return_sheet
 
 
 
