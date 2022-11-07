@@ -73,13 +73,18 @@ if __name__ == "__main__":
         state = num_frames // 10 
         print(f"num frames: {num_frames}")
 
+        frame_for_vis = frame.copy()
+
         with torch.no_grad():
             # import pdb; pdb.set_trace()
             
-            result_task1 = task1(frame, state)
-            result_task2 = task2_vision(frame,state)
+            result_task1 = task1(frame, state, frame_for_vis)
+            result_task2, data_for_task3 = task2_vision(frame, state, frame_for_vis)
             #task2_audio(frame,state)
-            result_task3 = task3(frame,state)
+            result_task3 = task3(frame, state, data_for_task3, frame_for_vis)
+
+            cv2.imshow("vis", frame_for_vis)
+            cv2.waitKey(-1)
 
         if prev_state == 1 and state == 2 :
             room_id = 1
