@@ -46,7 +46,6 @@ class MissionStart:
             if self.armed_state == True and counter_z == 20:
                 print("Take-Off and Mission Start!")
                 data_mission = json.dumps(MESSAGE_MISSION_START).encode('utf8')
-                print(data_mission)
                 req = request.Request(api_url_mission, data=data_mission)
                 resp = request.urlopen(req)
                 status = resp.read().decode('utf8')

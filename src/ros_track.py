@@ -83,7 +83,6 @@ class Rony2:
             for i in range(1, 4):
                 self.template['answer_sheet'] = eval(f"self.result_task{i}")
                 data = json.dumps(self.template).encode('unicode-escape')
-                print(data)
                 req = request.Request(self.url_answer, data=data)
                 resp = request.urlopen(req)
                 status = resp.read().decode('utf8')
@@ -197,7 +196,6 @@ class Rony2:
                 "end_of_mission": "true"
             }
             data_mission = json.dumps(MESSAGE_MISSION_END).encode('utf8')
-            print(data_mission)
             req = request.Request(self.url_answer, data=data_mission)
             resp = request.urlopen(req)
             status = resp.read().decode('utf8')
