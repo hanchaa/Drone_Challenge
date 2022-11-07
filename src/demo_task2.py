@@ -57,13 +57,23 @@ if __name__ == "__main__":
     }
     
     prev_state = -1
-    framedf = pd.read_csv('state0301.csv')
+    # framedf = pd.read_csv('state0301.csv')
+    # framedf = pd.read_csv('state0302.csv')
+    # framedf = pd.read_csv('state0303.csv')
+    # framedf = pd.read_csv('state0501.csv') done
+    # framedf = pd.read_csv('state0502.csv')
+    framedf = pd.read_csv('state0503.csv')
     framecount = 0
+    det_infos = []
     while True:
         retval, frame = cap.read()
         if not retval:
             break
-        
+        # if framecount < 200 :
+        #     framecount += 1
+        #     continue
+        # if framecount > 800 :
+        #     break
         state = framedf.iloc[framecount].state
         fid = framedf.iloc[framecount].frame[5:]
         framecount += 1
@@ -80,7 +90,13 @@ if __name__ == "__main__":
 
         prev_state = state
 
-            
+        # det_infos.append(detection_info)
+        # if framecount > 300 :
+        #     break
+    # import pickle
+    # with open('0301_300frames.pkl', 'wb') as f :
+    #     pickle.dump(det_infos, f)
+
     if cap.isOpened():
         cap.release()
 

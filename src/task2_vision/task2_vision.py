@@ -100,11 +100,13 @@ class Task2Vision:
         self.prev_room_return_sheet = None
         self.prev_state = -1
         self.UNCLEAR_THRES = 10
+        self.count_b4_rotate = 0
 
     def __call__(self, original_img, state, fid=None, cap=None):
         img = letterbox(original_img, self.img_size, stride=self.stride)[0]
         FRAME_DATA_PARSE = dict()
-
+        self.count_b4_rotate += 1
+        
         # Convert
         img = img[:, :, ::-1].transpose(2, 0, 1)  # BGR to RGB, to 3x416x416
         img = np.ascontiguousarray(img)
@@ -122,6 +124,7 @@ class Task2Vision:
         pred_uppercol = pred_all[0][:,:,27:37]
         pred_lowercol = pred_all[0][:,:,37:47]
         pred_ppltype = pred_all[0][:,:,47:50]
+        pred_othtype = pred_all[0][:,:,50:]
 
         # Apply NMS
         pred = non_max_suppression(pred_all[0], self.conf_thres, self.iou_thres, self.classes, self.cls_agnostic_nms, multi_label=False, return_attributes=True)        
@@ -194,8 +197,11 @@ class Task2Vision:
                 lower_clss = det[:, 9]
                 ppl_confs = det[:, 10]
                 ppl_clss = det[:, 11]
+                oth_confs = det[:,12]
+                oth_clss = det[:,13]
+                
                 outputs = self.strong_sort.update(xywhs.cpu(), confs.cpu(), clss.cpu(), original_img,
-                                                  attributes=[upper_clss.cpu(),lower_clss.cpu(),ppl_clss.cpu()])
+                                                  attributes=[upper_clss.cpu(),lower_clss.cpu(),ppl_clss.cpu(),oth_confs.cpu()])
                 # @ TASK1 WORKERS : tracking output of 'person' class only; need to modify the line above.
 
                 # draw boxes for visualization
@@ -208,6 +214,7 @@ class Task2Vision:
                         upper_cls = output[7]
                         lower_cls = output[8]
                         ppl_cls = output[9]
+                        oth_conf = output[10]
                         if ppl_cls == 0 :
                             name = 'man'
                         elif ppl_cls == 1 :
@@ -226,9 +233,9 @@ class Task2Vision:
                             label = f'{id} {name} {conf:.2f}'
                             plot_one_box(bboxes, original_img, label=label, color=self.colors[int(ppl_cls)], line_thickness=2)
 
-                        if (id, name) not in self.id_list and state > 0:
+                        if (id, name) not in self.id_list and state > 0 and oth_conf < 0.9 and self.count_b4_rotate < 270:
                             self.id_list.append((id, name))
-
+                            
                             if name == 'man':
                                 self.count_dict['man'] += 1
                             if name == 'woman':
@@ -288,6 +295,8 @@ class Task2Vision:
         if self.prev_state == 0 and state > 0 :  # = just entered room
             for k in ['man', 'woman', 'child']:
                 self.count_dict[k] = 0
+            self.id_list = []
+            self.count_b4_rotate = 0
 
         # parse data
         if state > 0 :
