@@ -78,10 +78,10 @@ if __name__ == "__main__":
         with torch.no_grad():
             # import pdb; pdb.set_trace()
             
-            result_task1 = task1(frame, state, frame_for_vis)
-            result_task2, data_for_task3 = task2_vision(frame, state, frame_for_vis)
+            result_task1 = task1(frame.copy(), state, frame_for_vis)
+            result_task2, data_for_task3 = task2_vision(frame.copy(), state, frame_for_vis)
             #task2_audio(frame,state)
-            result_task3 = task3(frame, state, data_for_task3, frame_for_vis)
+            result_task3 = task3(frame.copy(), state, data_for_task3, frame_for_vis)
 
             cv2.imshow("vis", frame_for_vis)
             cv2.waitKey(-1)
