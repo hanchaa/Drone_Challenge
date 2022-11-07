@@ -48,6 +48,8 @@ class Task1:
                         }   
                     }
         self.json_list = []
+        self.obj_cls = set()
+        self.ppl_cls = set()
 
         # -----------------------------------------
         # image matching model & preprocessing
@@ -84,12 +86,23 @@ class Task1:
         self.names = yolo.names
         self.color_list = ['OCC','RED','ORG','YLW','GRN','BLU','PRP','WHT','GRY','BLK']
         self.colors = [[random.randint(0, 255) for _ in range(3)] for _ in self.names]
-        if self.half:
-            self.yolo = TracedModel(yolo, 'cuda', self.img_size).half()
-        else:
-            self.yolo = TracedModel(yolo, 'cuda', self.img_size)
+        # if self.half:
+        #     self.yolo = TracedModel(yolo, 'cuda', self.img_size).half()
+        # else:
+        #     self.yolo = TracedModel(yolo, 'cuda', self.img_size)
+        self.yolo = yolo.half()
+        # self.true=1 # NOTE: dummy code for debugging
 
-        self.true=1 # NOTE: dummy code for debugging
+        self.clue_json_read = False
+        self.clue_img_read = False
+
+        self.clue_txts = None
+        self.clue_txt_list = None
+
+        self.clue_img_list = None
+        self.clue_imgs = None
+        self.clue_imgs_p = None
+        self.clue_imgs_scale = None
 
     def __call__(self, img: np.ndarray, state, frame_for_vis=None):
         try:
@@ -105,37 +118,45 @@ class Task1:
                     }
                 self.json_list = []
                 self.room_id = None
-            
-            # -----------------------------------------
-            # text clue preprocessing
-            # -----------------------------------------
-            clue_txts = glob.glob(self.clue_path+'/*.json', recursive=True)
-            clue_txt_list = ([])
-            if len(clue_txts) > 0:
-                clue_txts.sort()
-                for clue_txt_ in clue_txts:
-                    clue_txt_key = []
-                    clue_txt_dict = json_preprocess(clue_txt_)
-                    clue_txts_ = list(clue_txt_dict.values())[0]
-                    for i in range(0, len(clue_txts_)):
-                        clue_txt_key.append(CLASS_MAP[clue_txts_[i]])
-                    clue_txt_list.append(clue_txt_key)
+                self.obj_cls = set()
+                self.ppl_cls = set()
 
-            # -----------------------------------------
-            # image clue preprocessing
-            # -----------------------------------------
-            clue_img_list = glob.glob(self.clue_path+'/*.jpg', recursive=True)
-            clue_imgs = []
-            clue_imgs_p = []
-            clue_imgs_scales = []
-            if len(clue_img_list) > 0:
-                clue_img_list.sort()
-                for clue_img_ in clue_img_list:
-                    clue_img_ = cv2.imread(clue_img_, cv2.IMREAD_GRAYSCALE)
-                    image1, inp1, scales1 = read_image(clue_img_, [640, 480], 'cuda')   # NOTE: clue image
-                    clue_imgs.append(image1)
-                    clue_imgs_p.append(inp1)
-                    clue_imgs_scales.append(scales1)
+            if self.clue_json_read is False:
+                # -----------------------------------------
+                # text clue preprocessing
+                # -----------------------------------------
+                self.clue_txts = glob.glob(self.clue_path+'/*.json', recursive=True)
+                self.clue_txt_list = ([])
+                if len(self.clue_txts) > 0:
+                    self.clue_txts.sort()
+                    for clue_txt_ in self.clue_txts:
+                        clue_txt_key = []
+                        clue_txt_dict = json_preprocess(clue_txt_)
+                        self.clue_txts_ = list(clue_txt_dict.values())[0]
+                        for i in range(0, len(self.clue_txts_)):
+                            clue_txt_key.append(CLASS_MAP[self.clue_txts_[i]])
+                        self.clue_txt_list.append(clue_txt_key)
+
+                self.clue_json_read = True
+
+            if self.clue_img_read is False:
+                # -----------------------------------------
+                # image clue preprocessing
+                # -----------------------------------------
+                self.clue_img_list = glob.glob(self.clue_path+'/*.jpg', recursive=True)
+                self.clue_imgs = []
+                self.clue_imgs_p = []
+                self.clue_imgs_scales = []
+                if len(self.clue_img_list) > 0:
+                    self.clue_img_list.sort()
+                    for clue_img_ in self.clue_img_list:
+                        clue_img_ = cv2.imread(clue_img_, cv2.IMREAD_GRAYSCALE)
+                        image1, inp1, scales1 = read_image(clue_img_, [640, 480], 'cuda')   # NOTE: clue image
+                        self.clue_imgs.append(image1)
+                        self.clue_imgs_p.append(inp1)
+                        self.clue_imgs_scales.append(scales1)
+
+                self.clue_img_read = True
 
             # -----------------------------------------
             # Superglue inference
@@ -146,10 +167,11 @@ class Task1:
                 input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                       # NOTE: copy된 frame image 사용
             image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')           # NOTE: video frame image
 
-            if len(clue_img_list) > 0:
+            if len(self.clue_img_list) > 0:
                 score_img = []
-                for i in range(0, len(clue_img_list)):                                  # NOTE: 각 이미지 단서마다 kpts, mean confidence 저장
-                    pred, matches, conf = matching({'image0': inp0, 'image1': clue_imgs_p[i]}, self.superpoint, self.superglue)
+                for i in range(0, len(self.clue_img_list)):                                  # NOTE: 각 이미지 단서마다 kpts, mean confidence 저장
+                    cv2.putText(frame_for_vis, str(self.clue_txt_list), (80, 300), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+                    pred, matches, conf = matching({'image0': inp0, 'image1': self.clue_imgs_p[i]}, self.superpoint, self.superglue)
                     kpts0, kpts1 = pred['keypoints0'], pred['keypoints1']
                     valid = matches > -1
                     mkpts0 = kpts0[valid]
@@ -165,7 +187,7 @@ class Task1:
 
                         for j in range(0, len(im_detections[0])):
                             im_tag_id.append(im_detections[0][j].tag_id)
-                        im_json_output = json_postprocess(clue_img_list[i][-6:-4], im_tag_id)
+                        im_json_output = json_postprocess(self.clue_img_list[i][-6:-4], im_tag_id)
                         self.json_list.append(im_json_output)
                     
                         if self.debug_output_path != None:                              # NOTE: for debugging (superpoint > 50 & confidence > 0.5 일 때만 이미지 저장)
@@ -177,18 +199,18 @@ class Task1:
                             m_thresh = self.img_config['superglue']['match_threshold']
                             small_text = ['Keypoint Threshold: {:.4f}'.format(k_thresh),
                                           'Match Threshold: {:.2f}'.format(m_thresh),]
-                            make_matching_plot(image0, clue_imgs[i], mkpts0, mkpts1, color, label,
+                            make_matching_plot(image0, self.clue_imgs[i], mkpts0, mkpts1, color, label,
                                             self.debug_output_path+'frame'+str(self.cnt)+'_clue'+str(i), small_text)
                                             
-                    clue_info.append(clue_img_list[i][-6:-4])
+                    clue_info.append(self.clue_img_list[i][-6:-4])
 
             # -----------------------------------------
             # YOLO inference
             # -----------------------------------------
-            if len(clue_txt_list) > 0:
+            if len(self.clue_txt_list) > 0:
                 score_txt = 0.0
                 score_bbox = 0.0
-                for i in range(0, len(clue_txt_list)):
+                for i in range(0, len(self.clue_txt_list)):
                     self.yolo(torch.zeros(1, 3, self.img_size, self.img_size).to('cuda').type_as(next(self.yolo.parameters())))
                     if self.task1_debug:
                         load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
@@ -244,26 +266,28 @@ class Task1:
                         # NOTE: pred[0] = [X, Y, W, H, cls_conf, cls, upper_conf, upper_cls, lower_conf, lower_cls, ppl_conf, ppl_cls, oth_conf, oth_cls]
                         # NOTE: other confidence and other class not used in task1
                         cls_match_num = 0.0
-                        for j in range(0, len(clue_txt_list[i])):
+                        for j in range(0, len(self.clue_txt_list[i])):
                             for k in range(0, pred.shape[0]):                                           # NOTE: bbox 여러개 쳐진 경우
                                 if (pred[k][5] == 0 and pred[k][4] >= 0.7):                             # NOTE: 사람인경우
                                     if pred[k][11] == 0:
-                                        name = 43
+                                        name = 42
                                     elif pred[k][11] == 1:
                                         name = 43
                                     else:
                                         name = 44
-                                    if name == clue_txt_list[i][j]:
-                                        score_bbox = score_bbox+pred[k][4]
-                                        cls_match_num = cls_match_num+1
-                                elif (pred[k][5] == clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
+                                    if name == self.clue_txt_list[i][j]:
+                                        score_bbox = score_bbox+pred[k][10]
+                                        self.ppl_cls.add(name)
+
+                                elif (pred[k][5] == self.clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
                                     score_bbox = score_bbox+pred[k][4]                                  # NOTE: bbox마다 score 계산
-                                    cls_match_num = cls_match_num+1
+                                    self.obj_cls.add(pred[k][5])
 
-                        if cls_match_num != 0:
-                            score_txt = score_bbox / cls_match_num
+                                cls_match_num = len(set(self.clue_txt_list[i]).intersection(self.ppl_cls.union(self.obj_cls)))
 
-                        if score_txt > self.txt_th:
+                        cv2.putText(frame_for_vis, str(self.ppl_cls.union(self.obj_cls)), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
+
+                        if cls_match_num > self.txt_th:
                             od_detections = []
                             od_detector = apriltag.Detector()
                             od_detections.append(od_detector.detect(input_img))
@@ -271,37 +295,38 @@ class Task1:
 
                             for j in range(0, len(od_detections[0])):
                                 od_tag_id.append(od_detections[0][j].tag_id)
-                            od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
+                            od_json_output = json_postprocess(self.clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
+                            cv2.putText(frame_for_vis, 'TEXT CLUE DETECTED', (50, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
                         
-                            if self.show_video:
-                                for j in range(0, pred.shape[0]):
-                                    bboxes = pred[j][0:4]
-                                    confs = pred[j][4]
-                                    clss = pred[j][5]
-                                    upper_clss = pred[j][7]
-                                    lower_clss = pred[j][9]
-                                    ppl_clss = pred[j][11]
+                        if self.show_video:
+                            for j in range(0, pred.shape[0]):
+                                bboxes = pred[j][0:4]
+                                confs = pred[j][4]
+                                clss = pred[j][5]
+                                upper_clss = pred[j][7]
+                                lower_clss = pred[j][9]
+                                ppl_clss = pred[j][11]
 
-                                    if clss == 0:   # NOTE: person
-                                        if ppl_clss == 0:
-                                            name = 'man'
-                                        elif ppl_clss == 1:
-                                            name = 'woman'
-                                        else:
-                                            name = 'child'
+                                if clss == 0:   # NOTE: person
+                                    if ppl_clss == 0:
+                                        name = 'man'
+                                    elif ppl_clss == 1:
+                                        name = 'woman'
+                                    else:
+                                        name = 'child'
 
-                                        upper_color = self.color_list[int(upper_clss.item())]
-                                        lower_color = self.color_list[int(lower_clss.item())]
+                                    upper_color = self.color_list[int(upper_clss.item())]
+                                    lower_color = self.color_list[int(lower_clss.item())]
 
-                                        label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
-                                    else:   # NOTE: object
-                                        label = f'{self.names[int(clss)]} {float(confs):.2f}'
+                                    label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
+                                else:   # NOTE: object
+                                    label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
-                                    plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
-                                # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                                plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
+                            # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', frame_for_vis)
 
-                        clue_info.append(clue_txts[i][-7:-5])
+                        clue_info.append(self.clue_txts[i][-7:-5])
 
             # -----------------------------------------
             # Apriltag detection for room id
