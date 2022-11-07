@@ -274,32 +274,32 @@ class Task1:
                             od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
                         
-                            if self.show_video:
-                                for j in range(0, pred.shape[0]):
-                                    bboxes = pred[j][0:4]
-                                    confs = pred[j][4]
-                                    clss = pred[j][5]
-                                    upper_clss = pred[j][7]
-                                    lower_clss = pred[j][9]
-                                    ppl_clss = pred[j][11]
+                        if self.show_video:
+                            for j in range(0, pred.shape[0]):
+                                bboxes = pred[j][0:4]
+                                confs = pred[j][4]
+                                clss = pred[j][5]
+                                upper_clss = pred[j][7]
+                                lower_clss = pred[j][9]
+                                ppl_clss = pred[j][11]
 
-                                    if clss == 0:   # NOTE: person
-                                        if ppl_clss == 0:
-                                            name = 'man'
-                                        elif ppl_clss == 1:
-                                            name = 'woman'
-                                        else:
-                                            name = 'child'
+                                if clss == 0:   # NOTE: person
+                                    if ppl_clss == 0:
+                                        name = 'man'
+                                    elif ppl_clss == 1:
+                                        name = 'woman'
+                                    else:
+                                        name = 'child'
 
-                                        upper_color = self.color_list[int(upper_clss.item())]
-                                        lower_color = self.color_list[int(lower_clss.item())]
+                                    upper_color = self.color_list[int(upper_clss.item())]
+                                    lower_color = self.color_list[int(lower_clss.item())]
 
-                                        label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
-                                    else:   # NOTE: object
-                                        label = f'{self.names[int(clss)]} {float(confs):.2f}'
+                                    label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
+                                else:   # NOTE: object
+                                    label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
-                                    plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
-                                # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                                plot_one_box(bboxes, frame_for_vis, label=label, color=self.colors[int(clss)], line_thickness=2)
+                            cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', frame_for_vis)
 
                         clue_info.append(clue_txts[i][-7:-5])
 
