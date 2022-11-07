@@ -6,9 +6,9 @@ from urllib import request
 
 
 from tools import parse_args
-# from task1 import Task1
+from task1 import Task1
 from task2_vision import Task2Vision
-# from task3 import Task3
+from task3 import Task3
 import pandas as pd
 
 
@@ -21,10 +21,10 @@ if __name__ == "__main__":
     # data_path = '/home/agc2022/dataset'     
     
     args = parse_args()
-    # task1 = Task1(args)
+    task1 = Task1(args)
     task2_vision = Task2Vision(args)
     #task2_audio = TaskAudio(args)
-    # task3 = Task3(**vars(args))
+    task3 = Task3(**vars(args))
 
     # --------------------------------------
     # MISSION START
@@ -49,12 +49,6 @@ if __name__ == "__main__":
     # del args.video_path
 
     num_frames = 0
-    
-    template = {
-        "team_id": "mlvlab",
-        "secret": "h8pnwElZ3FBnCwA4",
-        "answer_sheet": {}
-    }
     
     # load frame info
     tmp = args.video_path.split('/')[-1][3:5] + args.video_path.split('/')[-1][-6:-4]
@@ -87,23 +81,20 @@ if __name__ == "__main__":
         frame_for_vis = frame.copy()
 
         with torch.no_grad():
-            # result_task1 = task1(frame.copy(), state, frame_for_vis)
+            result_task1 = task1(frame.copy(), state, frame_for_vis)
             result_task2, data_for_task3 = task2_vision(frame.copy(), state, frame_for_vis)
-            # print(fid, ':', result_task2['answer_sheet'])
             #task2_audio(frame,state)
-            # result_task3 = task3(frame.copy(), state, data_for_task3, frame_for_vis)
+            result_task3 = task3(frame.copy(), state, data_for_task3, frame_for_vis)
 
         # VISUALIZE
         if args.show_vid:
             titletext = f'{fid}   #2   State {state}'
             cv2.putText(frame_for_vis, titletext, (50, 80), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
             
-
             video_writer.write(frame_for_vis)
             print('video write success - frame',fid, '   state',state)
             cv2.waitKey(1)  # 1 millisecond     
 
-        ###############
 
         prev_state = state
 
