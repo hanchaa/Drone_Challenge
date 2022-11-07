@@ -58,6 +58,40 @@ class Rony2:
         self.coord_sub = rospy.Subscriber("/scout/mavros/vision_pose/pose", PoseStamped, self.coord_callback)
 
     def image_callback(self, data):
+
+        if self.prev_state > 0 and self.state == 0:
+            try:
+                audio_result = self.result_audio[self.prev_state]
+
+                if self.result_task2['answer_sheet']['answer']["person_num"]["M"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["M"] = str(
+                        int(self.result_task2['answer_sheet']['answer']['person_num']["M"]) + audio_result["male"])
+
+                if self.result_task2['answer_sheet']['answer']['person_num']["W"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["W"] = str(
+                        int(self.result_task2['answer_sheet']['answer']['person_num']["W"]) + audio_result["female"])
+
+                if self.result_task2['answer_sheet']['answer']['person_num']["C"] != 'UNCLEAR':
+                    self.result_task2['answer_sheet']['answer']['person_num']["C"] = str(
+                        int(self.result_task2['answer_sheet']['answer']['person_num']["C"]) + audio_result["baby"])
+            except:
+                pass
+
+            self.result_task2['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
+            self.result_task3['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
+
+            for i in range(1, 4):
+                self.template['answer_sheet'] = eval(f"self.result_task{i}")
+                data = json.dumps(self.template).encode('unicode-escape')
+                print(data)
+                req = request.Request(self.url_answer, data=data)
+                resp = request.urlopen(req)
+                status = resp.read().decode('utf8')
+                if "OK" in status:
+                    print("Complete send : Answersheet!!")
+                elif "ERROR" == status:
+                    raise ValueError("Receive ERROR status. Please check your source code.")
+
         image = np.fromstring(data.data, dtype=np.uint8)
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
@@ -106,36 +140,6 @@ class Rony2:
                         }
                     }
                 }
-
-        if self.prev_state > 0 and self.state == 0:
-            try:
-                audio_result = self.result_audio[self.prev_state]
-
-                if self.result_task2['answer_sheet']['answer']["person_num"]["M"] != 'UNCLEAR':
-                    self.result_task2['answer_sheet']['answer']['person_num']["M"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["M"]) + audio_result["male"])
-                
-                if self.result_task2['answer_sheet']['answer']['person_num']["W"] != 'UNCLEAR':
-                    self.result_task2['answer_sheet']['answer']['person_num']["W"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["W"]) + audio_result["female"])
-                
-                if self.result_task2['answer_sheet']['answer']['person_num']["C"] != 'UNCLEAR':
-                    self.result_task2['answer_sheet']['answer']['person_num']["C"] = str(int(self.result_task2['answer_sheet']['answer']['person_num']["C"]) + audio_result["baby"])
-            except:
-                pass
-
-            self.result_task2['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
-            self.result_task3['answer_sheet']['room_id'] = self.result_task1["answer_sheet"]["room_id"]
-
-            for i in range(1, 4):
-                self.template['answer_sheet'] = eval(f"self.result_task{i}")
-                data = json.dumps(self.template).encode('unicode-escape')
-                print(data)
-                req = request.Request(self.url_answer, data=data)
-                resp = request.urlopen(req)
-                status = resp.read().decode('utf8')
-                if "OK" in status:
-                    print("Complete send : Answersheet!!")
-                elif "ERROR" == status:
-                    raise ValueError("Receive ERROR status. Please check your source code.")
 
         self.prev_state = self.state
 
