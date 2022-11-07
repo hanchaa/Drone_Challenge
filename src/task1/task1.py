@@ -89,7 +89,6 @@ class Task1:
             self.yolo = TracedModel(yolo, 'cuda', self.img_size)
 
         self.true=1 # NOTE: dummy code for debugging
-        self.video_path = args.video_path
 
     def __call__(self, img: np.ndarray, state, frame_for_vis=None):
         try:
@@ -143,7 +142,8 @@ class Task1:
             if self.task1_debug:
                 input_img = cv2.imread(img, cv2.IMREAD_GRAYSCALE)
             else:
-                input_img = cv2.cvtColor(frame_for_vis, cv2.COLOR_BGR2GRAY)             # NOTE: copy된 frame image 사용
+                input_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)                       # NOTE: copy된 frame image 사용
+                input_img_vid = cv2.cvtColor(frame_for_vis, cv2.COLOR_BGR2GRAY)
             image0, inp0, scales0 = read_image(input_img, [640, 480], 'cuda')           # NOTE: video frame image
 
             if len(clue_img_list) > 0:
@@ -191,12 +191,11 @@ class Task1:
                 for i in range(0, len(clue_txt_list)):
                     self.yolo(torch.zeros(1, 3, self.img_size, self.img_size).to('cuda').type_as(next(self.yolo.parameters())))
                     if self.task1_debug:
-                        # load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
-                        load_img = LoadImages(frame_for_vis, img_size=self.imgsz, stride=self.stride)
+                        load_img = LoadImages(img, img_size=self.imgsz, stride=self.stride)
                         _, yolo_img, im0s, _ = next(iter(load_img))
                     else:
-                        # im0s = img
-                        im0s = frame_for_vis    # NOTE: video frame image 사용
+                        im0s = img
+                        # im0s = frame_for_vis    # NOTE: video frame image 사용
                         yolo_img = letterbox(im0s, self.img_size, stride=self.stride)[0]
                         yolo_img = yolo_img[:, :, ::-1].transpose(2, 0, 1)
                         yolo_img = np.ascontiguousarray(yolo_img)
@@ -275,32 +274,31 @@ class Task1:
                             od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
                         
-                            if (self.video_path != None):
-                                for j in range(0, pred.shape[0]):
-                                    bboxes = pred[j][0:4]
-                                    confs = pred[j][4]
-                                    clss = pred[j][5]
-                                    upper_clss = pred[j][7]
-                                    lower_clss = pred[j][9]
-                                    ppl_clss = pred[j][11]
+                            for j in range(0, pred.shape[0]):
+                                bboxes = pred[j][0:4]
+                                confs = pred[j][4]
+                                clss = pred[j][5]
+                                upper_clss = pred[j][7]
+                                lower_clss = pred[j][9]
+                                ppl_clss = pred[j][11]
 
-                                    if clss == 0:   # NOTE: person
-                                        if ppl_clss == 0:
-                                            name = 'man'
-                                        elif ppl_clss == 1:
-                                            name = 'woman'
-                                        else:
-                                            name = 'child'
+                                if clss == 0:   # NOTE: person
+                                    if ppl_clss == 0:
+                                        name = 'man'
+                                    elif ppl_clss == 1:
+                                        name = 'woman'
+                                    else:
+                                        name = 'child'
 
-                                        upper_color = self.color_list[int(upper_clss.item())]
-                                        lower_color = self.color_list[int(lower_clss.item())]
+                                    upper_color = self.color_list[int(upper_clss.item())]
+                                    lower_color = self.color_list[int(lower_clss.item())]
 
-                                        label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
-                                    else:   # NOTE: object
-                                        label = f'{self.names[int(clss)]} {float(confs):.2f}'
+                                    label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
+                                else:   # NOTE: object
+                                    label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
-                                    plot_one_box(bboxes, im0s, label=label, color=self.colors[int(clss)], line_thickness=2)
-                                # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                                plot_one_box(bboxes, input_img_vid, label=label, color=self.colors[int(clss)], line_thickness=2)
+                            # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
 
                         clue_info.append(clue_txts[i][-7:-5])
 
