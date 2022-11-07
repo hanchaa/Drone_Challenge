@@ -88,7 +88,8 @@ class Task1:
         else:
             self.yolo = TracedModel(yolo, 'cuda', self.img_size)
 
-        # self.true=1 # NOTE: dummy code for debugging
+        self.true=1 # NOTE: dummy code for debugging
+        self.video_path = args.video_path
 
     def __call__(self, img: np.ndarray, state, frame_for_vis=None):
         try:
@@ -244,9 +245,19 @@ class Task1:
                         # NOTE: pred[0] = [X, Y, W, H, cls_conf, cls, upper_conf, upper_cls, lower_conf, lower_cls, ppl_conf, ppl_cls, oth_conf, oth_cls]
                         # NOTE: other confidence and other class not used in task1
                         cls_match_num = 0.0
-                        for j in range(0, len(clue_txt_list[i])):   # TODO: people로 detecting 시 attribute 계산하는 부분 추가할 것.
+                        for j in range(0, len(clue_txt_list[i])):
                             for k in range(0, pred.shape[0]):                                           # NOTE: bbox 여러개 쳐진 경우
-                                if (pred[k][5] == clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
+                                if (pred[k][5] == 0 and pred[k][4] >= 0.7):                             # NOTE: 사람인경우
+                                    if pred[k][11] == 0:
+                                        name = 43
+                                    elif pred[k][11] == 1:
+                                        name = 43
+                                    else:
+                                        name = 44
+                                    if name == clue_txt_list[i][j]:
+                                        score_bbox = score_bbox+pred[k][4]
+                                        cls_match_num = cls_match_num+1
+                                elif (pred[k][5] == clue_txt_list[i][j] and pred[k][4] >= self.od_th):    # NOTE: 원하는 class (attribute 제외)가 th이상으로 detecting될 때
                                     score_bbox = score_bbox+pred[k][4]                                  # NOTE: bbox마다 score 계산
                                     cls_match_num = cls_match_num+1
 
@@ -264,35 +275,32 @@ class Task1:
                             od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
                         
-                        if (self.task1_debug or self.debug_output_path != None):
-                            for j in range(0, pred.shape[0]):
-                                bboxes = pred[j][0:4]
-                                confs = pred[j][4]
-                                clss = pred[j][5]
-                                upper_confs = pred[j][6]
-                                upper_clss = pred[j][7]
-                                lower_confs = pred[j][8]
-                                lower_clss = pred[j][9]
-                                ppl_confs = pred[j][10]
-                                ppl_clss = pred[j][11]
+                            if (self.video_path != None):
+                                for j in range(0, pred.shape[0]):
+                                    bboxes = pred[j][0:4]
+                                    confs = pred[j][4]
+                                    clss = pred[j][5]
+                                    upper_clss = pred[j][7]
+                                    lower_clss = pred[j][9]
+                                    ppl_clss = pred[j][11]
 
-                                if clss == 0:   # NOTE: person
-                                    if ppl_clss == 0:
-                                        name = 'man'
-                                    elif ppl_clss == 1:
-                                        name = 'woman'
-                                    else:
-                                        name = 'child'
+                                    if clss == 0:   # NOTE: person
+                                        if ppl_clss == 0:
+                                            name = 'man'
+                                        elif ppl_clss == 1:
+                                            name = 'woman'
+                                        else:
+                                            name = 'child'
 
-                                    upper_color = self.color_list[int(upper_clss.item())]
-                                    lower_color = self.color_list[int(lower_clss.item())]
+                                        upper_color = self.color_list[int(upper_clss.item())]
+                                        lower_color = self.color_list[int(lower_clss.item())]
 
-                                    label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
-                                else:   # NOTE: object
-                                    label = f'{self.names[int(clss)]} {float(confs):.2f}'
+                                        label = f'{name} {float(confs):.2f} {upper_color} {lower_color}'
+                                    else:   # NOTE: object
+                                        label = f'{self.names[int(clss)]} {float(confs):.2f}'
 
-                                plot_one_box(bboxes, im0s, label=label, color=self.colors[int(clss)], line_thickness=2)
-                            # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
+                                    plot_one_box(bboxes, im0s, label=label, color=self.colors[int(clss)], line_thickness=2)
+                                # cv2.imwrite(self.debug_output_path+'frame'+str(self.cnt)+'_text_clue.jpg', im0s)
 
                         clue_info.append(clue_txts[i][-7:-5])
 
@@ -342,7 +350,7 @@ class Task1:
                 for i in range(0, len(ans_keys)):
                     self.json['answer_sheet']['answer']['person_id'][ans_keys[i]] = ["UNCLEAR"]
             
-            # print(self.json)
+            # print(self.cnt, self.state)
             return self.json
 
         except:
