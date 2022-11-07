@@ -248,7 +248,7 @@ class Task1:
                             for k in range(0, pred.shape[0]):                                           # NOTE: bbox 여러개 쳐진 경우
                                 if (pred[k][5] == 0 and pred[k][4] >= 0.7):                             # NOTE: 사람인경우
                                     if pred[k][11] == 0:
-                                        name = 43
+                                        name = 42
                                     elif pred[k][11] == 1:
                                         name = 43
                                     else:
