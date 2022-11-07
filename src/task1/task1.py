@@ -149,6 +149,7 @@ class Task1:
             if len(clue_img_list) > 0:
                 score_img = []
                 for i in range(0, len(clue_img_list)):                                  # NOTE: 각 이미지 단서마다 kpts, mean confidence 저장
+                    cv2.putText(frame_for_vis, str(clue_txt_list), (80, 300), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
                     pred, matches, conf = matching({'image0': inp0, 'image1': clue_imgs_p[i]}, self.superpoint, self.superglue)
                     kpts0, kpts1 = pred['keypoints0'], pred['keypoints1']
                     valid = matches > -1
@@ -262,6 +263,7 @@ class Task1:
 
                         if cls_match_num != 0:
                             score_txt = score_bbox / cls_match_num
+                        cv2.putText(frame_for_vis, str(score_txt), (50, 400), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
 
                         if score_txt > self.txt_th:
                             od_detections = []
@@ -273,6 +275,7 @@ class Task1:
                                 od_tag_id.append(od_detections[0][j].tag_id)
                             od_json_output = json_postprocess(clue_txts[i][-7:-5], od_tag_id)
                             self.json_list.append(od_json_output)
+                            cv2.putText(frame_for_vis, 'TEXT CLUE DETECTED', (50, 450), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 255, 0), 2)
                         
                         if self.show_video:
                             for j in range(0, pred.shape[0]):
