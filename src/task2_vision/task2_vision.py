@@ -49,7 +49,6 @@ class Task2Vision:
         self.classes = args.classes
         # self.classes = []
         self.cls_agnostic_nms = args.agnostic_nms
-        self.save_path = args.video_path[:-4] + '_task2.mp4'
         self.show_video = args.show_vid
         self.video_writer = None
 
