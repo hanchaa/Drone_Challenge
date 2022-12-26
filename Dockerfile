@@ -15,7 +15,7 @@ ENV REST_MISSION_URL "http://106.10.49.89:30090/mission"
 WORKDIR /home/agc2022
 
 RUN mkdir dataset
-COPY ./src .
+COPY . .
 RUN pip install -r requirements.txt
 RUN chmod 755 ./task2_audio/receiver.sh
 RUN chmod 755 ./run.sh
