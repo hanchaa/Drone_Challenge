@@ -1,19 +1,19 @@
-# for integrating drone challenge tasks
+# Integrating Drone Challenge Tasks
 
-## video data & pretrained params
+## Video Data & Pretrained Params
 https://drive.google.com/drive/folders/1CfVMSrl-t0t2sMdNLMnU23oKJSOd1dQS?usp=sharing
 
-## dependencies
+## Dependencies
 ``` commandline
 pip install -r requirements.txt
 ```
 
-## ros realtime inference command
+## ROS Realtime Inference Command
 ``` shell
 sh run.sh
 ```
 
-## for debugging with video
+## Debugging with Video
 ```shell
 python debug.py \
 --video-path {PATH_TO_VIDEO}
